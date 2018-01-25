@@ -1,0 +1,51 @@
+#fondo1 {
+    background-image: url("clave_sol.jpg");
+
+}
+#fondo2 {
+    background-color:#f9f7f7;
+}
+
+
+
+#hola1 {
+  position: static;
+  height:900px;
+  width: 900px;
+}
+
+
+#hola2 {
+  position: relative;
+  margin: 10px auto;
+  height:-webkit-fill-available;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#hola3 {
+  position: absolute;
+  height:40%;
+  width: 100%;
+}
+
+#hola4 {
+  position: absolute;
+  right: 40%;
+  top: 50%;
+
+}
+
+
+
+
+body {
+  background-color:red;
+  /*background-repeat: no-repeat;*/
+}
+
+
+span {
+  width: 100px;
+  display: inline-block;
+}

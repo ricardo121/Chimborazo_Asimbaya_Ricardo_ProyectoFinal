@@ -4,35 +4,35 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-
-    <style>
-      span {
-        width: 100px;
-        display: inline-block;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="aparte.css"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
   </head>
-  <body bgcolor="#C6B5B1">
+  <body>
+      <div id="hola2" >
+        <div class="row" id="hola3">
+        <h1 style="color:black">Urban Music</H1>
+        </div>
+        <div id="hola4" class="row">
+          <?php if (!isset($_POST["Gmail"])) : ?>
+
+            <form method="post" >
+              <fieldset>
+                <span>Gmail:</span><input type="email" name="Email" required><br>
+                <span>password:</span><input type="password" name="password" required><br>
+                <p><?php
+                echo md5($_POST["password"]);
+
+                ?></p>
+                <p><input type="submit" value="Iniciar Sesion"></p>
+                <p><input type="submit" value="Registarte"></p>
+          </form>
+        </div>
+        <?php else: ?>
 
 
-      <?php if (!isset($_POST["Gmail"])) : ?>
 
-        <form method="post" class="form1">
-          <fieldset>
-            <span>Gmail:</span><input type="text" name="Gmail" required><br>
-            <span>password:</span><input type="text" name="password" required><br>
-            <p><input type="submit" value="Iniciar Sesion"></p>
-            <p><input type="submit" value="Registarte"></p>
-        </form>
-      <?php else: ?>
+        <?php endif?>
 
-        <?php
-            echo "<h3>Showing data coming from the form</h3>";
-            var_dump($_POST);
-        ?>
-
-      <?php endif?>
-
+      </div>
   </body>
 </html>
