@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href="aparte.css"/>
-    <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="ricardodanielm.css"/>
+
   </head>
   <body>
-      <div id="hola2" >
-        <div class="row" id="hola3">
-        <h1 style="color:black">Urban Music</H1>
-        </div>
-        <div id="hola4" class="row">
+      <div id="contenedor">
+
+
+        <h1 style="color:black; text-align: center">Urban Music</H1>
+
+
+
           <?php if (!isset($_POST["Gmail"])) : ?>
 
             <form method="post" >
@@ -26,7 +28,7 @@
                 <p><input type="submit" value="Iniciar Sesion"></p>
                 <p><input type="submit" value="Registarte"></p>
           </form>
-        </div>
+        
         <?php else: ?>
 
 
