@@ -1,10 +1,28 @@
 * {
-    box-sizing: "border-box";
+    box-sizing: border-box;
 }
 
 
 body {
+  background: url("clave_sol.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin: 10px auto;
+  height:-webkit-fill-available;
+  width: 100%;
+}
 
+#grande{
+
+  background: url("clave_sol.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 10px auto;
+  height:-webkit-fill-available;
+  width: 100%;
 }
 
 
@@ -12,19 +30,16 @@ body {
 #contenedor {
   position: relative;
   margin: 10px auto;
-  height:-webkit-fill-available;
+
   width: 100%;
 
-  background: url("clave_sol.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+
 }
 
 form {
   position: absolute;
   height:40%;
-  
+
 }
 
 

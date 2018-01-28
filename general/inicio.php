@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
     <link rel="stylesheet" type="text/css" href="ricardodanielm.css"/>
-
+    <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
   </head>
   <body>
-      <div id="contenedor">
+      <div class="container" id="contenedor">
 
 
-        <h1 style="color:black; text-align: center">Urban Music</H1>
+        <h1 style="color:white; text-align: center">Urban Music</H1>
 
 
 
@@ -28,7 +28,7 @@
                 <p><input type="submit" value="Iniciar Sesion"></p>
                 <p><input type="submit" value="Registarte"></p>
           </form>
-        
+
         <?php else: ?>
 
 
