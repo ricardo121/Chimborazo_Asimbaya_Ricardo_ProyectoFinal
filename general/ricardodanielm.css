@@ -10,8 +10,8 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   margin: 10px auto;
-  height:-webkit-fill-available;
-  width: 100%;
+  /*height:-webkit-fill-available;*/
+  /*width: 100%;*/
 }
 
 #grande{
