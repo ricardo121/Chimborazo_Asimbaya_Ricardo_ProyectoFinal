@@ -4,21 +4,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href="ricardodanielm.css"/>
+    <link rel="stylesheet" type="text/css" href="daniel.css"/>
     <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
   </head>
   <body>
       <div class="container" id="contenedor">
 
-
+        <div id="titulo">
         <h1 style="color:white; text-align: center">Urban Music</H1>
-
+        </div>
 
 
           <?php if (!isset($_POST["Gmail"])) : ?>
 
-            <form method="post" >
+            <form method="post" id="formulario_inicio" >
               <fieldset>
+                <legend>registro</legend>
                 <span>Gmail:</span><input type="email" name="Email" required><br>
                 <span>password:</span><input type="password" name="password" required><br>
                 <p><?php
