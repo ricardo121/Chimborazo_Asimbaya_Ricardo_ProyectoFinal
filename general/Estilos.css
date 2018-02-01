@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-
 body {
   background: url("clave_sol.jpg");
   background-size: cover;
@@ -10,9 +9,20 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   margin: 10px auto;
-  /*height:-webkit-fill-available;*/
-  /*width: 100%;*/
+
 }
+
+fieldset {
+width: 75%;
+margin: 10px auto;
+}
+
+#inputt {
+margin: 3% auto;
+}
+
+
+
 
 #grande{
 
@@ -25,9 +35,6 @@ body {
   width: 100%;*/
 }
 
-#fondo {
-  background-color: black;
-}
 
 #contenedor {
   height:-webkit-fill-available;
@@ -36,12 +43,13 @@ body {
 
 
 #formulario_inicio{
-
-  margin-top: 10% auto;:
+  /*background-color: #BCB6B4;*/
+  margin-top: 10% auto;
   height:auto;
   margin: 5% auto;
-  width: 50%;
-  padding-top: 10%;
+  width: 60%;
+  padding-top: 2%;
+  padding-left: 2%;
 
 }
 
@@ -72,6 +80,8 @@ form {
 
 
 span {
+  height: 1%;
   width: 20%;
   display: inline-block;
+  color: white;
 }
