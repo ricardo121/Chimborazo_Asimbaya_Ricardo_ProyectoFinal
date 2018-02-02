@@ -5,22 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
     <link rel="stylesheet" type="text/css" href="bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="Estilo.css"/>
-    <style>
-      span {
-        width: 100px;
-        display: inline-block;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="Estilos2.css"/>
+
   </head>
   <body>
 
-    <div class="container" id="contenedor" id="fondo" >
+    <div class="container" id="contenedor" >
 
 
-
+      <div class="row" >
       <?php if (!isset($_POST["Gmail"])) : ?>
-        <form method="post">
+        <form method="post" id="formulario_registro" >
           <fieldset>
             <legend>Registarte</legend>
             <span>Nombre:</span><input type="text" name="Nombre" required><br>
@@ -83,6 +78,7 @@
         ?>
 
       <?php endif ?>
+    </div>
     </div>
   </body>
 </html>

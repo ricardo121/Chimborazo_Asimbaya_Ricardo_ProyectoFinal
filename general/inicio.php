@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href="Estilos.css"/>
+    <link rel="stylesheet" type="text/css" href="Estilos1.css"/>
     <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
   </head>
   <body>

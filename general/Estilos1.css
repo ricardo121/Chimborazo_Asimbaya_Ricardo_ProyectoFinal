@@ -13,8 +13,9 @@ body {
 }
 
 fieldset {
-width: 75%;
+width: 100%;
 margin: 10px auto;
+margin-left: 20%;
 }
 
 #inputt {
@@ -34,6 +35,12 @@ margin: 3% auto;
   height:-webkit-fill-available;
   width: 100%;*/
 }
+
+#fondo {
+  background-color: #AAB7B8;
+
+}
+
 
 
 #contenedor {
@@ -55,7 +62,7 @@ margin: 3% auto;
 
 #formulario_registro{
 
-  margin-top: 10% auto;:
+  margin-top: 10% auto;
   height:auto;
   margin: 5% auto;
   width: 50%;
@@ -81,7 +88,7 @@ form {
 
 span {
   height: 1%;
-  width: 20%;
+  width: 80px;
   display: inline-block;
   color: white;
 }
