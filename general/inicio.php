@@ -20,48 +20,66 @@
         </div>
 
         <div class="row">
-        <?php
-            //FORM SUBMITTED
-            if (isset($_POST["Gmail"])) {
-              //CREATING THE CONNECTION
-              $connection = new mysqli("localhost", "tf", "2asirtriana", "tf");
-              //TESTING IF THE CONNECTION WAS RIGHT
-              if ($connection->connect_errno) {
-                  printf("Connection failed: %s\n", $connection->connect_error);
-                  exit();
-              }
-              //MAKING A SELECT QUERY
-              //Password coded with md5 at the database. Look for better options
-              $consulta="select * from usuario where
-              Gmail='".$_POST["Gmail"]."' and password=md5('".$_POST["password"]."');";
-              //Test if the query was correct
-              //SQL Injection Possible
-              //Check http://php.net/manual/es/mysqli.prepare.php for more security
-              if ($result = $connection->query($consulta)) {
-                  //No rows returned
-                  if ($result->num_rows===0) {
-                    echo "LOGIN INVALIDO";
-                  } else {
-                    //VALID LOGIN. SETTING SESSION VARS
-                    $_SESSION["IdUsuario"]=$_POST["Idusuario"];
-                    $_SESSION["language"]="es";
-                    header("Location: index.php");
-                  }
-              } else {
-                echo "Wrong Query";
-              }
-          }
-        ?>
 
 
-            <form method="post" id="formulario_inicio" >
+
+            <form action="inicio.php" method="post" id="formulario_inicio" >
               <fieldset>
                 <legend>Registro</legend>
-                <span>Gmail:</span><input type="email" name="Email" required id="inputt"><br>
+                <span>Gmail:</span><input type="Gmail" name="Gmail" required id="inputt"><br>
                 <span>password:</span><input type="password" name="password" required id="inputt"><br>
                 <p><input type="submit" value="Iniciar Sesion"></p><br>
                 <a style="color:#D1D1D1"; style="height:200px" href=Registro.php>Registarte si aun no lo Estas</a>
           </form>
+
+
+          <?php
+              //FORM SUBMITTED
+              if (isset($_POST["Gmail"])) {
+                //CREATING THE CONNECTION
+                $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
+                $connection->set_charset("uft8");
+                //TESTING IF THE CONNECTION WAS RIGHT
+                if ($connection->connect_errno) {
+                    printf("Connection failed: %s\n", $connection->connect_error);
+                    exit();
+                }
+                //MAKING A SELECT QUERY
+                //Password coded with md5 at the database. Look for better options
+                $Gmail=$_POST['Gmail'];
+                $password=md5($_POST["password"]);
+
+                $consulta1="select * from Usuarios where
+                Gmail='$Gmail' and password='$password' and Administrador='0'";
+
+                $consulta2="select * from Usuarios where
+                Gmail='$Gmail' and password='$password' and Administrador='1'";
+                //Test if the query was correct
+                //SQL Injection Possible
+                //Check http://php.net/manual/es/mysqli.prepare.php for more security
+                if ($result = $connection->query($consulta1)) {
+                    //No rows returned
+                    if ($result->num_rows===0) {
+                      echo "LOGIN INVALIDO";
+                    } else {
+                      //VALID LOGIN. SETTING SESSION VARS
+                      $_SESSION["Gmail"]=$_POST["Gmail"];
+                      header("Location: Home_Usu.php");
+                    }
+                } elseif ($result = $connection->query($consulta2)) {
+                  if ($result->num_rows===0) {
+                    echo "LOGIN INVALIDO";
+                  } else {
+                    //VALID LOGIN. SETTING SESSION VARS
+                    $_SESSION["Gmail"]=$_POST["Gmail"];
+                    header("Location: Home_Admin.php");
+                  }
+                }
+                else {
+                  echo "Wrong Query";
+                }
+            }
+          ?>
 
 
 </div>

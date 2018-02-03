@@ -41,7 +41,7 @@
         }
         $Nom = $_POST["Nombre"];
         $Ape = $_POST["Apellidos"];
-        $Em = $_POST["Email"];
+        $Em = $_POST["Gmail"];
         $Pass =  md5($_POST["password"]);
         $Edad = $_POST["Edad"];
         $query = "INSERT INTO Usuarios(IdUsuario,Nombre,Apellidos,Gmail,password,Edad)
@@ -63,6 +63,7 @@
                 echo "<tr>";
                   echo "<td>".$obj->IdUsuario."</td>";
                   echo "<td>".$obj->Nombre."</td>";
+                  echo "<td>".$obj->Gmail."</td>";
                   echo "<td>".$obj->Apellidos."</td>";
                   echo "<td>".$obj->Edad."</td>";
                   echo "<td>".$obj->password."</td>";
