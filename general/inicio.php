@@ -29,7 +29,7 @@
                 <span>Gmail:</span><input type="Gmail" name="Gmail" required id="inputt"><br>
                 <span>password:</span><input type="password" name="password" required id="inputt"><br>
                 <p><input type="submit" value="Iniciar Sesion"></p><br>
-                <a style="color:#D1D1D1"; style="height:200px" href=Registro.php>Registarte si aun no lo Estas</a>
+                <a style="color:#D1D1D1"; style="height:200px" href=Registro.php>Registrate Si Aun No Lo Estas</a>
           </form>
 
 
@@ -50,10 +50,8 @@
                 $password=md5($_POST["password"]);
 
                 $consulta1="select * from Usuarios where
-                Gmail='$Gmail' and password='$password' and Administrador='0'";
+                Gmail='$Gmail' and password='$password'";
 
-                $consulta2="select * from Usuarios where
-                Gmail='$Gmail' and password='$password' and Administrador='1'";
                 //Test if the query was correct
                 //SQL Injection Possible
                 //Check http://php.net/manual/es/mysqli.prepare.php for more security
@@ -62,18 +60,34 @@
                     if ($result->num_rows===0) {
                       echo "LOGIN INVALIDO";
                     } else {
-                      //VALID LOGIN. SETTING SESSION VARS
-                      $_SESSION["Gmail"]=$_POST["Gmail"];
-                      header("Location: Home_Usu.php");
+
+                        $_SESSION["Gmail"]=$_POST["Gmail"];
+
+                        $obj = $result->fetch_object();
+
+                        /*
+                        while($obj = $result->fetch_object()) {
+                            echo "<tr>";
+                              echo "<td>".$obj->IdUsuario."</td>";
+                              echo "<td>".$obj->Nombre."</td>";
+                              echo "<td>".$obj->Apellidos."</td>";
+                              echo "<td>".$obj->Gmail."</td>";
+                              echo "<td>".$obj->Administrador."</td>";
+                              echo "<td>".$obj->Edad."</td>";
+                            echo "</tr>";
+                        }
+                        */
+
+                        if ($obj->Administrador==1) {
+                            header("Location: Home_Admin.php");
+                        } else {
+                            header("Location: Home_Usu.php");
+                        }
+
+
                     }
-                } elseif ($result = $connection->query($consulta2)) {
-                  if ($result->num_rows===0) {
-                    echo "LOGIN INVALIDO";
-                  } else {
-                    //VALID LOGIN. SETTING SESSION VARS
-                    $_SESSION["Gmail"]=$_POST["Gmail"];
-                    header("Location: Home_Admin.php");
-                  }
+
+
                 }
                 else {
                   echo "Wrong Query";
