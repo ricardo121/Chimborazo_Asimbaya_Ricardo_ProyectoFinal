@@ -52,7 +52,7 @@
         $query="DELETE from Usuarios  where IdUsuario='".$_GET["id"]."'";
 
         if ($result = $connection->query($query)) {
-          header('Location: Home_Admin.php');
+          header('Location:  /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Home_Admin.php');
 
         } else {
           echo "Error al Borrar los datos";

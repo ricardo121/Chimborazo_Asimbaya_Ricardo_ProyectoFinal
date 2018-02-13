@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Informe</title>
-	<style type="text/css">
-		th, td {
-			text-align: center;
-		}
-	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mostrar Clientes</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css"/>
 </head>
 <body>
 
@@ -36,12 +34,11 @@
 
 
   if ($result = $connection->query($query)) {
-      printf("<p>The select query returned %d rows.</p>", $result->num_rows);
-      echo $query;
+
   ?>
 
       <!-- PRINT THE TABLE AND THE HEADER -->
-      <table style="border:1px solid black">
+      <table class="table">
       <thead>
         <tr>
           <th>IdUsuario</th>
@@ -52,7 +49,7 @@
           <th>IdAutor</th>
           <th>IdAlbum</th>
       </thead>
-join Pistas p ON u.IdUsuario=p.IdUsuario
+
   <?php
       //FETCHING OBJECTS FROM THE RESULT SET
       //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
@@ -65,7 +62,7 @@ join Pistas p ON u.IdUsuario=p.IdUsuario
             echo "<td>".$obj->Genero."</td>";
             echo "<td>".$obj->Reproducciones_pista."</td>";
             echo "<td><a href='editar_autor.php?IdAutor=".$obj->IdAutor."'>".$obj->IdAutor."</a></td>";
-            echo "<td><a href='editar_albums.php?IdAlbum=".$obj->IdAlbum."'>".$obj->IdAlbum."</a></td>";
+            echo "<td><a href='editar_album.php?IdAlbum=".$obj->IdAlbum."'>".$obj->IdAlbum."</a></td>";
             echo "<td>";
             echo "<a href='borrar_pista.php?idPista=".$obj->IdPista.
             "'><img src='eliminar.png' width='20px' /></a>";

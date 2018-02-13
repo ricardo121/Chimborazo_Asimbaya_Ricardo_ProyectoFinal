@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mostrar Clientes</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
   </head>
   <body>
     <div class="container">
@@ -21,11 +22,11 @@
       /* Consultas de selección que devuelven un conjunto de resultados */
       $query="SELECT * from Usuarios ";
       if ($result = $connection->query($query)) {
-          printf("<p>The select query returned %d rows.</p>", $result->num_rows);
+
       ?>
 
           <!-- PRINT THE TABLE AND THE HEADER -->
-          <table style="border:1px solid black">
+          <table class="table">
           <thead>
             <tr>
               <th>IdUsuario</th>
@@ -47,7 +48,7 @@
                 echo "<td>".$obj->Gmail."</td>";
                 echo "<td>".$obj->Edad."</td>";
                 echo "<td>";
-                echo "<a href='borrar.php?id=".$obj->IdUsuario.
+                echo "<a href='Eliminar/borrar.php?id=".$obj->IdUsuario.
                 "'><img src='eliminar.png' width='20px' /></a>";
                 echo "</td>";
                 echo "<td>";

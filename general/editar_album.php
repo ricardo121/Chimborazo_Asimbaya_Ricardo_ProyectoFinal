@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Informe</title>
-	<style type="text/css">
-		th, td {
-			text-align: center;
-		}
-	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mostrar Clientes</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css"/>
 </head>
 <body>
 
@@ -32,7 +30,7 @@
     }
 
 
-  $query="SELECT * from Albums WHERE IdAlbum='".$_GET['IdAlbum']."'";
+  $query="SELECT IdAlbum,Nombre_Album from Albums  WHERE IdAlbum='".$_GET['IdAlbum']."'";
 
 
   if ($result = $connection->query($query)) {
@@ -41,7 +39,7 @@
   ?>
 
       <!-- PRINT THE TABLE AND THE HEADER -->
-      <table style="border:1px solid black">
+      <table class="table">
       <thead>
         <tr>
           <th>IdAlbum</th>
@@ -57,7 +55,7 @@
             echo "<td>".$obj->IdAlbum."</td>";
             echo "<td>".$obj->Nombre_Album."</td>";
             echo "<td>";
-            echo "<a href='borrar_album.php?idPista=".$obj->IdAlbum.
+            echo "<a href='borrar_album.php?IdAlbum=".$obj->IdAlbum.
             "'><img src='eliminar.png' width='20px' /></a>";
             echo "</td>";
           echo "</tr>";
