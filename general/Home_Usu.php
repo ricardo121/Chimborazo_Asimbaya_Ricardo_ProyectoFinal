@@ -10,11 +10,16 @@
   </head>
   <body>
       <div class="container" id="contenedor">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="collapse navbar-collapse">
+          <ul>
 
-        <div class="row">
+
+
+          </ul>
         <h1 style="color:white; text-align: center">Usuarios</H1>
         </div>
-
+      </nav>
         <div class="row">
 
 

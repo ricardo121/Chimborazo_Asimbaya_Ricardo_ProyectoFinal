@@ -41,7 +41,7 @@
           while($obj = $result->fetch_object()) {
               //PRINTING EACH ROW
               echo "<tr>";
-                echo "<td>".$obj->IdUsuario."</td>";
+                echo "<td><a href='editar_canciones.php?hola=".$obj->IdUsuario."'>".$obj->IdUsuario."</a></td>";
                 echo "<td>".$obj->Nombre."</td>";
                 echo "<td>".$obj->Apellidos."</td>";
                 echo "<td>".$obj->Gmail."</td>";
@@ -50,7 +50,12 @@
                 echo "<a href='borrar.php?id=".$obj->IdUsuario.
                 "'><img src='eliminar.png' width='20px' /></a>";
                 echo "</td>";
+                echo "<td>";
+                echo "<a href='editar_usuarios.php?id=".$obj->IdUsuario.
+                "'><img src='lapiz.png' width='20px' /></a>";
+                echo "</td>";
               echo "</tr>";
+
           }
           //Free the result. Avoid High Memory Usages
           $result->close();
