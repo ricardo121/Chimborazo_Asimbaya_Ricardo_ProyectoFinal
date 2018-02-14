@@ -70,7 +70,7 @@
             echo "<a href='Borrar_Pista.php?adios=".$obj->IdPista.
             "'><img src='eliminar.png' width='20px' /></a>";
 						echo "<td>";
-						echo "<a href='editar_usuarios.php?id=".$obj->IdUsuario.
+						echo "<a href='Pista_edit.php?edit=".$obj->IdUsuario.
 						"'><img src='lapiz.png' width='20px' /></a>";
 						echo "</td>";
             echo "</td>";
