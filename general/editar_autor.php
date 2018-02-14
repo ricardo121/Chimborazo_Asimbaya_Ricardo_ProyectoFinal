@@ -55,8 +55,12 @@
             echo "<td>".$obj->IdAutor."</td>";
             echo "<td>".$obj->Nombre_Artista."</td>";
             echo "<td>";
-            echo "<a href='borrar_autor.php?IdAutor=".$obj->IdAutor.
+            echo "<a href='borrar_autor.php?Autor=".$obj->IdAutor.
             "'><img src='eliminar.png' width='20px' /></a>";
+            echo "</td>";
+            echo "<td>";
+            echo "<a href='editar_usuarios.php?id=".$obj->IdAutor.
+            "'><img src='lapiz.png' width='20px' /></a>";
             echo "</td>";
           echo "</tr>";
 

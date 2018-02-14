@@ -49,7 +49,7 @@
         $query="SET FOREIGN_KEY_CHECKS=0";
         $connection->query($query);
 
-        $query="DELETE from Pistas p join Autores a on p.idAutor=a.idAutor where p.IdAutor='".$_GET["IdAutor"]."'";
+        $query="DELETE from  Autores  where IdAutor='".$_GET["Autor"]."'";
 
         if ($result = $connection->query($query)) {
           header('Location: editar_autor.php');

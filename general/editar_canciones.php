@@ -67,8 +67,12 @@
             echo "<td><a href='editar_autor.php?IdAutor=".$obj->IdAutor."'>".$obj->IdAutor."</a></td>";
             echo "<td><a href='editar_album.php?IdAlbum=".$obj->IdAlbum."'>".$obj->IdAlbum."</a></td>";
             echo "<td>";
-            echo "<a href='borrar_pista.php?idPista=".$obj->IdPista.
+            echo "<a href='Borrar_Pista.php?adios=".$obj->IdPista.
             "'><img src='eliminar.png' width='20px' /></a>";
+						echo "<td>";
+						echo "<a href='editar_usuarios.php?id=".$obj->IdUsuario.
+						"'><img src='lapiz.png' width='20px' /></a>";
+						echo "</td>";
             echo "</td>";
           echo "</tr>";
 

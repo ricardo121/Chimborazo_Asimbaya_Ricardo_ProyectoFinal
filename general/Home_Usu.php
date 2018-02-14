@@ -65,7 +65,7 @@
     <div class="container" id="contenedor">
 
       <div class="row">
-      <h1 style="color:white; text-align: center"><?php echo $Nombre_usu; ?></H1>
+      <h1 style="color:white; text-align: center"><?php echo"Bienvenido"." ". $Nombre_usu; ?></H1>
       </div>
       <div class="row">
 

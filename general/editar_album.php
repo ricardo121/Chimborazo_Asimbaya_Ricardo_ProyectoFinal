@@ -55,9 +55,13 @@
             echo "<td>".$obj->IdAlbum."</td>";
             echo "<td>".$obj->Nombre_Album."</td>";
             echo "<td>";
-            echo "<a href='borrar_album.php?IdAlbum=".$obj->IdAlbum.
+            echo "<a href='borrar_album.php?hola=".$obj->IdAlbum.
             "'><img src='eliminar.png' width='20px' /></a>";
             echo "</td>";
+						echo "<td>";
+						echo "<a href='editar_usuarios.php?id=".$obj->IdAlbum.
+						"'><img src='lapiz.png' width='20px' /></a>";
+						echo "</td>";
           echo "</tr>";
 
       }

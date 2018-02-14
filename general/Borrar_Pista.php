@@ -49,10 +49,10 @@
         $query="SET FOREIGN_KEY_CHECKS=0";
         $connection->query($query);
 
-        $query="DELETE from Pistas  where IdPista='".$_GET["idPista"]."'";
+        $query="DELETE from Pistas  where IdPista='".$_GET["adios"]."'";
 
         if ($result = $connection->query($query)) {
-          header('Location: editar_canciones.php');
+          header('Location:  Borrar_Pista.php');
 
         } else {
           echo "Error al Borrar los datos";
