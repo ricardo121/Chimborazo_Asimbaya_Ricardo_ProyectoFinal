@@ -31,7 +31,7 @@
     }
 
 
-  $query="SELECT p.* from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario WHERE p.IdUsuario='".$_GET['hola']."'";
+  $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario WHERE p.IdUsuario='".$_GET['hola']."'";
 
 
   if ($result = $connection->query($query)) {
@@ -43,6 +43,7 @@
       <thead>
         <tr>
           <th>IdUsuario</th>
+					<th>Gmail</th>
           <th>IdPista</th>
           <th>Nombre_Pista</th>
           <th>Genero</th>
@@ -58,6 +59,7 @@
           //PRINTING EACH ROW
           echo "<tr>";
             echo "<td>".$obj->IdUsuario."</td>";
+						echo "<td>".$obj->Gmail."</td>";
             echo "<td>".$obj->IdPista."</td>";
             echo "<td>".$obj->Nombre_pista."</td>";
             echo "<td>".$obj->Genero."</td>";

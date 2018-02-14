@@ -44,8 +44,7 @@
                     printf("Connection failed: %s\n", $connection->connect_error);
                     exit();
                 }
-                //MAKING A SELECT QUERY
-                //Password coded with md5 at the database. Look for better options
+                
                 $Gmail=$_POST['Gmail'];
                 $password=md5($_POST["password"]);
 
