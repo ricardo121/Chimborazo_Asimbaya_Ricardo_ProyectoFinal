@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap.css"/>
 </head>
 <body>
+	<div class="container">
 
 
 
@@ -73,6 +74,6 @@
       //Free the result. Avoid High Memory Usages
   } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 ?>
-
+	</div>
 </body>
 </html>
