@@ -55,14 +55,14 @@
             echo "<td>".$obj->IdAlbum."</td>";
             echo "<td>".$obj->Nombre_Album."</td>";
             echo "<td>";
-            echo "<a href='Borrar_Album.php?borrar=".$obj->IdAlbum.
+            echo "<a href='Eliminar/Borrar_Album.php?borrar=".$obj->IdAlbum.
             "'><img src='eliminar.png' width='20px' /></a>";
             echo "</td>";
 						echo "<td>";
-						echo "<a href='Editar_album.php?editar=".$obj->IdAlbum.
+						echo "<a href='Editar/Editar_Album.php?editar=".$obj->IdAlbum.
 						"'><img src='lapiz.png' width='20px' /></a>";
 						echo "<td>";
-						echo "<a href='Añadir_Album.php?añadir=".$obj->IdAlbum.
+						echo "<a href='Añadir/Añadir_Album.php?añadir=".$obj->IdAlbum.
 						"'><img src='Añadir.png' width='20px' /></a>";
 						echo "</td>";
           echo "</tr>";

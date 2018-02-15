@@ -64,17 +64,17 @@
             echo "<td>".$obj->Nombre_pista."</td>";
             echo "<td>".$obj->Genero."</td>";
             echo "<td>".$obj->Reproducciones_pista."</td>";
-            echo "<td><a href='editar_autor.php?IdAutor=".$obj->IdAutor."'>".$obj->IdAutor."</a></td>";
-            echo "<td><a href='editar_album.php?IdAlbum=".$obj->IdAlbum."'>".$obj->IdAlbum."</a></td>";
+            echo "<td><a href='Admin_Autores.php?IdAutor=".$obj->IdAutor."'>".$obj->IdAutor."</a></td>";
+            echo "<td><a href='Admin_Albums.php?IdAlbum=".$obj->IdAlbum."'>".$obj->IdAlbum."</a></td>";
             echo "<td>";
-            echo "<a href='Borrar_Pista.php?borrar=".$obj->IdPista.
+            echo "<a href='Eliminar/Borrar_Pista.php?borrar=".$obj->IdPista.
             "'><img src='eliminar.png' width='20px' /></a>";
 						echo "<td>";
-						echo "<a href='Pista_edit.php?editar=".$obj->IdPista.
+						echo "<a href='Editar/Editar_Pista.php?editar=".$obj->IdPista.
 						"'><img src='lapiz.png' width='20px' /></a>";
 						echo "</td>";
 						echo "<td>";
-						echo "<a href='Añadir_Autor.php?añadir=".$obj->IdAutor.
+						echo "<a href='Añadir/Añadir_Pista.php?añadir=".$obj->IdAutor.
 						"'><img src='Añadir.png' width='20px' /></a>";
 						echo "</td>";
           echo "</tr>";

@@ -48,15 +48,15 @@
                 echo "<td>".$obj->Gmail."</td>";
                 echo "<td>".$obj->Edad."</td>";
                 echo "<td>";
-                echo "<a href='Eliminar/Borrar_Usuarios.php?borrar=".$obj->IdUsuario.
+                echo "<a href='Eliminar/Borrar_Usuario.php?borrar=".$obj->IdUsuario.
                 "'><img src='eliminar.png' width='20px' /></a>";
                 echo "</td>";
                 echo "<td>";
-                echo "<a href='Usuario_edit.php?editar=".$obj->IdUsuario.
+                echo "<a href='Editar/Editar_Usuario.php?editar=".$obj->IdUsuario.
                 "'><img src='lapiz.png' width='20px' /></a>";
                 echo "</td>";
                 echo "<td>";
-    						echo "<a href='Añadir_Usuario.php?añadir=".$obj->IdUsuario.
+    						echo "<a href='Añadir/Añadir_Usuario.php?añadir=".$obj->IdUsuario.
     						"'><img src='Añadir.png' width='20px' /></a>";
     						echo "</td>";
               echo "</tr>";
