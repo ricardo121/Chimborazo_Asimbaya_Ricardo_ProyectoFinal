@@ -52,7 +52,7 @@
         $query="DELETE from Pistas  where IdPista='".$_GET["adios"]."'";
 
         if ($result = $connection->query($query)) {
-          header('Location:  Borrar_Pista.php');
+          header('Location:  Admin_Pistas.php');
 
         } else {
           echo "Error al Borrar los datos";

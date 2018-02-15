@@ -11,7 +11,6 @@
 
 
 
-
   <?php
     if (empty($_GET)) {
       echo "No se han recibido datos del reparaciones";
@@ -31,25 +30,20 @@
     }
 
 
-  $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario WHERE p.IdUsuario='".$_GET['hola']."'";
+  $query="SELECT IdAlbum,Nombre_Album from Albums  WHERE IdAlbum='".$_GET['IdAlbum']."'";
 
 
   if ($result = $connection->query($query)) {
-
+      printf("<p>The select query returned %d rows.</p>", $result->num_rows);
+      echo $query;
   ?>
 
       <!-- PRINT THE TABLE AND THE HEADER -->
       <table class="table">
       <thead>
         <tr>
-          <th>IdUsuario</th>
-					<th>Gmail</th>
-          <th>IdPista</th>
-          <th>Nombre_Pista</th>
-          <th>Genero</th>
-          <th>Reproducciones_pista</th>
-          <th>IdAutor</th>
           <th>IdAlbum</th>
+          <th>Nombre_Album</th>
       </thead>
 
   <?php
@@ -58,22 +52,19 @@
       while($obj = $result->fetch_object()) {
           //PRINTING EACH ROW
           echo "<tr>";
-            echo "<td>".$obj->IdUsuario."</td>";
-						echo "<td>".$obj->Gmail."</td>";
-            echo "<td>".$obj->IdPista."</td>";
-            echo "<td>".$obj->Nombre_pista."</td>";
-            echo "<td>".$obj->Genero."</td>";
-            echo "<td>".$obj->Reproducciones_pista."</td>";
-            echo "<td><a href='editar_autor.php?IdAutor=".$obj->IdAutor."'>".$obj->IdAutor."</a></td>";
-            echo "<td><a href='editar_album.php?IdAlbum=".$obj->IdAlbum."'>".$obj->IdAlbum."</a></td>";
+            echo "<td>".$obj->IdAlbum."</td>";
+            echo "<td>".$obj->Nombre_Album."</td>";
             echo "<td>";
-            echo "<a href='Borrar_Pista.php?adios=".$obj->IdPista.
+            echo "<a href='Borrar_Album.php?borrar=".$obj->IdAlbum.
             "'><img src='eliminar.png' width='20px' /></a>";
-						echo "<td>";
-						echo "<a href='Pista_edit.php?edit=".$obj->IdUsuario.
-						"'><img src='lapiz.png' width='20px' /></a>";
-						echo "</td>";
             echo "</td>";
+						echo "<td>";
+						echo "<a href='Editar_album.php?editar=".$obj->IdAlbum.
+						"'><img src='lapiz.png' width='20px' /></a>";
+						echo "<td>";
+						echo "<a href='Añadir_Album.php?añadir=".$obj->IdAlbum.
+						"'><img src='Añadir.png' width='20px' /></a>";
+						echo "</td>";
           echo "</tr>";
 
       }

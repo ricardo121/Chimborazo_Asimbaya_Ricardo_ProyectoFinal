@@ -49,10 +49,10 @@
         $query="SET FOREIGN_KEY_CHECKS=0";
         $connection->query($query);
 
-        $query="DELETE from  Autores  where IdAutor='".$_GET["Autor"]."'";
+        $query="DELETE from Usuarios  where IdUsuario='".$_GET["borrar"]."'";
 
         if ($result = $connection->query($query)) {
-          header('Location: editar_autor.php');
+          header('Location: /ricardo/general/Home_Admin.php');
 
         } else {
           echo "Error al Borrar los datos";

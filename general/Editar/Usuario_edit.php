@@ -54,7 +54,7 @@
             <span>Nombre:</span><input type="text" name="Nombre_usu" value="<?php echo $Nombre_usu; ?>"required><br>
             <span>Apellidos:</span><input type="text" name="Apellidos" value="<?php echo $Apellidos; ?>" required><br>
               <span><input type="hidden" name="IdUsuario"  value="<?php echo $IdUsuario; ?>"
-            <span><input type="submit" value="Editar" >
+              <span><input type="submit" value="Editar" >
           </fieldset>
         </form>
 
@@ -73,18 +73,17 @@
         //MAKING A UPDATE
         $nombre=$_POST['Nombre_usu'];
         $apellidos=$_POST['Apellidos'];
-        $codigo=$_POST['$IdUsuario'];
+        $cod=$_GET['editar'];
+
+
         $query="Update Usuarios SET Nombre='$nombre',
         Apellidos='$apellidos'
-        WHERE IdUsuario='$codigo'";
+        WHERE IdUsuario='$cod'";
+
+        echo $query;
 
 
-        if ($result = $connection->query($query)) {
-          header('Location: editar_canciones.php');
 
-        } else {
-          echo "Error al Modificar Datos de Pistas";
-        }
 
 
         ?>

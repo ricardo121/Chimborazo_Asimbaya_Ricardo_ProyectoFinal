@@ -49,10 +49,10 @@
         $query="SET FOREIGN_KEY_CHECKS=0";
         $connection->query($query);
 
-        $query="DELETE from Albums  where IdAlbum='".$_GET["hola"]."'";
+        $query="DELETE from  Autores  where IdAutor='".$_GET["Autor"]."'";
 
         if ($result = $connection->query($query)) {
-          header('Location: editar_album.php');
+          header('Location: Admin_Autores.php');
 
         } else {
           echo "Error al Borrar los datos";

@@ -49,10 +49,10 @@
         $query="SET FOREIGN_KEY_CHECKS=0";
         $connection->query($query);
 
-        $query="DELETE from Usuarios  where IdUsuario='".$_GET["id"]."'";
+        $query="DELETE from Albums  where IdAlbum='".$_GET["hola"]."'";
 
         if ($result = $connection->query($query)) {
-          header('Location:  /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Home_Admin.php');
+          header('Location: Admin_Albums.php');
 
         } else {
           echo "Error al Borrar los datos";

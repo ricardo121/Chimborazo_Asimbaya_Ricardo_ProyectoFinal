@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mostrar Clientes</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap.css"/>
 </head>
 <body>
-  <div class="container">
+	<div class="container">
+
 
 
 
@@ -30,20 +31,25 @@
     }
 
 
-  $query="SELECT * from Autores  WHERE IdAutor='".$_GET['IdAutor']."'";
+  $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario WHERE p.IdUsuario='".$_GET['Usuario']."'";
 
 
   if ($result = $connection->query($query)) {
-      printf("<p>The select query returned %d rows.</p>", $result->num_rows);
-      echo $query;
+
   ?>
 
       <!-- PRINT THE TABLE AND THE HEADER -->
       <table class="table">
       <thead>
         <tr>
+          <th>IdUsuario</th>
+					<th>Gmail</th>
+          <th>IdPista</th>
+          <th>Nombre_Pista</th>
+          <th>Genero</th>
+          <th>Reproducciones_pista</th>
           <th>IdAutor</th>
-          <th>Nombre_Artista</th>
+          <th>IdAlbum</th>
       </thead>
 
   <?php
@@ -52,22 +58,31 @@
       while($obj = $result->fetch_object()) {
           //PRINTING EACH ROW
           echo "<tr>";
-            echo "<td>".$obj->IdAutor."</td>";
-            echo "<td>".$obj->Nombre_Artista."</td>";
+            echo "<td>".$obj->IdUsuario."</td>";
+						echo "<td>".$obj->Gmail."</td>";
+            echo "<td>".$obj->IdPista."</td>";
+            echo "<td>".$obj->Nombre_pista."</td>";
+            echo "<td>".$obj->Genero."</td>";
+            echo "<td>".$obj->Reproducciones_pista."</td>";
+            echo "<td><a href='editar_autor.php?IdAutor=".$obj->IdAutor."'>".$obj->IdAutor."</a></td>";
+            echo "<td><a href='editar_album.php?IdAlbum=".$obj->IdAlbum."'>".$obj->IdAlbum."</a></td>";
             echo "<td>";
-            echo "<a href='borrar_autor.php?Autor=".$obj->IdAutor.
+            echo "<a href='Borrar_Pista.php?borrar=".$obj->IdPista.
             "'><img src='eliminar.png' width='20px' /></a>";
-            echo "</td>";
-            echo "<td>";
-            echo "<a href='editar_usuarios.php?id=".$obj->IdAutor.
-            "'><img src='lapiz.png' width='20px' /></a>";
-            echo "</td>";
+						echo "<td>";
+						echo "<a href='Pista_edit.php?editar=".$obj->IdPista.
+						"'><img src='lapiz.png' width='20px' /></a>";
+						echo "</td>";
+						echo "<td>";
+						echo "<a href='Añadir_Autor.php?añadir=".$obj->IdAutor.
+						"'><img src='Añadir.png' width='20px' /></a>";
+						echo "</td>";
           echo "</tr>";
 
       }
       //Free the result. Avoid High Memory Usages
   } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 ?>
-  </div>
+	</div>
 </body>
 </html>

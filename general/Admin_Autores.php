@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mostrar Clientes</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap.css"/>
 </head>
 <body>
-	<div class="container">
+  <div class="container">
 
 
 
@@ -30,7 +30,7 @@
     }
 
 
-  $query="SELECT IdAlbum,Nombre_Album from Albums  WHERE IdAlbum='".$_GET['IdAlbum']."'";
+  $query="SELECT * from Autores  WHERE IdAutor='".$_GET['IdAutor']."'";
 
 
   if ($result = $connection->query($query)) {
@@ -42,8 +42,8 @@
       <table class="table">
       <thead>
         <tr>
-          <th>IdAlbum</th>
-          <th>Nombre_Album</th>
+          <th>IdAutor</th>
+          <th>Nombre_Artista</th>
       </thead>
 
   <?php
@@ -52,15 +52,19 @@
       while($obj = $result->fetch_object()) {
           //PRINTING EACH ROW
           echo "<tr>";
-            echo "<td>".$obj->IdAlbum."</td>";
-            echo "<td>".$obj->Nombre_Album."</td>";
+            echo "<td>".$obj->IdAutor."</td>";
+            echo "<td>".$obj->Nombre_Artista."</td>";
             echo "<td>";
-            echo "<a href='borrar_album.php?hola=".$obj->IdAlbum.
+            echo "<a href='Borrar_Autor.php?borrar=".$obj->IdAutor.
             "'><img src='eliminar.png' width='20px' /></a>";
             echo "</td>";
-						echo "<td>";
-						echo "<a href='editar_usuarios.php?id=".$obj->IdAlbum.
-						"'><img src='lapiz.png' width='20px' /></a>";
+            echo "<td>";
+            echo "<a href='Editar_Autor.php?editar=".$obj->IdAutor.
+            "'><img src='lapiz.png' width='20px' /></a>";
+            echo "</td>";
+            echo "<td>";
+						echo "<a href='Añadir_Autor.php?añadir=".$obj->IdAutor.
+						"'><img src='Añadir.png' width='20px' /></a>";
 						echo "</td>";
           echo "</tr>";
 
@@ -68,6 +72,6 @@
       //Free the result. Avoid High Memory Usages
   } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 ?>
-	</div>
+  </div>
 </body>
 </html>

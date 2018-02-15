@@ -42,19 +42,23 @@
           while($obj = $result->fetch_object()) {
               //PRINTING EACH ROW
               echo "<tr>";
-                echo "<td><a href='editar_canciones.php?hola=".$obj->IdUsuario."'>".$obj->IdUsuario."</a></td>";
+                echo "<td><a href='Admin_Pistas.php?Usuario=".$obj->IdUsuario."'>".$obj->IdUsuario."</a></td>";
                 echo "<td>".$obj->Nombre."</td>";
                 echo "<td>".$obj->Apellidos."</td>";
                 echo "<td>".$obj->Gmail."</td>";
                 echo "<td>".$obj->Edad."</td>";
                 echo "<td>";
-                echo "<a href='Eliminar/borrar.php?id=".$obj->IdUsuario.
+                echo "<a href='Eliminar/Borrar_Usuarios.php?borrar=".$obj->IdUsuario.
                 "'><img src='eliminar.png' width='20px' /></a>";
                 echo "</td>";
                 echo "<td>";
-                echo "<a href='editar_usuarios.php?id=".$obj->IdUsuario.
+                echo "<a href='Usuario_edit.php?editar=".$obj->IdUsuario.
                 "'><img src='lapiz.png' width='20px' /></a>";
                 echo "</td>";
+                echo "<td>";
+    						echo "<a href='Añadir_Usuario.php?añadir=".$obj->IdUsuario.
+    						"'><img src='Añadir.png' width='20px' /></a>";
+    						echo "</td>";
               echo "</tr>";
 
           }
