@@ -4,45 +4,50 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href=" /ricardo/general/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href=" bootstrap.css">
 
   </head>
   <body>
 
     <div class="container" id="contenedor" >
 
+      <div class="row">
+      <h1 style="color:black; text-align: center">Datos del Usuario a Añadir</H1>
+      </div>
 
-
-  
-      <?php if (!isset($_POST["Gmail"])) : ?>
+        <div class="row" >
+        <?php if (!isset($_POST["Gmail"])) : ?>
           <form method="post" role="form">
             <div class="form-group">
               <label for="ejemplo_email_1">Nombre:</label>
-              <input type="text" name="Nombres" class="form-control" id="ejemplo_email_1"
+              <input type="text" name="Nombre" class="form-control"
               placeholder="Introduce Tu Nombre">
            </div>
            <div class="form-group">
              <label for="ejemplo_email_1">Apellidos</label>
-             <input type="text" name="Apellidos" class="form-control" id="ejemplo_email_1"
+             <input type="text" name="Apellidos" class="form-control"
              placeholder="Introduce Tus Apellidos">
           </div>
           <div class="form-group">
             <label for="ejemplo_email_1">Gmail:</label>
-            <input type="email" class="form-control" id="ejemplo_email_1"
+            <input type="Email" name="Gmail" class="form-control"
             placeholder="Introduce tu Email">
          </div>
            <div class="form-group">
              <label for="ejemplo_password_1">Contraseña</label>
-             <input type="password" name="password" class="form-control" id="ejemplo_password_1"
+             <input type="password" name="password" class="form-control"
               placeholder="Contraseña">
             </div>
             <div class="form-group">
               <label for="ejemplo_email_1">Edad:</label>
-              <input type="text" name="Edad" class="form-control" id="ejemplo_email_1"
-              placeholder="Introduce tu email">
+              <input type="text" name="Edad" class="form-control"
+              placeholder="Introduce tu Edad">
            </div>
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
+
+
+
 
       <!-- DATA IN $_POST['mail']. Coming from a form submit -->
       <?php else: ?>
@@ -91,12 +96,12 @@
             echo "</table>";
           }
         } else {
-          echo "ERROR AL INSERTAR USUARIO";
+          echo "ERROR AL INSERTAR COCHE";
         }
         ?>
 
       <?php endif ?>
-
+    </div>
     </div>
   </body>
 </html>
