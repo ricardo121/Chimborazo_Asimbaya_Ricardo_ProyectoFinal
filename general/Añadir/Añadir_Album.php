@@ -4,30 +4,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href="bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="Estilos2.css"/>
+    <link rel="stylesheet" type="text/css" href=" bootstrap.css">
 
   </head>
   <body>
 
     <div class="container" id="contenedor" >
 
+      <div class="row">
+      <h1 style="color:black; text-align: center">Añadir Nuevo Album</H1>
+      </div>
 
-      <div class="row" >
-      <?php if (!isset($_POST["Gmail"])) : ?>
-        <form method="post" id="formulario_registro" >
-          <fieldset>
-            <legend>Registarte</legend>
-            <span>Nombre:</span><input type="text" name="Nombre" required><br>
-            <span>Apellidos:</span><input type="text" name="Apellidos" required><br>
-            <span>Gmail:</span><input type="Email" name="Gmail" required><br>
-            <span>password:</span><input type="password" name="password" required><br>
-            <span>Edad:</span><input type="text" name="Edad"><br>
-            <p><input type="submit" value="Registrase"></p>
-          </fieldset>
-        </form>
+        <div class="row" >
+        <?php if (!isset($_POST["Nombre"])) : ?>
+          <form method="post" role="form">
+         <div class="form-group">
+           <label for="ejemplo_email_1">IdAlbum</label>
+           <input type="text" name="Nombre" class="form-control"
+           placeholder="Introduce Nombre de Album">
+        </div>
+            <button type="submit" class="btn btn-default">Enviar</button>
+          </form>
 
-      <!-- DATA IN $_POST['mail']. Coming from a form submit -->
+
       <?php else: ?>
 
         <?php
@@ -39,17 +38,16 @@
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
         }
-        $Nom = $_POST["Nombre"];
-        $Ape = $_POST["Apellidos"];
-        $Em = $_POST["Gmail"];
-        $Pass =  md5($_POST["password"]);
-        $Edad = $_POST["Edad"];
-        $query = "INSERT INTO Usuarios(IdUsuario,Nombre,Apellidos,Gmail,password,Edad)
-        VALUES ('NULL','$Nom','$Ape','$Em','$Pass','$Edad')";
+        $Nombre = $_POST["Nombre"];
+          echo $Nombre;
+        $query = "INSERT INTO Albums (IdAlbum,Nombre_Album)
+        VALUES (NULL,'$Nombre')";
+
+
         echo $query;
         if ($connection->query($query)) {
           echo "Se ha Registardo en ...";
-          $query ="SELECT * FROM Usuarios";
+          $query ="SELECT IdAlbum, Nombre_Album FROM Albums";
           if ($result = $connection->query($query)) {
             echo "<table>";
 
@@ -61,20 +59,15 @@
 
                 //PRINTING EACH ROW
                 echo "<tr>";
-                  echo "<td>".$obj->IdUsuario."</td>";
-                  echo "<td>".$obj->Nombre."</td>";
-                  echo "<td>".$obj->Gmail."</td>";
-                  echo "<td>".$obj->Apellidos."</td>";
-                  echo "<td>".$obj->Edad."</td>";
-                  echo "<td>".$obj->password."</td>";
+                  echo "<td>".$obj->IdAlbum."</td>";
+                  echo "<td>".$obj->Nombre_Album."</td>";
                 echo "</tr>";
             }
-
 
             echo "</table>";
           }
         } else {
-          echo "ERROR AL INSERTAR COCHE";
+          echo "ERROR AL AÑADIR USUARIO";
         }
         ?>
 

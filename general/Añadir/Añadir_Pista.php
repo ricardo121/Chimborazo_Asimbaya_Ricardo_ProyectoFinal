@@ -12,44 +12,38 @@
     <div class="container" id="contenedor" >
 
       <div class="row">
-      <h1 style="color:black; text-align: center">Datos del Usuario a Añadir</H1>
+      <h1 style="color:black; text-align: center">Añadir Nueva Pista</H1>
       </div>
 
         <div class="row" >
-        <?php if (!isset($_POST["Gmail"])) : ?>
+        <?php if (!isset($_POST["Nombre_Pista"])) : ?>
           <form method="post" role="form">
             <div class="form-group">
-              <label for="ejemplo_email_1">Nombre:</label>
-              <input type="text" name="Nombre" class="form-control"
-              placeholder="Introduce Tu Nombre">
+              <label for="ejemplo_email_1">Nombre de Pista:</label>
+              <input type="text" name="Nombre_Pista" class="form-control"
+              placeholder="Introduce Nombre de Pista">
            </div>
            <div class="form-group">
-             <label for="ejemplo_email_1">Apellidos</label>
-             <input type="text" name="Apellidos" class="form-control"
-             placeholder="Introduce Tus Apellidos">
+             <label for="ejemplo_email_1">Genero</label>
+             <input type="text" name="Genero" class="form-control"
+             placeholder="Introduce Genero">
           </div>
           <div class="form-group">
-            <label for="ejemplo_email_1">Gmail:</label>
-            <input type="Email" name="Gmail" class="form-control"
-            placeholder="Introduce tu Email">
+            <label for="ejemplo_email_1">IdAlbum</label>
+            <input type="text" name="IdAlbum" class="form-control"
+            placeholder="Introduce Id Album">
          </div>
-           <div class="form-group">
-             <label for="ejemplo_password_1">Contraseña</label>
-             <input type="password" name="password" class="form-control"
-              placeholder="Contraseña">
-            </div>
-            <div class="form-group">
-              <label for="ejemplo_email_1">Edad:</label>
-              <input type="text" name="Edad" class="form-control"
-              placeholder="Introduce tu Edad">
-           </div>
+         <div class="form-group">
+           <label for="ejemplo_email_1">IdAutor</label>
+           <input type="text" name="IdAutor" class="form-control"
+           placeholder="Introduce Id Autor">
+        </div>
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
 
 
 
 
-      <!-- DATA IN $_POST['mail']. Coming from a form submit -->
       <?php else: ?>
 
         <?php
@@ -61,17 +55,21 @@
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
         }
-        $Nom = $_POST["Nombre"];
-        $Ape = $_POST["Apellidos"];
-        $Em = $_POST["Gmail"];
-        $Pass =  md5($_POST["password"]);
-        $Edad = $_POST["Edad"];
-        $query = "INSERT INTO Usuarios(IdUsuario,Nombre,Apellidos,Gmail,password,Edad)
-        VALUES ('NULL','$Nom','$Ape','$Em','$Pass','$Edad')";
+        $Nombre = $_POST["Nombre_Pista"];
+        $Genero= $_POST["Genero"];
+        $IdAlbum = $_POST["IdAlbum"];
+        $IdAutor= $_POST["IdAutor"];
+        $IdUsuario = $_GET['añadir'];
+
+        $query = "INSERT INTO Pistas (IdPista,IdAlbum,IdUsuario,
+        IdAutor,Pista,Nombre_pista,Genero,Hora_subida,Reproducciones_pista,Valoracion_positiva,Valoracion_negativa)
+        VALUES (NULL,$IdAlbum,$IdUsuario,$IdAutor,'hola','$Nombre','$Genero',0,NULL,NULL,NULL)";
+
+
         echo $query;
         if ($connection->query($query)) {
           echo "Se ha Registardo en ...";
-          $query ="SELECT * FROM Usuarios";
+          $query ="SELECT * FROM Pistas";
           if ($result = $connection->query($query)) {
             echo "<table>";
 
@@ -83,12 +81,12 @@
 
                 //PRINTING EACH ROW
                 echo "<tr>";
+                  echo "<td>".$obj->IdPista."</td>";
+                  echo "<td>".$obj->IdAlbum."</td>";
                   echo "<td>".$obj->IdUsuario."</td>";
-                  echo "<td>".$obj->Nombre."</td>";
-                  echo "<td>".$obj->Gmail."</td>";
-                  echo "<td>".$obj->Apellidos."</td>";
-                  echo "<td>".$obj->Edad."</td>";
-                  echo "<td>".$obj->password."</td>";
+                  echo "<td>".$obj->IdAutor."</td>";
+                  echo "<td>".$obj->Pista."</td>";
+                  echo "<td>".$obj->Nombre_pista."</td>";
                 echo "</tr>";
             }
 
@@ -96,7 +94,7 @@
             echo "</table>";
           }
         } else {
-          echo "ERROR AL INSERTAR COCHE";
+          echo "ERROR AL AÑADIR USUARIO";
         }
         ?>
 

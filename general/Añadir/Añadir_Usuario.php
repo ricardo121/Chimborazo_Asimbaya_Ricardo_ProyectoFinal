@@ -49,7 +49,6 @@
 
 
 
-      <!-- DATA IN $_POST['mail']. Coming from a form submit -->
       <?php else: ?>
 
         <?php
@@ -96,7 +95,7 @@
             echo "</table>";
           }
         } else {
-          echo "ERROR AL INSERTAR COCHE";
+          echo "ERROR AL AÑADIR USUARIO";
         }
         ?>
 

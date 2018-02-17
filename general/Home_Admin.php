@@ -34,6 +34,9 @@
               <th>Apellidos</th>
               <th>Gmail</th>
               <th>Edad</th>
+              <th></th>
+              <th></th>
+              <th>Inserte Pista</th>
           </thead>
 
       <?php
@@ -55,7 +58,10 @@
                 echo "<a href='Editar/Editar_Usuario.php?editar=".$obj->IdUsuario.
                 "'><img src='lapiz.png' width='20px' /></a>";
                 echo "</td>";
-
+                echo "<td>";
+                echo "<a href='Añadir/Añadir_Pista.php?añadir=".$obj->IdUsuario.
+                "'><img src='Añadir.png' width='20px' /></a>";
+                echo "</td>";
               echo "</tr>";
 
           }
@@ -66,14 +72,28 @@
       } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
     ?>
     <tr>
-      <td>
-        <p>Añada un Nuevo Usuario</p>
+    	<td>
+    		<p>Añada un Nuevo Usuario</p>
     </td>
-      <td>
-        <a href='Añadir/Añadir_Usuario.php?
-      '><img src='Añadir.png' width='20px' /></a>
+    	<td>
+    		<a href='Añadir/Añadir_Usuario.php?'><img src='Añadir.png' width='20px' /></a>
     </td>
-
+    </tr>
+    <tr>
+    	<td>
+    		<p>Añada un Nuevo Album</p>
+    </td>
+    	<td>
+    		<a href='Añadir/Añadir_Album.php?'><img src='Añadir.png' width='20px' /></a>
+    </td>
+    </tr>
+    <tr>
+    	<td>
+    		<p>Añada un Nuevo Artista</p>
+    </td>
+    	<td>
+    		<a href='Añadir/Añadir_Autor.php?'><img src='Añadir.png' width='20px' /></a>
+    </td>
     </tr>
     </div>
   </body>

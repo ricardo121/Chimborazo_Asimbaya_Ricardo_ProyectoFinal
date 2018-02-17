@@ -73,16 +73,13 @@
 						echo "<a href='Editar/Editar_Pista.php?editar=".$obj->IdPista.
 						"'><img src='lapiz.png' width='20px' /></a>";
 						echo "</td>";
-						echo "<td>";
-						echo "<a href='Añadir/Añadir_Pista.php?añadir=".$obj->IdAutor.
-						"'><img src='Añadir.png' width='20px' /></a>";
-						echo "</td>";
           echo "</tr>";
 
       }
       //Free the result. Avoid High Memory Usages
   } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 ?>
+
 	</div>
 </body>
 </html>
