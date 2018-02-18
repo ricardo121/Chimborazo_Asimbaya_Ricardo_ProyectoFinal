@@ -38,12 +38,10 @@
         if ($result = $connection->query($query)) {
           echo $query;
           while($obj = $result->fetch_object()) {
-
             $Nombre_usu =$obj->Nombre;
             $Apellidos = $obj->Apellidos;
             $IdUsuario = $obj->IdUsuario;
 
-            echo $query;
         }
       }
         ?>
@@ -51,7 +49,7 @@
         <form method="post">
           <fieldset>
             <legend>Personal Info</legend>
-            <span>Nombre:</span><input type="text" name="Nombre_usu" value="<?php echo $Nombre_usu; ?>"required><br>
+            <span>Nombre:</span><input type="text" name="Nombre" value="<?php echo $Nombre_usu; ?>"required><br>
             <span>Apellidos:</span><input type="text" name="Apellidos" value="<?php echo $Apellidos; ?>" required><br>
               <span><input type="hidden" name="IdUsuario"  value="<?php echo $IdUsuario; ?>"
               <span><input type="submit" value="Editar" >
@@ -69,19 +67,44 @@
         if ($connection->connect_errno) {
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
-        }
-        //MAKING A UPDATE
-        $nombre=$_POST['Nombre_usu'];
+            }
+        $nombre=$_POST['Nombre'];
         $apellidos=$_POST['Apellidos'];
         $cod=$_GET['editar'];
 
-
-        $query="Update Usuarios SET Nombre='$nombre',
-        Apellidos='$apellidos'
+        $query="UPDATE Usuarios SET Nombre='$nombre',Apellidos='$apellidos'
         WHERE IdUsuario='$cod'";
-
         echo $query;
 
+        if ($connection->query($query)) {
+          echo "Se ha Registardo en ...";
+          $query ="SELECT * FROM Usuarios";
+          if ($result = $connection->query($query)) {
+            echo "<table>";
+
+
+            //FETCHING OBJECTS FROM THE RESULT SET
+            //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
+
+            while($obj = $result->fetch_object()) {
+
+                //PRINTING EACH ROW
+                echo "<tr>";
+                  echo "<td>".$obj->IdUsuario."</td>";
+                  echo "<td>".$obj->Nombre."</td>";
+                  echo "<td>".$obj->Gmail."</td>";
+                  echo "<td>".$obj->Apellidos."</td>";
+                  echo "<td>".$obj->Edad."</td>";
+                  echo "<td>".$obj->password."</td>";
+                echo "</tr>";
+            }
+
+
+            echo "</table>";
+          }
+        } else {
+          echo "ERROR AL AÑADIR USUARIO";
+        }
 
 
 
