@@ -12,16 +12,16 @@
     <div class="container" id="contenedor" >
 
       <div class="row">
-      <h1 style="color:black; text-align: center">Añadir Nuevo Album</H1>
+      <h1 style="color:black; text-align: center">Añadir Nueva Lista</H1>
       </div>
 
         <div class="row" >
         <?php if (!isset($_POST["Nombre"])) : ?>
           <form method="post" role="form">
          <div class="form-group">
-           <label for="ejemplo_email_1">IdAlbum</label>
+           <label for="ejemplo_email_1">IdLista</label>
            <input type="text" name="Nombre" class="form-control"
-           placeholder="Introduce Nombre de Album">
+           placeholder="Introduce Nombre de Lista">
         </div>
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
@@ -40,14 +40,14 @@
         }
         $Nombre = $_POST["Nombre"];
           echo $Nombre;
-        $query = "INSERT INTO Albums (IdAlbum,Nombre_Album)
+        $query = "INSERT INTO Listas (IdLista,Nombre_Lista)
         VALUES (NULL,'$Nombre')";
 
 
         echo $query;
         if ($connection->query($query)) {
           echo "Se ha Registardo en ...";
-          $query ="SELECT IdAlbum, Nombre_Album FROM Albums";
+          $query ="SELECT Nombre_Lista,IdLista FROM Listas";
           if ($result = $connection->query($query)) {
             echo "<table>";
 
@@ -59,15 +59,15 @@
 
                 //PRINTING EACH ROW
                 echo "<tr>";
-                  echo "<td>".$obj->IdAlbum."</td>";
-                  echo "<td>".$obj->Nombre_Album."</td>";
+                  echo "<td>".$obj->IdLista."</td>";
+                  echo "<td>".$obj->Nombre_Lista."</td>";
                 echo "</tr>";
             }
 
             echo "</table>";
           }
         } else {
-          echo "ERROR AL AÑADIR ALBUM";
+          echo "ERROR AL AÑADIR LISTA";
         }
         ?>
 

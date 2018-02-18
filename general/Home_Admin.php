@@ -89,6 +89,14 @@
     </tr>
     <tr>
     	<td>
+    		<p>Añada un Nuevo Lista</p>
+    </td>
+    	<td>
+    		<a href='Añadir/Añadir_Lista.php?'><img src='Añadir.png' width='20px' /></a>
+    </td>
+    </tr>
+    <tr>
+    	<td>
     		<p>Añada un Nuevo Artista</p>
     </td>
     	<td>

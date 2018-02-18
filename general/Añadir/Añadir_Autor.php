@@ -70,7 +70,7 @@
             echo "</table>";
           }
         } else {
-          echo "ERROR AL AÑADIR USUARIO";
+          echo "ERROR AL AÑADIR AUTOR";
         }
         ?>
 
