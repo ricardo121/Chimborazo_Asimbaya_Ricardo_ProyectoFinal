@@ -106,9 +106,6 @@
           echo "ERROR AL AÑADIR USUARIO";
         }
 
-
-
-
         ?>
 
       <?php endif ?>

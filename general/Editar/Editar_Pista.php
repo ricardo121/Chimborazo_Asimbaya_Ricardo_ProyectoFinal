@@ -20,7 +20,7 @@
 
 
 
-      <?php if (!isset($_POST["codigo"])) : ?>
+      <?php if (!isset($_POST["IdUsuario"])) : ?>
 
         <?php
 
@@ -34,16 +34,16 @@
         }
         //MAKING A SELECT QUERY
         /* Consultas de selección que devuelven un conjunto de resultados */
-            $query="SELECT p.*,p.Nombre_Pista from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario WHERE p.IdPista='".$_GET['modificar']."'";
+            $query="SELECT * from Pistas  WHERE IdPista='".$_GET['editar']."'";
         if ($result = $connection->query($query)) {
           echo $query;
           while($obj = $result->fetch_object()) {
+            $Nombre =$obj->Nombre_Pista;
+            $Genero = $obj->Genero;
+            $Pista = $obj->Pista;
+            $IdAlbum = $obj->IdAlbum;
+            $IdAutor = $obj->IdAutor;
 
-            $nom =$obj->Nombre_Pista;
-            $gene = $obj->Genero;
-            $id = $obj->IdPista;
-
-            echo $query;
         }
       }
         ?>
@@ -51,10 +51,13 @@
         <form method="post">
           <fieldset>
             <legend>Personal Info</legend>
-            <span>Nombre:</span><input type="text" name="nombre" value="<?php echo $nom; ?>"required><br>
-            <span>Genero:</span><input type="text" name="genero" value="<?php echo $gene; ?>" required><br>
-              <span><input type="hidden" name="codigo"  value="<?php echo $id; ?>"
-            <span><input type="submit" value="Editar" >
+            <span>Nombre_Pista:</span><input type="text" name="Nombre" value="<?php echo $Nombre; ?>"required><br>
+            <span>Genero:</span><input type="text" name="Genero" value="<?php echo $Genero; ?>" required><br>
+            <span>Pista:</span><input type="text" name="Pista" value="<?php echo $Pista; ?>" required><br>
+            <span>IdAlbum:</span><input type="text" name="IdAlbum" value="<?php echo $IdAlbum; ?>" required><br>
+            <span>IdAutor:</span><input type="text" name="IdAutor" value="<?php echo $IdAutor; ?>" required><br>
+              <span><input type="hidden" name="IdUsuario"  value="<?php echo $IdUsuario; ?>"
+              <span><input type="submit" value="Editar" >
           </fieldset>
         </form>
 
@@ -69,23 +72,47 @@
         if ($connection->connect_errno) {
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
-        }
-        //MAKING A UPDATE
-        $nom=$_POST['nombre'];
-        $gene=$_POST['genero'];
-        $codigo=$_POST['codigo'];
-        $query="Update Pistas SET Nombre_Pista='$nom',
-        Genero='$gene'
-        WHERE IdPista='$codigo'";
+            }
+        $Nombre=$_POST['Nombre'];
+        $Genero=$_POST['Genero'];
+        $Pista=$_POST['Pista'];
+        $IdAlbum=$_POST['IdAlbum'];
+        $IdAutor=$_GET['IdAutor'];
+        $cod=$_GET['editar'];
+
+        $query="UPDATE Pistas SET Nombre_Pista='$Nombre',Genero='$Genero',Pista='$Pista',IdAlbum='$IdAlbum',IdAutor='$IdAutor'
+        WHERE IdPista='$cod'";
+        echo $query;
+
+        if ($connection->query($query)) {
+          echo "Se ha Modificado en ...";
+          $query ="SELECT * FROM Pistas WHERE IdPista='$cod'";
+          if ($result = $connection->query($query)) {
+            echo "<table>";
 
 
-        if ($result = $connection->query($query)) {
-          header('Location:  /ricardo/general/editar_canciones.php/');
+            //FETCHING OBJECTS FROM THE RESULT SET
+            //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
 
+            while($obj = $result->fetch_object()) {
+
+                //PRINTING EACH ROW
+                echo "<tr>";
+                  echo "<td>".$obj->IdPista."</td>";
+                  echo "<td>".$obj->Nombre_Pista."</td>";
+                  echo "<td>".$obj->Genero."</td>";
+                  echo "<td>".$obj->Pista."</td>";
+                  echo "<td>".$obj->IdAlbum."</td>";
+                  echo "<td>".$obj->IdAutor."</td>";
+                echo "</tr>";
+            }
+
+
+            echo "</table>";
+          }
         } else {
-          echo "Error al Modificar Datos de Pistas";
+          echo "ERROR AL AÑADIR USUARIO";
         }
-
 
         ?>
 
