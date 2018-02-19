@@ -31,7 +31,9 @@
     }
 
 
-  $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario WHERE p.IdUsuario='".$_GET['Usuario']."'";
+  $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario
+	join Listas l ON p.IdPista=l.IdPista
+	 WHERE p.IdUsuario='".$_GET['Usuario']."'";
 
 
   if ($result = $connection->query($query)) {
