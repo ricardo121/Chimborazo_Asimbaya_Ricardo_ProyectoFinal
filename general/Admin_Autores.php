@@ -53,7 +53,7 @@
           //PRINTING EACH ROW
           echo "<tr>";
             echo "<td>".$obj->IdAutor."</td>";
-            echo "<td>".$obj->Nombre_Artista."</td>";
+            echo "<td>".$obj->Nombre_Autor."</td>";
             echo "<td>";
             echo "<a href='Eliminar/Borrar_Autor.php?borrar=".$obj->IdAutor.
             "'><img src='eliminar.png' width='20px' /></a>";
@@ -62,10 +62,6 @@
             echo "<a href='Editar/Editar_Autor.php?editar=".$obj->IdAutor.
             "'><img src='lapiz.png' width='20px' /></a>";
             echo "</td>";
-            echo "<td>";
-						echo "<a href='Añadir/Añadir_Autor.php?añadir=".$obj->IdAutor.
-						"'><img src='Añadir.png' width='20px' /></a>";
-						echo "</td>";
           echo "</tr>";
 
       }

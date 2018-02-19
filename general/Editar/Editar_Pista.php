@@ -20,7 +20,7 @@
 
 
 
-      <?php if (!isset($_POST["IdUsuario"])) : ?>
+      <?php if (!isset($_POST["IdPist"])) : ?>
 
         <?php
 
@@ -38,12 +38,12 @@
         if ($result = $connection->query($query)) {
           echo $query;
           while($obj = $result->fetch_object()) {
-            $Nombre =$obj->Nombre_Pista;
+            $Id =$obj->IdPista;
+            $Nombre =$obj->Nombre_pista;
             $Genero = $obj->Genero;
             $Pista = $obj->Pista;
             $IdAlbum = $obj->IdAlbum;
             $IdAutor = $obj->IdAutor;
-
         }
       }
         ?>
@@ -54,9 +54,9 @@
             <span>Nombre_Pista:</span><input type="text" name="Nombre" value="<?php echo $Nombre; ?>"required><br>
             <span>Genero:</span><input type="text" name="Genero" value="<?php echo $Genero; ?>" required><br>
             <span>Pista:</span><input type="text" name="Pista" value="<?php echo $Pista; ?>" required><br>
-            <span>IdAlbum:</span><input type="text" name="IdAlbum" value="<?php echo $IdAlbum; ?>" required><br>
-            <span>IdAutor:</span><input type="text" name="IdAutor" value="<?php echo $IdAutor; ?>" required><br>
-              <span><input type="hidden" name="IdUsuario"  value="<?php echo $IdUsuario; ?>"
+            <span>IdAlbum:</span><input type="text" name="IdAlbum" value="<?php echo $IdAlbum; ?>" ><br>
+            <span>IdAutor:</span><input type="text" name="IdAutor" value="<?php echo $IdAutor; ?>" ><br>
+              <span><input type="hidden" name="IdPist"  value="<?php echo $Id; ?>"
               <span><input type="submit" value="Editar" >
           </fieldset>
         </form>
@@ -73,20 +73,23 @@
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
             }
+
         $Nombre=$_POST['Nombre'];
         $Genero=$_POST['Genero'];
         $Pista=$_POST['Pista'];
         $IdAlbum=$_POST['IdAlbum'];
-        $IdAutor=$_GET['IdAutor'];
-        $cod=$_GET['editar'];
+        $IdAutor=$_POST['IdAutor'];
+        $ID=$_POST['IdPist'];
 
         $query="UPDATE Pistas SET Nombre_Pista='$Nombre',Genero='$Genero',Pista='$Pista',IdAlbum='$IdAlbum',IdAutor='$IdAutor'
-        WHERE IdPista='$cod'";
+        WHERE IdPista='$ID'";
         echo $query;
+        echo $ID;
+
 
         if ($connection->query($query)) {
           echo "Se ha Modificado en ...";
-          $query ="SELECT * FROM Pistas WHERE IdPista='$cod'";
+          $query ="SELECT * FROM Pistas WHERE IdPista='$ID'";
           if ($result = $connection->query($query)) {
             echo "<table>";
 
@@ -99,7 +102,7 @@
                 //PRINTING EACH ROW
                 echo "<tr>";
                   echo "<td>".$obj->IdPista."</td>";
-                  echo "<td>".$obj->Nombre_Pista."</td>";
+                  echo "<td>".$obj->Nombre_pista."</td>";
                   echo "<td>".$obj->Genero."</td>";
                   echo "<td>".$obj->Pista."</td>";
                   echo "<td>".$obj->IdAlbum."</td>";
@@ -111,7 +114,7 @@
             echo "</table>";
           }
         } else {
-          echo "ERROR AL AÑADIR USUARIO";
+          echo "ERROR AL MODIFICAR PISTA";
         }
 
         ?>

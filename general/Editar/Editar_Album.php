@@ -20,7 +20,7 @@
 
 
 
-      <?php if (!isset($_POST["IdUsuario"])) : ?>
+      <?php if (!isset($_POST["IdAlbum"])) : ?>
 
         <?php
 
@@ -34,16 +34,13 @@
         }
         //MAKING A SELECT QUERY
         /* Consultas de selección que devuelven un conjunto de resultados */
-            $query="SELECT * from Usuarios  WHERE IdUsuario='".$_GET['editar']."'";
+            $query="SELECT * from Albums  WHERE IdAlbum='".$_GET['editar']."'";
         if ($result = $connection->query($query)) {
           echo $query;
           while($obj = $result->fetch_object()) {
+            $Nombre =$obj->Nombre_album;
+            $Id = $obj->IdAlbum;
 
-            $Nombre_usu =$obj->Nombre;
-            $Apellidos = $obj->Apellidos;
-            $IdUsuario = $obj->IdUsuario;
-
-            echo $query;
         }
       }
         ?>
@@ -51,10 +48,9 @@
         <form method="post">
           <fieldset>
             <legend>Personal Info</legend>
-            <span>Nombre:</span><input type="text" name="Nombre_usu" value="<?php echo $Nombre_usu; ?>"required><br>
-            <span>Apellidos:</span><input type="text" name="Apellidos" value="<?php echo $Apellidos; ?>" required><br>
-              <span><input type="hidden" name="IdUsuario"  value="<?php echo $IdUsuario; ?>"
-            <span><input type="submit" value="Editar" >
+            <span>Nombre_Album:</span><input type="text" name="Nombre" value="<?php echo $Nombre; ?>"required><br>
+              <span><input type="hidden" name="IdAlbum"  value="<?php echo $Id; ?>"
+              <span><input type="submit" value="Editar" >
           </fieldset>
         </form>
 
@@ -69,23 +65,41 @@
         if ($connection->connect_errno) {
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
-        }
-        //MAKING A UPDATE
-        $nombre=$_POST['Nombre_usu'];
-        $apellidos=$_POST['Apellidos'];
-        $codigo=$_POST['$IdUsuario'];
-        $query="Update Usuarios SET Nombre='$nombre',
-        Apellidos='$apellidos'
-        WHERE IdUsuario='$codigo'";
+            }
+
+        $Nombre=$_POST['Nombre'];
+        $IdAlbum=$_POST['IdAlbum'];
+
+        $query="UPDATE Albums SET Nombre_album='$Nombre'
+        WHERE IdAlbum='$IdAlbum'";
+        echo $query;
 
 
-        if ($result = $connection->query($query)) {
-          header('Location: editar_canciones.php');
+        if ($connection->query($query)) {
+          echo "Se ha Modificado en ...";
+          $query ="SELECT * FROM Albums WHERE IdAlbum='$IdAlbum'";
+          if ($result = $connection->query($query)) {
+            echo "<table>";
 
+
+            //FETCHING OBJECTS FROM THE RESULT SET
+            //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
+
+            while($obj = $result->fetch_object()) {
+
+                //PRINTING EACH ROW
+                echo "<tr>";
+                  echo "<td>".$obj->IdAlbum."</td>";
+                  echo "<td>".$obj->Nombre_album."</td>";
+                echo "</tr>";
+            }
+
+
+            echo "</table>";
+          }
         } else {
-          echo "Error al Modificar Datos de Pistas";
+          echo "ERROR AL MODIFICAR ALBUM";
         }
-
 
         ?>
 

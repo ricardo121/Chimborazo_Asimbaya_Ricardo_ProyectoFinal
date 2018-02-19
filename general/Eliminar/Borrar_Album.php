@@ -49,7 +49,7 @@
         $query="SET FOREIGN_KEY_CHECKS=0";
         $connection->query($query);
 
-        $query="DELETE from Albums  where IdAlbum='".$_GET["hola"]."'";
+        $query="DELETE from Albums  where IdAlbum='".$_GET["borrar"]."'";
 
         if ($result = $connection->query($query)) {
           header('Location: Admin_Albums.php');

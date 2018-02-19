@@ -49,7 +49,7 @@
         $query="SET FOREIGN_KEY_CHECKS=0";
         $connection->query($query);
 
-        $query="DELETE from  Autores  where IdAutor='".$_GET["Autor"]."'";
+        $query="DELETE from  Autores  where IdAutor='".$_GET["borrar"]."'";
 
         if ($result = $connection->query($query)) {
           header('Location: Admin_Autores.php');

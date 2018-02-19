@@ -61,9 +61,6 @@
 						echo "<td>";
 						echo "<a href='Editar/Editar_Album.php?editar=".$obj->IdAlbum.
 						"'><img src='lapiz.png' width='20px' /></a>";
-						echo "<td>";
-						echo "<a href='Añadir/Añadir_Album.php?añadir=".$obj->IdAlbum.
-						"'><img src='Añadir.png' width='20px' /></a>";
 						echo "</td>";
           echo "</tr>";
 
