@@ -33,6 +33,7 @@
               <th>Nombre</th>
               <th>Apellidos</th>
               <th>Gmail</th>
+              <th>Administrador</th>
               <th>Edad</th>
               <th></th>
               <th></th>
@@ -49,6 +50,7 @@
                 echo "<td>".$obj->Nombre."</td>";
                 echo "<td>".$obj->Apellidos."</td>";
                 echo "<td>".$obj->Gmail."</td>";
+                echo "<td>".$obj->Administrador."</td>";
                 echo "<td>".$obj->Edad."</td>";
                 echo "<td>";
                 echo "<a href='Eliminar/Borrar_Usuario.php?borrar=".$obj->IdUsuario.

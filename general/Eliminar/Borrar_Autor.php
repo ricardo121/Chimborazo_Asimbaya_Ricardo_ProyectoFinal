@@ -52,7 +52,7 @@
         $query="DELETE from  Autores  where IdAutor='".$_GET["borrar"]."'";
 
         if ($result = $connection->query($query)) {
-          header('Location: Admin_Autores.php');
+          header('Location: /ricardo/general/Admin_Autores.php');
 
         } else {
           echo "Error al Borrar los datos";

@@ -41,6 +41,7 @@
             $Nombre_usu =$obj->Nombre;
             $Apellidos = $obj->Apellidos;
             $IdUsuario = $obj->IdUsuario;
+            $Administrador = $obj->Administrador;
 
         }
       }
@@ -51,6 +52,7 @@
             <legend>Personal Info</legend>
             <span>Nombre:</span><input type="text" name="Nombre" value="<?php echo $Nombre_usu; ?>"required><br>
             <span>Apellidos:</span><input type="text" name="Apellidos" value="<?php echo $Apellidos; ?>" required><br>
+            <span>Administrador:</span><input type="text" name="Administrador" value="<?php echo $Administrador; ?>" required><br>
               <span><input type="hidden" name="IdUsuario"  value="<?php echo $IdUsuario; ?>"
               <span><input type="submit" value="Editar" >
           </fieldset>
@@ -70,9 +72,10 @@
             }
         $nombre=$_POST['Nombre'];
         $apellidos=$_POST['Apellidos'];
+        $Administrador=$_POST['Administrador'];
         $cod=$_GET['editar'];
 
-        $query="UPDATE Usuarios SET Nombre='$nombre',Apellidos='$apellidos'
+        $query="UPDATE Usuarios SET Nombre='$nombre',Apellidos='$apellidos',Administrador='$Administrador'
         WHERE IdUsuario='$cod'";
         echo $query;
 
@@ -94,6 +97,7 @@
                   echo "<td>".$obj->Nombre."</td>";
                   echo "<td>".$obj->Gmail."</td>";
                   echo "<td>".$obj->Apellidos."</td>";
+                  echo "<td>".$obj->Administrador."</td>";
                   echo "<td>".$obj->Edad."</td>";
                   echo "<td>".$obj->password."</td>";
                 echo "</tr>";

@@ -52,7 +52,7 @@
         $query="DELETE from Albums  where IdAlbum='".$_GET["borrar"]."'";
 
         if ($result = $connection->query($query)) {
-          header('Location: Admin_Albums.php');
+          header('Location: /ricardo/general/Admin_Albums.php');
 
         } else {
           echo "Error al Borrar los datos";
