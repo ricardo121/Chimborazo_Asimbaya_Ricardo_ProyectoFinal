@@ -11,7 +11,6 @@
 
 
 
-
   <?php
     if (empty($_GET)) {
       echo "No se han recibido datos del reparaciones";
@@ -31,28 +30,20 @@
     }
 
 
-  $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario
-	join Contener c ON p.IdPista=c.IdPista
-	 WHERE p.IdUsuario='".$_GET['Usuario']."'";
+  $query="SELECT * from Listas  WHERE IdLista='".$_GET['IdLista']."'";
 
 
   if ($result = $connection->query($query)) {
-
+      printf("<p>The select query returned %d rows.</p>", $result->num_rows);
+      echo $query;
   ?>
 
       <!-- PRINT THE TABLE AND THE HEADER -->
       <table class="table">
       <thead>
         <tr>
-          <th>IdUsuario</th>
-					<th>Gmail</th>
-          <th>IdPista</th>
-          <th>Nombre_Pista</th>
-          <th>Genero</th>
-          <th>Reproducciones_pista</th>
-          <th>IdAutor</th>
-          <th>IdAlbum</th>
-					<th>IdLista</th>
+          <th>IdLista</th>
+          <th>Nombre_Lista</th>
       </thead>
 
   <?php
@@ -61,20 +52,14 @@
       while($obj = $result->fetch_object()) {
           //PRINTING EACH ROW
           echo "<tr>";
-            echo "<td>".$obj->IdUsuario."</td>";
-						echo "<td>".$obj->Gmail."</td>";
-            echo "<td>".$obj->IdPista."</td>";
-            echo "<td>".$obj->Nombre_pista."</td>";
-            echo "<td>".$obj->Genero."</td>";
-            echo "<td>".$obj->Reproducciones_pista."</td>";
-            echo "<td><a href='Admin_Autores.php?IdAutor=".$obj->IdAutor."'>".$obj->IdAutor."</a></td>";
-            echo "<td><a href='Admin_Albums.php?IdAlbum=".$obj->IdAlbum."'>".$obj->IdAlbum."</a></td>";
-						echo "<td><a href='Admin_Listas.php?IdLista=".$obj->IdLista."'>".$obj->IdLista."</a></td>";
+            echo "<td>".$obj->IdLista."</td>";
+            echo "<td>".$obj->Nombre_lista."</td>";
             echo "<td>";
-            echo "<a href='Eliminar/Borrar_Pista.php?borrar=".$obj->IdPista.
+            echo "<a href='Eliminar/Borrar_Lista.php?borrar=".$obj->IdLista.
             "'><img src='eliminar.png' width='20px' /></a>";
+            echo "</td>";
 						echo "<td>";
-						echo "<a href='Editar/Editar_Pista.php?editar=".$obj->IdPista.
+						echo "<a href='Editar/Editar_Lista.php?editar=".$obj->IdLista.
 						"'><img src='lapiz.png' width='20px' /></a>";
 						echo "</td>";
           echo "</tr>";
@@ -83,7 +68,6 @@
       //Free the result. Avoid High Memory Usages
   } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 ?>
-
 	</div>
 </body>
 </html>
