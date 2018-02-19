@@ -34,7 +34,8 @@
         }
         //MAKING A SELECT QUERY
         /* Consultas de selección que devuelven un conjunto de resultados */
-            $query="SELECT * from Pistas  WHERE IdPista='".$_GET['editar']."'";
+            $query="SELECT * from Pistas p join Contener c ON p.IdPista=c.IdPista
+            WHERE p.IdPista='".$_GET['editar']."'";
         if ($result = $connection->query($query)) {
           echo $query;
           while($obj = $result->fetch_object()) {
@@ -44,6 +45,7 @@
             $Pista = $obj->Pista;
             $IdAlbum = $obj->IdAlbum;
             $IdAutor = $obj->IdAutor;
+            $IdLista = $obj->IdLista;
         }
       }
         ?>
@@ -56,6 +58,7 @@
             <span>Pista:</span><input type="text" name="Pista" value="<?php echo $Pista; ?>" required><br>
             <span>IdAlbum:</span><input type="text" name="IdAlbum" value="<?php echo $IdAlbum; ?>" ><br>
             <span>IdAutor:</span><input type="text" name="IdAutor" value="<?php echo $IdAutor; ?>" ><br>
+            <span>IdLista:</span><input type="text" name="IdLista" value="<?php echo $IdLista; ?>" ><br>
               <span><input type="hidden" name="IdPist"  value="<?php echo $Id; ?>"
               <span><input type="submit" value="Editar" >
           </fieldset>
@@ -79,17 +82,21 @@
         $Pista=$_POST['Pista'];
         $IdAlbum=$_POST['IdAlbum'];
         $IdAutor=$_POST['IdAutor'];
+        $IdLista=$_POST['IdLista'];
         $ID=$_POST['IdPist'];
 
-        $query="UPDATE Pistas SET Nombre_Pista='$Nombre',Genero='$Genero',Pista='$Pista',IdAlbum='$IdAlbum',IdAutor='$IdAutor'
-        WHERE IdPista='$ID'";
+        $query="UPDATE Pistas p
+        join Contener c ON p.IdPista=c.IdPista
+        SET Nombre_Pista='$Nombre',Genero='$Genero',Pista='$Pista',IdAlbum='$IdAlbum',IdAutor='$IdAutor',IdLista='$IdLista'
+        WHERE p.IdPista='$ID'";
         echo $query;
         echo $ID;
 
 
         if ($connection->query($query)) {
           echo "Se ha Modificado en ...";
-          $query ="SELECT * FROM Pistas WHERE IdPista='$ID'";
+          $query ="SELECT * from Pistas p join Contener c ON p.IdPista=c.IdPista
+          WHERE p.IdPista='$ID'";
           if ($result = $connection->query($query)) {
             echo "<table>";
 
