@@ -28,6 +28,10 @@
              <input type="text" name="Genero" class="form-control"
              placeholder="Introduce Genero">
           </div>
+          <div class="form-group">
+            <label for="ejemplo_archivo_1">Pista</label>
+            <input type="file" id="ejemplo_archivo_1">
+         </div>
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
 
@@ -47,13 +51,14 @@
         }
         $Nombre = $_POST["Nombre_Pista"];
         $Genero= $_POST["Genero"];
+        $Pista= $_POST["Pista"];
         /*$IdAlbum = $_POST["IdAlbum"];
         $IdAutor= $_POST["IdAutor"];*/
         $IdUsuario = $_GET['añadir'];
 
         $query = "INSERT INTO Pistas (IdPista,IdAlbum,IdUsuario,
         IdAutor,Pista,Nombre_pista,Genero,Hora_subida,Reproducciones_pista,Valoracion_positiva,Valoracion_negativa)
-        VALUES (NULL,NULL,$IdUsuario,NULL,'hola','$Nombre','$Genero',0,NULL,NULL,NULL)";
+        VALUES (NULL,NULL,$IdUsuario,NULL,'$Pista','$Nombre','$Genero',0,NULL,NULL,NULL)";
 
 
         echo $query;

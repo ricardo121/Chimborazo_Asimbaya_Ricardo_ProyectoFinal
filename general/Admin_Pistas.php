@@ -50,9 +50,9 @@
           <th>Nombre_Pista</th>
           <th>Genero</th>
           <th>Reproducciones_pista</th>
-          <th>IdAutor</th>
-          <th>IdAlbum</th>
-					<th>IdLista</th>
+          <th>Autor</th>
+          <th>Album</th>
+					<th>Lista</th>
       </thead>
 
   <?php

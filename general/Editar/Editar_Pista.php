@@ -56,11 +56,62 @@
             <span>Nombre_Pista:</span><input type="text" name="Nombre" value="<?php echo $Nombre; ?>"required><br>
             <span>Genero:</span><input type="text" name="Genero" value="<?php echo $Genero; ?>" required><br>
             <span>Pista:</span><input type="text" name="Pista" value="<?php echo $Pista; ?>" required><br>
-            <span>IdAlbum:</span><input type="text" name="IdAlbum" value="<?php echo $IdAlbum; ?>" ><br>
-            <span>IdAutor:</span><input type="text" name="IdAutor" value="<?php echo $IdAutor; ?>" ><br>
-            <span>IdLista:</span><input type="text" name="IdLista" value="<?php echo $IdLista; ?>" ><br>
+            <span>IdAlbum:</span>
+            <?php
+              echo "<select name='IdAlbum'>";
+
+              $query="SELECT * FROM Albums";
+
+              if ($result=$connection->query($query)) {
+                while($obj=$result->fetch_object()) {
+                  echo "<option value='".$obj->IdAlbum."'>";
+                  echo $obj->Nombre_album;
+                  echo "</option>";
+                }
+              } else {
+                echo "NO SE HA PODIDO RECUPERAR DATOS DE LOS ALBUMS";
+              }
+              echo "</select>";
+            ?>
+            <input type="text" name="IdAlbum" value="<?php echo $IdAlbum; ?>" ><br>
+            <span>IdAutor:</span>
+            <?php
+              echo "<select name='IdAutor'>";
+
+              $query="SELECT * FROM Autores";
+
+              if ($result=$connection->query($query)) {
+                while($obj=$result->fetch_object()) {
+                  echo "<option value='".$obj->IdAutor."'>";
+                  echo $obj->Nombre_Autor;
+                  echo "</option>";
+                }
+              } else {
+                echo "NO SE HA PODIDO RECUPERAR DATOS DE LOS AUTORES";
+              }
+              echo "</select>";
+            ?>
+            <input type="text" name="IdAutor" value="<?php echo $IdAutor; ?>" ><br>
+            <span>IdLista:</span>
+            <?php
+              echo "<select name='IdLista'>";
+
+              $query="SELECT * FROM Listas";
+
+              if ($result=$connection->query($query)) {
+                while($obj=$result->fetch_object()) {
+                  echo "<option value='".$obj->IdLista."'>";
+                  echo $obj->Nombre_lista;
+                  echo "</option>";
+                }
+              } else {
+                echo "NO SE HA PODIDO RECUPERAR DATOS DE LOS LISTAS";
+              }
+              echo "</select>";
+            ?>
+            <input type="text" name="IdLista" value="<?php echo $IdLista; ?>" ><br>
               <span><input type="hidden" name="IdPist"  value="<?php echo $Id; ?>"
-              <span><input type="submit" value="Editar" >
+              <span><input type="submit" value="Editar">
           </fieldset>
         </form>
 
