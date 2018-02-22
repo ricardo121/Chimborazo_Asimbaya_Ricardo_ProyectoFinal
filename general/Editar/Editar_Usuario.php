@@ -70,12 +70,12 @@
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
             }
-        $nombre=$_POST['Nombre'];
-        $apellidos=$_POST['Apellidos'];
+        $Nombre=$_POST['Nombre'];
+        $Apellidos=$_POST['Apellidos'];
         $Administrador=$_POST['Administrador'];
         $cod=$_GET['editar'];
 
-        $query="UPDATE Usuarios SET Nombre='$nombre',Apellidos='$apellidos',Administrador='$Administrador'
+        $query="UPDATE Usuarios SET Nombre='$Nombre',Apellidos='$Apellidos',Administrador='$Administrador'
         WHERE IdUsuario='$cod'";
         echo $query;
 

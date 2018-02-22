@@ -30,7 +30,7 @@
           </div>
           <div class="form-group">
             <label for="ejemplo_archivo_1">Pista</label>
-            <input type="file" id="ejemplo_archivo_1">
+            <input class="form-control" type="file" name="image" required />
          </div>
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
@@ -49,11 +49,17 @@
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
         }
+
+
+
+
+
+
+
+
         $Nombre = $_POST["Nombre_Pista"];
         $Genero= $_POST["Genero"];
         $Pista= $_POST["Pista"];
-        /*$IdAlbum = $_POST["IdAlbum"];
-        $IdAutor= $_POST["IdAutor"];*/
         $IdUsuario = $_GET['añadir'];
 
         $query = "INSERT INTO Pistas (IdPista,IdAlbum,IdUsuario,

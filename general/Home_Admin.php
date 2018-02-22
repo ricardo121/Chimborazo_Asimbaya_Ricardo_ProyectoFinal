@@ -61,7 +61,7 @@
                 "'><img src='lapiz.png' width='20px' /></a>";
                 echo "</td>";
                 echo "<td>";
-                echo "<a href='Añadir/Añadir_Pista.php?añadir=".$obj->IdUsuario.
+                echo "<a href='Añadir/Añadir_Pistas.php?añadir=".$obj->IdUsuario.
                 "'><img src='Añadir.png' width='20px' /></a>";
                 echo "</td>";
               echo "</tr>";

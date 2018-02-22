@@ -64,10 +64,12 @@
             echo "<td>".$obj->IdUsuario."</td>";
 						echo "<td>".$obj->Gmail."</td>";
             echo "<td>".$obj->IdPista."</td>";
-            echo "<td>".$obj->Nombre_pista."</td>";
+            echo "<td>".$obj->Nombre_Pista."</td>";
             echo "<td>".$obj->Genero."</td>";
-            echo "<td>".$obj->Reproducciones_pista."</td>";
-            echo "<td><a href='Admin_Autores.php?IdAutor=".$obj->IdAutor."'>".$obj->IdAutor."</a></td>";
+            echo "<td>".$obj->Reproducciones_Pista."</td>";
+            echo "<td><a href='Admin_Autores.php?IdAutor=".$obj->IdAutor."'>
+						".$obj->IdAutor."
+						</a></td>";
             echo "<td><a href='Admin_Albums.php?IdAlbum=".$obj->IdAlbum."'>".$obj->IdAlbum."</a></td>";
 						echo "<td><a href='Admin_Listas.php?IdLista=".$obj->IdLista."'>".$obj->IdLista."</a></td>";
             echo "<td>";
