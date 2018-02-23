@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
     <link rel="stylesheet" type="text/css" href=" ">
-    <style>
-      span {
-        width: 100px;
-        display: inline-block;
-      }
-    </style>
   </head>
   <body>
 

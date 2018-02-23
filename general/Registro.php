@@ -15,17 +15,41 @@
 
       <div class="row" >
       <?php if (!isset($_POST["Gmail"])) : ?>
-        <form method="post" id="formulario_registro" >
-          <fieldset>
-            <legend>Registarte</legend>
-            <span>Nombre:</span><input type="text" name="Nombre" required><br>
-            <span>Apellidos:</span><input type="text" name="Apellidos" required><br>
-            <span>Gmail:</span><input type="Email" name="Gmail" required><br>
-            <span>password:</span><input type="password" name="password" required><br>
-            <span>Edad:</span><input type="text" name="Edad"><br>
-            <p><input type="submit" value="Registrase"></p>
-          </fieldset>
+
+
+
+
+        <form method="post" role="form" id="formulario_registro">
+          <legend>Registarte</legend>
+          <div class="form-group">
+            <label for="ejemplo_email_1">Nombre:</label>
+            <input type="text" class="form-control" name="Nombre"
+                   placeholder="Introduce tu Nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="ejemplo_email_1">Apellidos:</label>
+            <input type="text" class="form-control" name="Apellidos"
+                   placeholder="Introduce tus Apellidos" required>
+          </div>
+          <div class="form-group">
+            <label for="ejemplo_email_1">Gmail:</label>
+            <input type="email" class="form-control" name="Gmail"
+                   placeholder="Introduce tu email" required>
+          </div>
+          <div class="form-group">
+            <label for="ejemplo_password_1">Contraseña</label>
+            <input type="password" class="form-control" name="Password"
+                   placeholder="Contraseña" required>
+          </div>
+          <div class="form-group">
+            <label for="ejemplo_email_1">Edad:</label>
+            <input type="text" class="form-control" name="Edad"
+                   placeholder="Introduce tu Edad" required>
+          </div>
+          <button type="submit" class="btn btn-default" >Registrase</button>
         </form>
+
+
 
       <!-- DATA IN $_POST['mail']. Coming from a form submit -->
       <?php else: ?>
@@ -42,7 +66,7 @@
         $Nom = $_POST["Nombre"];
         $Ape = $_POST["Apellidos"];
         $Em = $_POST["Gmail"];
-        $Pass =  md5($_POST["password"]);
+        $Pass =  md5($_POST["Password"]);
         $Edad = $_POST["Edad"];
         $query = "INSERT INTO Usuarios(IdUsuario,Nombre,Apellidos,Gmail,password,Edad)
         VALUES ('NULL','$Nom','$Ape','$Em','$Pass','$Edad')";
