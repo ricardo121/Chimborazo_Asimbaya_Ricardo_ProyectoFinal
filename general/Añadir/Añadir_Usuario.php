@@ -16,6 +16,7 @@
       </div>
 
         <div class="row" >
+          
         <?php if (!isset($_POST["Gmail"])) : ?>
           <form method="post" role="form">
             <div class="form-group">
@@ -35,7 +36,7 @@
          </div>
            <div class="form-group">
              <label for="ejemplo_password_1">Contraseña</label>
-             <input type="password" name="password" class="form-control"
+             <input type="password" name="Password" class="form-control"
               placeholder="Contraseña">
             </div>
             <div class="form-group">
@@ -63,7 +64,7 @@
         $Nom = $_POST["Nombre"];
         $Ape = $_POST["Apellidos"];
         $Em = $_POST["Gmail"];
-        $Pass =  md5($_POST["password"]);
+        $Pass =  md5($_POST["Password"]);
         $Edad = $_POST["Edad"];
         $query = "INSERT INTO Usuarios(IdUsuario,Nombre,Apellidos,Gmail,password,Edad)
         VALUES ('NULL','$Nom','$Ape','$Em','$Pass','$Edad')";
@@ -87,7 +88,7 @@
                   echo "<td>".$obj->Gmail."</td>";
                   echo "<td>".$obj->Apellidos."</td>";
                   echo "<td>".$obj->Edad."</td>";
-                  echo "<td>".$obj->password."</td>";
+                  echo "<td>".$obj->Password."</td>";
                 echo "</tr>";
             }
 

@@ -15,30 +15,53 @@
       <h1 style="color:black; text-align: center">Añadir Nueva Pista</H1>
       </div>
 
-        <div class="row" >
-        <?php if (!isset($_POST["Nombre_Pista"])) : ?>
-          <form method="post" role="form">
-            <div class="form-group">
-              <label for="ejemplo_email_1">Nombre de Pista:</label>
-              <input type="text" name="Nombre_Pista" class="form-control"
-              placeholder="Introduce Nombre de Pista">
-           </div>
-           <div class="form-group">
-             <label for="ejemplo_email_1">Genero</label>
-             <input type="text" name="Genero" class="form-control"
-             placeholder="Introduce Genero">
-          </div>
+      <div class="row" >
+
+      <?php if (!isset($_POST['IdUsuario']))  :?>
+
+        <?php
+
+        //CREATING THE CONNECTION
+        $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
+        $connection->set_charset("uft8");
+        //TESTING IF THE CONNECTION WAS RIGHT
+        if ($connection->connect_errno) {
+            printf("Connection failed: %s\n", $connection->connect_error);
+            exit();
+        }
+
+        $query="SELECT IdUsuario from Usuarios  WHERE IdUsuario='".$_GET['añadir']."'";
+          if ($result = $connection->query($query)) {
+          echo $query;
+          while($obj = $result->fetch_object()) {
+            $IdUsuario = $obj->IdUsuario;
+        }
+        }
+        ?>
+
+
+        <form action="Añadir_Pista.php" method="post" enctype="multipart/form-data" role="form">
           <div class="form-group">
-            <label for="ejemplo_archivo_1">Pista</label>
-            <input class="form-control" type="file" name="image" required />
+            <label for="ejemplo_email_1">Nombre_Pista:</label>
+            <input type="hidden" name="IdUsuario"  value="<?php echo $IdUsuario; ?>"/>
+            <input type="text" name="Nombre" class="form-control"
+            placeholder="Introduce El Nombre De La Pista"/>
          </div>
-            <button type="submit" class="btn btn-default">Enviar</button>
-          </form>
+         <div class="form-group">
+           <label >Genero</label>
+           <input type="text" name="Genero" class="form-control"
+           placeholder="Introduce El Genero"/>
+        </div>
+         <div class="form-group">
+           <label for="ejemplo_password_1">Pista</label>
+            <input class="form-control" type="file" name="pista" required />
+          </div>
+          <button type="submit" class="btn btn-default">Añadir</button>
+        </form>
 
 
 
-
-      <?php else: ?>
+            <?php else: ?>
 
         <?php
         //CREATING THE CONNECTION
@@ -50,22 +73,48 @@
             exit();
         }
 
+              var_dump($_FILES);
+                //Temp file. Where the uploaded file is stored temporary
+              $tmp_file = $_FILES['pista']['tmp_name'];
+              $target_dir = "pistas/";
+              $target_file = strtolower($target_dir . basename($_FILES['pista']['name']));
+
+               $valid= true;
+
+
+              if (file_exists($target_file)) {
+                  echo "Sorry, file already exists.";
+                  $valid = false;
+                }
+
+                if ($_FILES['pista']['size'] > (2048000)) {
+			            $valid = false;
+			            echo 'Oops!  Your file\'s size is to large.';
+		            }
+
+
+                $file_extension = pathinfo($target_file, PATHINFO_EXTENSION); // We get the entension
+                if ($file_extension!="mp3" && $file_extension!="jpeg" && $file_extension!="png" && $file_extension!="gif") {
+                  $valid = false;
+                  echo "Only JPG, JPEG, PNG & GIF files are allowed";
+                }
+
+                if ($valid) {
+                  var_dump($target_file);
+                  //Put the file in its place
+                  move_uploaded_file($tmp_file, $target_file);
+                  echo "PRODUCT ADDED";
 
 
 
+                  $Nombre = $_POST["Nombre"];
+                  $Genero= $_POST["Genero"];
+                  $IdUsuario= $_POST["IdUsuario"];
+                  $query = "INSERT INTO Pistas (IdPista,IdAlbum,IdUsuario,
+                    IdAutor,Pista,Nombre_pista,Genero,Hora_subida,Reproducciones_pista,Valoracion_positiva,Valoracion_negativa)
+                    VALUES (NULL,NULL,$IdUsuario,NULL,'$target_file','$Nombre','$Genero',0,NULL,NULL,NULL)";
 
-
-
-
-        $Nombre = $_POST["Nombre_Pista"];
-        $Genero= $_POST["Genero"];
-        $Pista= $_POST["Pista"];
-        $IdUsuario = $_GET['añadir'];
-
-        $query = "INSERT INTO Pistas (IdPista,IdAlbum,IdUsuario,
-        IdAutor,Pista,Nombre_pista,Genero,Hora_subida,Reproducciones_pista,Valoracion_positiva,Valoracion_negativa)
-        VALUES (NULL,NULL,$IdUsuario,NULL,'$Pista','$Nombre','$Genero',0,NULL,NULL,NULL)";
-
+      }
 
         echo $query;
         if ($connection->query($query)) {
@@ -87,7 +136,7 @@
                   echo "<td>".$obj->IdUsuario."</td>";
                   echo "<td>".$obj->IdAutor."</td>";
                   echo "<td>".$obj->Pista."</td>";
-                  echo "<td>".$obj->Nombre_pista."</td>";
+                  echo "<td>".$obj->Nombre_Pista."</td>";
                 echo "</tr>";
             }
 
