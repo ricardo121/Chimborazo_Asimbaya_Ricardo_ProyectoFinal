@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -9,13 +9,9 @@
   </head>
   <body>
 
-    <div class="container" id="contenedor" >
 
-      <div class="row">
-      <h1 style="color:black; text-align: center">Añadir Nueva Pista</H1>
-      </div>
 
-      <div class="row" >
+
 
       <?php if (!isset($_POST['IdUsuario']))  :?>
 
@@ -30,14 +26,23 @@
             exit();
         }
 
-        $query="SELECT IdUsuario from Usuarios  WHERE IdUsuario='".$_GET['añadir']."'";
+        $query="SELECT * from Usuarios  WHERE IdUsuario='".$_GET['añadir']."'";
           if ($result = $connection->query($query)) {
-          echo $query;
           while($obj = $result->fetch_object()) {
             $IdUsuario = $obj->IdUsuario;
+            $Apellidos = $obj->Apellidos;
         }
         }
         ?>
+
+        <div class="container" id="contenedor" >
+
+          <div class="row">
+          <h1 style="color:black; text-align: center">Añadir Nueva Pista a <?php echo $Apellidos; ?></H1>
+          </div>
+
+          <div class="row" >
+
 
 
         <form action="Añadir_Pista.php" method="post" enctype="multipart/form-data" role="form">
@@ -56,12 +61,48 @@
            <label for="ejemplo_password_1">Pista</label>
             <input class="form-control" type="file" name="pista" required />
           </div>
+          <div class="form-group">
+            <label for="ejemplo_password_1">Elegir_Autor</label>
+          <?php
+            echo "<select name='IdAutor'>";
+
+            $query="SELECT * FROM Autores";
+
+            if ($result=$connection->query($query)) {
+              while($obj=$result->fetch_object()) {
+                echo "<option value='".$obj->IdAutor."'>";
+                echo $obj->Nombre_Autor;
+                echo "</option>";
+              }
+            } else {
+              echo "NO SE HA PODIDO RECUPERAR DATOS DE LOS AUTORES";
+            }
+            echo "</select>";
+          ?>
+          <div class="form-group">
+            <label for="ejemplo_password_1">Elegir_Album</label>
+          <?php
+            echo "<select name='IdAlbum'>";
+
+            $query="SELECT * FROM Albums";
+
+            if ($result=$connection->query($query)) {
+              while($obj=$result->fetch_object()) {
+                echo "<option value='".$obj->IdAlbum."'>";
+                echo $obj->Nombre_Album;
+                echo "</option>";
+              }
+            } else {
+              echo "NO SE HA PODIDO RECUPERAR DATOS DE LOS AUTORES";
+            }
+            echo "</select>";
+          ?>
+          </div>
           <button type="submit" class="btn btn-default">Añadir</button>
         </form>
 
 
-
-            <?php else: ?>
+        <?php else: ?>
 
         <?php
         //CREATING THE CONNECTION
@@ -76,7 +117,7 @@
               var_dump($_FILES);
                 //Temp file. Where the uploaded file is stored temporary
               $tmp_file = $_FILES['pista']['tmp_name'];
-              $target_dir = "pistas/";
+              $target_dir = "/ricardo/general/Añadir/pistas/";
               $target_file = strtolower($target_dir . basename($_FILES['pista']['name']));
 
                $valid= true;
@@ -110,9 +151,11 @@
                   $Nombre = $_POST["Nombre"];
                   $Genero= $_POST["Genero"];
                   $IdUsuario= $_POST["IdUsuario"];
+                  $IdAlbum=$_POST['IdAlbum'];
+                  $IdAutor=$_POST['IdAutor'];
                   $query = "INSERT INTO Pistas (IdPista,IdAlbum,IdUsuario,
                     IdAutor,Pista,Nombre_pista,Genero,Hora_subida,Reproducciones_pista,Valoracion_positiva,Valoracion_negativa)
-                    VALUES (NULL,NULL,$IdUsuario,NULL,'$target_file','$Nombre','$Genero',0,NULL,NULL,NULL)";
+                    VALUES (NULL,$IdAlbum,$IdUsuario,$IdAutor,'$target_file','$Nombre','$Genero',0,NULL,NULL,NULL)";
 
       }
 

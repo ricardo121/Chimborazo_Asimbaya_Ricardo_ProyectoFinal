@@ -30,7 +30,7 @@
 
       <?php
         if (empty($_GET)) {
-          echo "No se han recibido datos del reparaciones";
+          echo "No se han recibido datos del Usuarios";
           exit();
         }
       ?>
@@ -52,7 +52,7 @@
         $query="DELETE from Usuarios  where IdUsuario='".$_GET["borrar"]."'";
 
         if ($result = $connection->query($query)) {
-          header('Location: /ricardo/general/Home_Admin.php');
+          header('Location: /ricardo/general/Admin_Usuarios.php');
 
         } else {
           echo "Error al Borrar los datos";

@@ -32,7 +32,7 @@
             $query="SELECT * from Albums  WHERE IdAlbum='".$_GET['editar']."'";
         if ($result = $connection->query($query)) {
           while($obj = $result->fetch_object()) {
-            $Nombre =$obj->Nombre_album;
+            $Nombre =$obj->Nombre_Album;
             $Id = $obj->IdAlbum;
 
         }
@@ -65,7 +65,7 @@
         $Nombre=$_POST['Nombre'];
         $IdAlbum=$_POST['IdAlbum'];
 
-        $query="UPDATE Albums SET Nombre_album='$Nombre'
+        $query="UPDATE Albums SET Nombre_Album='$Nombre'
         WHERE IdAlbum='$IdAlbum'";
         echo $query;
 
@@ -85,7 +85,7 @@
                 //PRINTING EACH ROW
                 echo "<tr>";
                   echo "<td>".$obj->IdAlbum."</td>";
-                  echo "<td>".$obj->Nombre_album."</td>";
+                  echo "<td>".$obj->Nombre_Album."</td>";
                 echo "</tr>";
             }
             echo "</table>";

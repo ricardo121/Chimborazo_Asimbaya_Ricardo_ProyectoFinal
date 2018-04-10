@@ -71,7 +71,7 @@
             echo "<a href='Eliminar/Borrar_Pista.php?borrar=".$obj->IdPista.
             "'><img src='eliminar.png' width='20px' /></a>";
 						echo "<td>";
-						echo "<a href='Editar/Editar_Pistas.php?editar=".$obj->IdPista.
+						echo "<a href='Editar/Editar_Pista.php?editar=".$obj->IdPista.
 						"'><img src='lapiz.png' width='20px' /></a>";
 						echo "</td>";
           echo "</tr>";

@@ -35,7 +35,7 @@
         }
         //MAKING A SELECT QUERY
         /* Consultas de selección que devuelven un conjunto de resultados */
-            $query="SELECT * from Pistas p join Contener c ON p.IdPista=c.IdPista
+            $query="SELECT * from Pistas p
             WHERE p.IdPista='".$_GET['editar']."'";
         if ($result = $connection->query($query)) {
           echo $query;
@@ -110,8 +110,7 @@
               }
               echo "</select>";
             ?>
-            <input type="text" name="IdLista" value="<?php echo $IdLista; ?>" ><br>
-              <span><input type="hidden" name="IdPist"  value="<?php echo $Id; ?>"
+              <span><input type="hidden" name="IdPist"  value="<?php echo $Id; ?>">
               <span><input type="submit" value="Editar">
           </fieldset>
         </form>
@@ -134,7 +133,6 @@
         $Pista=$_POST['Pista'];
         $IdAlbum=$_POST['IdAlbum'];
         $IdAutor=$_POST['IdAutor'];
-        $IdLista=$_POST['IdLista'];
         $ID=$_POST['IdPist'];
 
         $query="UPDATE Pistas p
