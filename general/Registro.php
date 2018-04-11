@@ -38,7 +38,7 @@
           </div>
           <div class="form-group">
             <label for="ejemplo_password_1">Contraseña</label>
-            <input type="password" class="form-control" name="Password"
+            <input type="Password" class="form-control" name="Password"
                    placeholder="Contraseña" required>
           </div>
           <div class="form-group">
@@ -68,7 +68,7 @@
         $Em = $_POST["Gmail"];
         $Pass =  md5($_POST["Password"]);
         $Edad = $_POST["Edad"];
-        $query = "INSERT INTO Usuarios(IdUsuario,Nombre,Apellidos,Gmail,password,Edad)
+        $query = "INSERT INTO Usuarios(IdUsuario,Nombre,Apellidos,Gmail,Password,Edad)
         VALUES ('NULL','$Nom','$Ape','$Em','$Pass','$Edad')";
         echo $query;
         if ($connection->query($query)) {
@@ -90,7 +90,7 @@
                   echo "<td>".$obj->Gmail."</td>";
                   echo "<td>".$obj->Apellidos."</td>";
                   echo "<td>".$obj->Edad."</td>";
-                  echo "<td>".$obj->password."</td>";
+                  echo "<td>".$obj->Password."</td>";
                 echo "</tr>";
             }
 
@@ -98,7 +98,7 @@
             echo "</table>";
           }
         } else {
-          echo "ERROR AL INSERTAR COCHE";
+          echo "ERROR AL INSERTAR USUARIO";
         }
         ?>
 

@@ -27,7 +27,6 @@
     <div class="container">
 
 
-          <!-- PRINT THE TABLE AND THE HEADER -->
           <table class="table">
           <thead>
             <tr>

@@ -99,7 +99,7 @@
                   echo "<td>".$obj->Apellidos."</td>";
                   echo "<td>".$obj->Administrador."</td>";
                   echo "<td>".$obj->Edad."</td>";
-                  echo "<td>".$obj->password."</td>";
+                  echo "<td>".$obj->Password."</td>";
                 echo "</tr>";
             }
 

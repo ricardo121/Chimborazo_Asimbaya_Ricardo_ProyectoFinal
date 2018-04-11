@@ -27,7 +27,7 @@
               <fieldset>
                 <legend>Registro</legend>
                 <span>Gmail:</span><input type="Gmail" name="Gmail" required id="inputt"><br>
-                <span>password:</span><input type="password" name="password" required id="inputt"><br>
+                <span>password:</span><input type="Password" name="Password" required id="inputt"><br>
                 <p><input type="submit" value="Iniciar Sesion"></p><br>
                 <a style="color:#D1D1D1"; style="height:200px" href=Registro.php>Registrate Si Aun No Lo Estas</a>
           </form>
@@ -44,16 +44,14 @@
                     printf("Connection failed: %s\n", $connection->connect_error);
                     exit();
                 }
-                
+
                 $Gmail=$_POST['Gmail'];
-                $password=md5($_POST["password"]);
+                $Password=md5($_POST["Password"]);
 
                 $consulta1="select * from Usuarios where
-                Gmail='$Gmail' and password='$password'";
+                Gmail='$Gmail' and Password='$Password'";
 
-                //Test if the query was correct
-                //SQL Injection Possible
-                //Check http://php.net/manual/es/mysqli.prepare.php for more security
+
                 if ($result = $connection->query($consulta1)) {
                     //No rows returned
                     if ($result->num_rows===0) {
