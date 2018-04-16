@@ -12,12 +12,7 @@
 
 
 
-  <?php
-    if (empty($_GET)) {
-      echo "No se han recibido datos del reparaciones";
-      exit();
-    }
-  ?>
+
 
 	<?php
 
@@ -31,8 +26,7 @@
     }
 
 
-  $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario
-	 WHERE p.IdUsuario='".$_GET['Usuario']."'";
+  $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario";
 
 
   if ($result = $connection->query($query)) {
