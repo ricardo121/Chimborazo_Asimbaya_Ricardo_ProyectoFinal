@@ -31,12 +31,11 @@
           echo $query;
           while($obj = $result->fetch_object()) {
             $Id =$obj->IdPista;
-            $Nombre =$obj->Nombre_pista;
+            $Nombre =$obj->Nombre_Pista;
             $Genero = $obj->Genero;
             $Pista = $obj->Pista;
             $IdAlbum = $obj->IdAlbum;
             $IdAutor = $obj->IdAutor;
-            $IdLista = $obj->IdLista;
         }
       }
         ?>
@@ -56,11 +55,11 @@
               if ($result=$connection->query($query)) {
                 while($obj=$result->fetch_object()) {
                   echo "<option value='".$obj->IdAlbum."'>";
-                  echo $obj->Nombre_album;
+                  echo $obj->Nombre_Album;
                   echo "</option>";
                 }
               } else {
-                echo "NO SE HA PODIDO RECUPERAR DATOS DE LOS ALBUMS";
+                echo "NO SE HA PODIDO RECUPERAR DATOS DE LOS AUTORES";
               }
               echo "</select>";
             ?>
@@ -79,24 +78,6 @@
                 }
               } else {
                 echo "NO SE HA PODIDO RECUPERAR DATOS DE LOS AUTORES";
-              }
-              echo "</select>";
-            ?>
-            <input type="text" name="IdAutor" value="<?php echo $IdAutor; ?>" ><br>
-            <span>IdLista:</span>
-            <?php
-              echo "<select name='IdLista'>";
-
-              $query="SELECT * FROM Listas";
-
-              if ($result=$connection->query($query)) {
-                while($obj=$result->fetch_object()) {
-                  echo "<option value='".$obj->IdLista."'>";
-                  echo $obj->Nombre_lista;
-                  echo "</option>";
-                }
-              } else {
-                echo "NO SE HA PODIDO RECUPERAR DATOS DE LOS LISTAS";
               }
               echo "</select>";
             ?>
