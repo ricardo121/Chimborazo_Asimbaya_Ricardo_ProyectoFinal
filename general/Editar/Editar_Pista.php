@@ -7,7 +7,13 @@
   </head>
   <body>
 
+    <div class="container" id="contenedor" >
 
+      <div class="row">
+      <h1 style="color:black; text-align: center">Editar Pista</H1>
+      </div>
+
+      <div class="row" >
 
 
 
