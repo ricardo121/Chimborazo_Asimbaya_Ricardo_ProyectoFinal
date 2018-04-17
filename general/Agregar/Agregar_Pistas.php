@@ -33,7 +33,7 @@
         }
         //MAKING A SELECT QUERY
         /* Consultas de selección que devuelven un conjunto de resultados */
-            $query="SELECT IdUsuario from Usuarios  WHERE IdUsuario='".$_GET['añadir']."'";
+            $query="SELECT IdUsuario from Usuarios  WHERE IdUsuario='".$_GET['agregar']."'";
         if ($result = $connection->query($query)) {
           echo $query;
           while($obj = $result->fetch_object()) {

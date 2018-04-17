@@ -26,7 +26,7 @@
             exit();
         }
 
-        $query="SELECT * from Usuarios  WHERE IdUsuario='".$_GET['añadir']."'";
+        $query="SELECT * from Usuarios  WHERE IdUsuario='".$_GET['agregar']."'";
           if ($result = $connection->query($query)) {
           while($obj = $result->fetch_object()) {
             $IdUsuario = $obj->IdUsuario;
@@ -45,7 +45,7 @@
 
 
 
-        <form action="Añadir_Pista.php" method="post" enctype="multipart/form-data" role="form">
+        <form action="Agregar_Pista.php" method="post" enctype="multipart/form-data" role="form">
           <div class="form-group">
             <label for="ejemplo_email_1">Nombre_Pista:</label>
             <input type="hidden" name="IdUsuario"  value="<?php echo $IdUsuario; ?>"/>
@@ -117,7 +117,7 @@
               var_dump($_FILES);
                 //Temp file. Where the uploaded file is stored temporary
               $tmp_file = $_FILES['pista']['tmp_name'];
-              $target_dir = "/ricardo/general/Añadir/pistas/";
+              $target_dir = "pistas/";
               $target_file = strtolower($target_dir . basename($_FILES['pista']['name']));
 
                $valid= true;
@@ -162,32 +162,9 @@
         echo $query;
         if ($connection->query($query)) {
           echo "Se ha Registardo en ...";
-          $query ="SELECT * FROM Pistas";
-          if ($result = $connection->query($query)) {
-            echo "<table>";
-
-
-            //FETCHING OBJECTS FROM THE RESULT SET
-            //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
-
-            while($obj = $result->fetch_object()) {
-
-                //PRINTING EACH ROW
-                echo "<tr>";
-                  echo "<td>".$obj->IdPista."</td>";
-                  echo "<td>".$obj->IdAlbum."</td>";
-                  echo "<td>".$obj->IdUsuario."</td>";
-                  echo "<td>".$obj->IdAutor."</td>";
-                  echo "<td>".$obj->Pista."</td>";
-                  echo "<td>".$obj->Nombre_Pista."</td>";
-                echo "</tr>";
-            }
-
-
-            echo "</table>";
-          }
+          header('Location:  /ricardo/general/Admin_Pistas.php');
         } else {
-          echo "ERROR AL AÑADIR USUARIO";
+          echo "ERROR AL AÑADIR PISTA";
         }
         ?>
 

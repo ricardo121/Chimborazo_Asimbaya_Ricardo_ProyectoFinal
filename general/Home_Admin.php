@@ -41,7 +41,7 @@
     		<p>Añada un Nuevo Usuario</p>
     </td>
     	<td>
-    		<a href='Añadir/Añadir_Usuario.php?'><img src='Añadir.png' width='20px' /></a>
+    		<a href='Agregar/Agregar_Usuario.php?'><img src='Agregar.png' width='20px' /></a>
     </td>
     </tr>
     <tr>
@@ -49,7 +49,7 @@
     		<p>Añada un Nuevo Album</p>
     </td>
     	<td>
-    		<a href='Añadir/Añadir_Album.php?'><img src='Añadir.png' width='20px' /></a>
+    		<a href='Agregar/Agregar_Album.php?'><img src='Agregar.png' width='20px' /></a>
     </td>
     </tr>
     <tr>
@@ -57,7 +57,7 @@
     		<p>Añada un Nuevo Lista</p>
     </td>
     	<td>
-    		<a href='Añadir/Añadir_Lista.php?'><img src='Añadir.png' width='20px' /></a>
+    		<a href='Agregar/Agregar_Lista.php?'><img src='Agregar.png' width='20px' /></a>
     </td>
     </tr>
     <tr>
@@ -65,7 +65,7 @@
     		<p>Añada un Nuevo Autor</p>
     </td>
     	<td>
-    		<a href='Añadir/Añadir_Autor.php?'><img src='Añadir.png' width='20px' /></a>
+    		<a href='Agregar/Agregar_Autor.php?'><img src='Agregar.png' width='20px' /></a>
     </td>
     </tr>
     </div>

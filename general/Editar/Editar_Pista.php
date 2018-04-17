@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href=" ">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
   </head>
   <body>
 
@@ -34,25 +34,34 @@
             $query="SELECT * from Pistas p
             WHERE p.IdPista='".$_GET['editar']."'";
         if ($result = $connection->query($query)) {
-          echo $query;
+
           while($obj = $result->fetch_object()) {
             $Id =$obj->IdPista;
             $Nombre =$obj->Nombre_Pista;
             $Genero = $obj->Genero;
-            $Pista = $obj->Pista;
             $IdAlbum = $obj->IdAlbum;
             $IdAutor = $obj->IdAutor;
         }
       }
         ?>
 
-        <form method="post">
-          <fieldset>
-            <legend>Personal Info</legend>
-            <span>Nombre_Pista:</span><input type="text" name="Nombre" value="<?php echo $Nombre; ?>"required><br>
-            <span>Genero:</span><input type="text" name="Genero" value="<?php echo $Genero; ?>" required><br>
-            <span>Pista:</span><input type="text" name="Pista" value="<?php echo $Pista; ?>" required><br>
-            <span>IdAlbum:</span>
+
+        <form method="post" role="form">
+
+         <div class="form-group">
+           <label for="ejemplo_email_1">Nombre_Pista</label>
+           <input type="text" name="Nombre" class="form-control"
+           value="<?php echo $Nombre; ?>">
+           <input type="hidden" name="IdPist"  value="<?php echo $Id; ?>">
+         </div>
+         <div class="form-group">
+           <label for="ejemplo_email_1">Genero</label>
+           <input type="text" name="Genero" class="form-control"
+           value="<?php echo $Genero; ?>">
+         </div>
+         <div class="form-group">
+           <label for="ejemplo_email_1">IdAlbum</label>
+
             <?php
               echo "<select name='IdAlbum'>";
 
@@ -69,8 +78,12 @@
               }
               echo "</select>";
             ?>
-            <input type="text" name="IdAlbum" value="<?php echo $IdAlbum; ?>" ><br>
-            <span>IdAutor:</span>
+
+            </div>
+
+            <div class="form-group">
+              <label for="ejemplo_email_1">IdAutor</label>
+
             <?php
               echo "<select name='IdAutor'>";
 
@@ -87,12 +100,11 @@
               }
               echo "</select>";
             ?>
-              <span><input type="hidden" name="IdPist"  value="<?php echo $Id; ?>">
-              <span><input type="submit" value="Editar">
-          </fieldset>
-        </form>
+            </div>
+              <button type="submit" class="btn btn-default">Editar</button>
+            </form>
 
-      <!-- DATA IN $_POST['mail']. Coming from a form submit -->
+
       <?php else: ?>
 
         <?php
@@ -107,14 +119,11 @@
 
         $Nombre=$_POST['Nombre'];
         $Genero=$_POST['Genero'];
-        $Pista=$_POST['Pista'];
         $IdAlbum=$_POST['IdAlbum'];
         $IdAutor=$_POST['IdAutor'];
         $ID=$_POST['IdPist'];
 
-        $query="UPDATE Pistas p
-        join Contener c ON p.IdPista=c.IdPista
-        SET Nombre_Pista='$Nombre',Genero='$Genero',Pista='$Pista',IdAlbum='$IdAlbum',IdAutor='$IdAutor',IdLista='$IdLista'
+        $query="UPDATE Pistas p SET Nombre_Pista='$Nombre',Genero='$Genero',IdAlbum='$IdAlbum',IdAutor='$IdAutor'
         WHERE p.IdPista='$ID'";
         echo $query;
         echo $ID;
@@ -122,31 +131,8 @@
 
         if ($connection->query($query)) {
           echo "Se ha Modificado en ...";
-          $query ="SELECT * from Pistas p join Contener c ON p.IdPista=c.IdPista
-          WHERE p.IdPista='$ID'";
-          if ($result = $connection->query($query)) {
-            echo "<table>";
+          header('Location:  /ricardo/general/Admin_Pistas.php');
 
-
-            //FETCHING OBJECTS FROM THE RESULT SET
-            //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
-
-            while($obj = $result->fetch_object()) {
-
-                //PRINTING EACH ROW
-                echo "<tr>";
-                  echo "<td>".$obj->IdPista."</td>";
-                  echo "<td>".$obj->Nombre_pista."</td>";
-                  echo "<td>".$obj->Genero."</td>";
-                  echo "<td>".$obj->Pista."</td>";
-                  echo "<td>".$obj->IdAlbum."</td>";
-                  echo "<td>".$obj->IdAutor."</td>";
-                echo "</tr>";
-            }
-
-
-            echo "</table>";
-          }
         } else {
           echo "ERROR AL MODIFICAR PISTA";
         }

@@ -26,7 +26,7 @@
     }
 
 
-  $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario";
+  $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario join Albums al ON al.IdAlbum=p.IdAlbum join Autores au ON au.IdAutor=p.IdAutor";
 
 
   if ($result = $connection->query($query)) {
@@ -59,8 +59,8 @@
             echo "<td>".$obj->Nombre_Pista."</td>";
             echo "<td>".$obj->Genero."</td>";
             echo "<td>".$obj->Reproducciones_Pista."</td>";
-            echo "<td><a href='Admin_Autores.php?IdAutor=".$obj->IdAutor."'>".$obj->IdAutor."</a></td>";
-            echo "<td><a href='Admin_Albums.php?IdAlbum=".$obj->IdAlbum."'>".$obj->IdAlbum."</a></td>";
+            echo "<td>".$obj->Nombre_Album."</td>";
+            echo "<td>".$obj->Nombre_Autor."</td>";
             echo "<td>";
             echo "<a href='Eliminar/Borrar_Pista.php?borrar=".$obj->IdPista.
             "'><img src='eliminar.png' width='20px' /></a>";
