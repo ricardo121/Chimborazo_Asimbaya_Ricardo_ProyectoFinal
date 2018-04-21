@@ -27,15 +27,16 @@
     <div class="container">
 
 
-          <table class="table">
-          <thead>
+    <table class="table">
+        <thead>
             <tr>
               <th><a href='Admin_Albums.php'>Albums</a></th>
               <th><a href='Admin_Autores.php'>Autores</a></th>
               <th><a href='Admin_Usuarios.php'>Usuarios</a></th>
               <th><a href='Admin_Pistas.php'>Pistas</a></th>
               <th><a href='Admin_Listas.php'>Listas</a></th>
-          </thead>
+            </tr>
+        </thead>
     <tr>
     	<td>
     		<p>Añada un Nuevo Usuario</p>

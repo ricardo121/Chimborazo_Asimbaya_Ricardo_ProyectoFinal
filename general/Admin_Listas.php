@@ -10,12 +10,6 @@
 
 
 
-  <?php
-    if (empty($_GET)) {
-      echo "No se han recibido datos del reparaciones";
-      exit();
-    }
-  ?>
 
 	<?php
 
@@ -29,7 +23,7 @@
     }
 
 
-  $query="SELECT * from Listas  WHERE IdLista='".$_GET['IdLista']."'";
+  $query="SELECT * from Listas";
 
 
   if ($result = $connection->query($query)) {
@@ -38,6 +32,10 @@
   ?>
 
       <!-- PRINT THE TABLE AND THE HEADER -->
+			<?php
+        include_once("Menu.php");
+        Menu();
+            ?>
       <table class="table">
       <thead>
         <tr>
@@ -52,7 +50,7 @@
           //PRINTING EACH ROW
           echo "<tr>";
             echo "<td>".$obj->IdLista."</td>";
-            echo "<td>".$obj->Nombre_lista."</td>";
+            echo "<td>".$obj->Nombre_Lista."</td>";
             echo "<td>";
             echo "<a href='Eliminar/Borrar_Lista.php?borrar=".$obj->IdLista.
             "'><img src='eliminar.png' width='20px' /></a>";

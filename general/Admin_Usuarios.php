@@ -26,6 +26,10 @@
       ?>
 
           <!-- PRINT THE TABLE AND THE HEADER -->
+          <?php
+            include_once("Menu.php");
+            Menu();
+                ?>
           <table class="table">
           <thead>
             <tr>
