@@ -8,7 +8,12 @@
 <body>
 	<div class="container">
 
-
+    <?php
+      if (empty($_GET)) {
+        echo "No se han recibido datos del reparaciones";
+        exit();
+      }
+    ?>
 
 
 	<?php
@@ -23,7 +28,7 @@
     }
 
 
-  $query="SELECT * from Listas";
+  $query="SELECT * from Listas L join Contener C on L.IdLista=C.IdLista join Pistas P on P.IdPista=C.IdPista where L.IdLista='".$_GET['Lista']."'";
 
 
   if ($result = $connection->query($query)) {
@@ -41,9 +46,10 @@
         <tr>
           <th>IdLista</th>
           <th>Nombre_Lista</th>
+          <th>IdPista</th>
+          <th>Nombre_Pista</th>
 					<th></th>
 					<th></th>
-					<th>Inserte Pista</th>
       </thead>
 
   <?php
@@ -52,8 +58,10 @@
       while($obj = $result->fetch_object()) {
           //PRINTING EACH ROW
           echo "<tr>";
-            echo "<td><a href='Admin_Contener.php?Lista=".$obj->IdLista."'>".$obj->IdLista."</a></td>";
+            echo "<td>".$obj->IdLista."</td>";
             echo "<td>".$obj->Nombre_Lista."</td>";
+            echo "<td>".$obj->IdPista."</td>";
+            echo "<td>".$obj->Nombre_Pista."</td>";
             echo "<td>";
             echo "<a href='Eliminar/Borrar_Lista.php?borrar=".$obj->IdLista.
             "'><img src='eliminar.png' width='20px' /></a>";
@@ -63,8 +71,6 @@
 						"'><img src='lapiz.png' width='20px' /></a>";
 						echo "</td>";
 						echo "<td>";
-						echo "<a href='Editar/Editar_Contener.php?editar=".$obj->IdLista.
-						"'><img src='Agregar.png' width='20px' /></a>";
 						echo "</td>";
           echo "</tr>";
 

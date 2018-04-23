@@ -1,23 +1,17 @@
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
     <link rel="stylesheet" type="text/css" href="bootstrap.css">
+
   </head>
   <body>
 
-    <div class="container" id="contenedor" >
-
-      <div class="row">
-      <h1 style="color:black; text-align: center">Editar Album</H1>
-      </div>
-
-      <div class="row" >
 
 
-
-      <?php if (!isset($_POST["IdLista"])) : ?>
+      <?php if (!isset($_POST['IdLista']))  :?>
 
         <?php
 
@@ -29,33 +23,54 @@
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
         }
-        //MAKING A SELECT QUERY
-        /* Consultas de selección que devuelven un conjunto de resultados */
+
+
             $query="SELECT * from Listas  WHERE IdLista='".$_GET['editar']."'";
-        if ($result = $connection->query($query)) {
-          echo $query;
-          while($obj = $result->fetch_object()) {
+            if ($result = $connection->query($query)) {
+              echo $query;
+            while($obj = $result->fetch_object()) {
             $Nombre =$obj->Nombre_Lista;
             $Id = $obj->IdLista;
-
         }
-      }
+        }
         ?>
+
+        <div class="container" id="contenedor" >
+
+          <div class="row">
+          <h1 style="color:black; text-align: center">Añadir Nueva Pista a <?php echo $Nombre; ?></H1>
+          </div>
+
+          <div class="row" >
+
 
 
         <form method="post" role="form">
+            <input type="hidden" name="IdLista"  value="<?php echo $Id; ?>"/>
           <div class="form-group">
-            <label for="ejemplo_email_1">Nombre_Lista</label>
-            <input type="text" name="Nombre" class="form-control"
-            value="<?php echo $Nombre; ?>">
-            <input type="hidden" name="IdLista"  value="<?php echo $Id; ?>">
+            <label for="ejemplo_password_1">Elegir_Autor</label>
+          <?php
+            echo "<select name='IdPista'>";
+
+            $query="SELECT * FROM Pistas";
+
+            if ($result=$connection->query($query)) {
+              while($obj=$result->fetch_object()) {
+                echo "<option value='".$obj->IdPista."'>";
+                echo $obj->Nombre_Pista;
+                echo "</option>";
+              }
+            } else {
+              echo "NO SE HA PODIDO RECUPERAR DATOS DE LOS AUTORES";
+            }
+            echo "</select>";
+          ?>
           </div>
-            <button type="submit" class="btn btn-default">Editar</button>
+          <button type="submit" class="btn btn-default">Añadir</button>
         </form>
 
 
-      <!-- DATA IN $_POST['mail']. Coming from a form submit -->
-      <?php else: ?>
+        <?php else: ?>
 
         <?php
         //CREATING THE CONNECTION
@@ -65,14 +80,14 @@
         if ($connection->connect_errno) {
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
-            }
+        }
 
-        $Nombre=$_POST['Nombre'];
+        $IdPista=$_POST['IdPista'];
         $IdLista=$_POST['IdLista'];
 
-        $query="UPDATE Listas
-        SET Nombre_Lista='$Nombre'
-        WHERE IdLista='$IdLista'";
+
+
+        $query="INSERT into Contener values ($IdLista,$IdLista);";
         echo $query;
 
 
@@ -105,7 +120,7 @@
         ?>
 
       <?php endif ?>
-      </div>
+    </div>
     </div>
   </body>
 </html>
