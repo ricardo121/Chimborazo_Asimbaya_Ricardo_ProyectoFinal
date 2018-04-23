@@ -26,17 +26,27 @@
   <body>
     <div class="container">
 
+      <nav class="navbar navbar-inverse" role="navigation">
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="Admin_Albums.php">Albums</a></li>
+            <li><a href="Admin_Autor.php">Autores</a></li>
+            <li><a href="Admin_Usuarios.php">Usuarios</a></li>
+            <li><a href="Admin_Pistas.php">Pistas</a></li>
+            <li><a href="Admin_Listas.php">Listas</a></li>
+
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a class="navbar-brand" href='Home_Admin.php'><img src='Casa.png' width='20px' /></a></li>
+          </ul>
+        </div>
+
+      </nav>
 
     <table class="table">
-        <thead>
-            <tr>
-              <th><a href='Admin_Albums.php'>Albums</a></th>
-              <th><a href='Admin_Autores.php'>Autores</a></th>
-              <th><a href='Admin_Usuarios.php'>Usuarios</a></th>
-              <th><a href='Admin_Pistas.php'>Pistas</a></th>
-              <th><a href='Admin_Listas.php'>Listas</a></th>
-            </tr>
-        </thead>
+
     <tr>
     	<td>
     		<p>Añada un Nuevo Usuario</p>
