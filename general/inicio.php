@@ -3,7 +3,7 @@
   session_start();
 ?>
 
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -60,6 +60,7 @@
 
                         $_SESSION["Gmail"]=$_POST["Gmail"];
 
+
                         $obj = $result->fetch_object();
 
                         /*
@@ -76,8 +77,10 @@
                         */
 
                         if ($obj->Administrador==1) {
+                          $_SESSION["tipo"]='admin';
                             header("Location: Home_Admin.php");
                         } else {
+                          $_SESSION["tipo"]='usu';
                             header("Location: Home_Usu.php");
                         }
 

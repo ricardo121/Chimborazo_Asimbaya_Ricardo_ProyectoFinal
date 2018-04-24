@@ -1,7 +1,7 @@
 
       <?php
       function Menu() {
-        echo "<nav class='navbar navbar-default' role='navigation'>";
+        echo "<nav class='navbar navbar-inverse' role='navigation'>";
 
         echo "<div class='collapse navbar-collapse navbar-ex1-collapse'>
           <ul class='nav navbar-nav'>

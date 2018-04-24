@@ -33,7 +33,6 @@
 
   if ($result = $connection->query($query)) {
       printf("<p>The select query returned %d rows.</p>", $result->num_rows);
-      echo $query;
   ?>
 
       <!-- PRINT THE TABLE AND THE HEADER -->
@@ -49,7 +48,6 @@
           <th>IdPista</th>
           <th>Nombre_Pista</th>
 					<th></th>
-					<th></th>
       </thead>
 
   <?php
@@ -63,15 +61,10 @@
             echo "<td>".$obj->IdPista."</td>";
             echo "<td>".$obj->Nombre_Pista."</td>";
             echo "<td>";
-            echo "<a href='Eliminar/Borrar_Lista.php?borrar=".$obj->IdLista.
+            echo "<a href='Eliminar/Borrar_Contener.php?borrar1=".$obj->IdPista.
+            "borrar2=".$obj->IdLista.
             "'><img src='eliminar.png' width='20px' /></a>";
             echo "</td>";
-						echo "<td>";
-						echo "<a href='Editar/Editar_Lista.php?editar=".$obj->IdLista.
-						"'><img src='lapiz.png' width='20px' /></a>";
-						echo "</td>";
-						echo "<td>";
-						echo "</td>";
           echo "</tr>";
 
       }

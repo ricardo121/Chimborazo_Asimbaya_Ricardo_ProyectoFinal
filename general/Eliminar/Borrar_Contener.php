@@ -1,32 +1,14 @@
-<!--
-    Author: Juan Diego Pérez @pekechis
-    E-mail: contact@jdperez.es
-    Description: Passing info using POST and HTML forms
-                 using the same file
-    Date: November 2015
-    Reference: http://www.w3schools.com/tags/tag_form.asp
-               http://www.w3schools.com/tags/tag_input.asp
-               http://php.net/manual/reserved.variables.post.php
--->
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
     <link rel="stylesheet" type="text/css" href=" ">
-    <style>
-      span {
-        width: 100px;
-        display: inline-block;
-      }
-    </style>
+
   </head>
   <body>
 
-      <!-- PHP STRUCTURE FOR CONDITIONAL HTML -->
-      <!-- FIRST TIME. NO DATA IN THE POST (checking a required form field) -->
-      <!-- So we must show the form -->
 
       <?php
         if (empty($_GET)) {
@@ -46,10 +28,27 @@
         }
         //MAKING A SELECT QUERY
         /* Consultas de selección que devuelven un conjunto de resultados */
+
+        $query="SELECT * from Pistas p
+        WHERE p.IdPista='".$_GET['editar']."'";
+    if ($result = $connection->query($query)) {
+
+      while($obj = $result->fetch_object()) {
+        $Id =$obj->IdPista;
+        $Nombre =$obj->Nombre_Pista;
+        $Genero = $obj->Genero;
+        $IdAlbum = $obj->IdAlbum;
+        $IdAutor = $obj->IdAutor;
+    }
+    }
+
+
+
+
         $query="SET FOREIGN_KEY_CHECKS=0";
         $connection->query($query);
 
-        $query="DELETE from Listas  where IdLista='".$_GET["borrar"]."'";
+        $query="DELETE from Contener where IdLista='".$_GET["borrar2"]."' and IdPista='".$_GET["borrar1"]."'";
 
         if ($result = $connection->query($query)) {
           header('Location: /ricardo/general/Admin_Listas.php');
@@ -59,6 +58,10 @@
         }
 
         ?>
+
+
+
+
 
 
   </body>

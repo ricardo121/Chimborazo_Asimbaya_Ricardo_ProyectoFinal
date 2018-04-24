@@ -3,11 +3,10 @@
   //Open the session
   session_start();
 
-  if (isset($_SESSION["Gmail"])) {
+  if (isset($_SESSION["tipo"] && $_SESSION["tipo"]=='admin')) {
     //SESSION ALREADY CREATED
 
-    $Gmail=$_SESSION["Gmail"];
-    //SHOW SESSION DATA
+
 
   } else {
     session_destroy();
@@ -31,7 +30,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
             <li><a href="Admin_Albums.php">Albums</a></li>
-            <li><a href="Admin_Autor.php">Autores</a></li>
+            <li><a href="Admin_Autores.php">Autores</a></li>
             <li><a href="Admin_Usuarios.php">Usuarios</a></li>
             <li><a href="Admin_Pistas.php">Pistas</a></li>
             <li><a href="Admin_Listas.php">Listas</a></li>

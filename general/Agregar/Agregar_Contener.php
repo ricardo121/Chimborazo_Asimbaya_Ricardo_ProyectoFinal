@@ -25,7 +25,7 @@
         }
 
 
-            $query="SELECT * from Listas  WHERE IdLista='".$_GET['editar']."'";
+            $query="SELECT * from Listas  WHERE IdLista='".$_GET['agregar']."'";
             if ($result = $connection->query($query)) {
               echo $query;
             while($obj = $result->fetch_object()) {
@@ -48,7 +48,7 @@
         <form method="post" role="form">
             <input type="hidden" name="IdLista"  value="<?php echo $Id; ?>"/>
           <div class="form-group">
-            <label for="ejemplo_password_1">Elegir_Autor</label>
+            <label for="ejemplo_password_1">Elegir_Pista</label>
           <?php
             echo "<select name='IdPista'>";
 
@@ -87,34 +87,15 @@
 
 
 
-        $query="INSERT into Contener values ($IdLista,$IdLista);";
+        $query="INSERT into Contener values ($IdPista,$IdLista);";
         echo $query;
 
 
         if ($connection->query($query)) {
           echo "Se ha Modificado en ...";
-          $query ="SELECT * FROM Listas WHERE IdLista='$IdLista'";
-          if ($result = $connection->query($query)) {
-            echo "<table>";
-
-
-            //FETCHING OBJECTS FROM THE RESULT SET
-            //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
-
-            while($obj = $result->fetch_object()) {
-
-                //PRINTING EACH ROW
-                echo "<tr>";
-                  echo "<td>".$obj->IdLista."</td>";
-                  echo "<td>".$obj->Nombre_Lista."</td>";
-                echo "</tr>";
-            }
-
-
-            echo "</table>";
-          }
+          header('Location: /ricardo/general/Admin_Listas.php');
         } else {
-          echo "ERROR AL MODIFICAR ALBUM";
+          echo "Pista ya añadida a la Lista";
         }
 
         ?>

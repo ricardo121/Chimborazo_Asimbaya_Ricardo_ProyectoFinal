@@ -28,7 +28,7 @@
 
   if ($result = $connection->query($query)) {
       printf("<p>The select query returned %d rows.</p>", $result->num_rows);
-      echo $query;
+
   ?>
 
       <!-- PRINT THE TABLE AND THE HEADER -->
@@ -63,7 +63,7 @@
 						"'><img src='lapiz.png' width='20px' /></a>";
 						echo "</td>";
 						echo "<td>";
-						echo "<a href='Editar/Editar_Contener.php?editar=".$obj->IdLista.
+						echo "<a href='Agregar/Agregar_Contener.php?agregar=".$obj->IdLista.
 						"'><img src='Agregar.png' width='20px' /></a>";
 						echo "</td>";
           echo "</tr>";

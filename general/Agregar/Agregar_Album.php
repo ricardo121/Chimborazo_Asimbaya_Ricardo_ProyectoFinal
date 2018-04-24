@@ -47,25 +47,8 @@
         echo $query;
         if ($connection->query($query)) {
           echo "Se ha Registardo en ...";
-          $query ="SELECT IdAlbum, Nombre_Album FROM Albums";
-          if ($result = $connection->query($query)) {
-            echo "<table>";
+          header('Location: /ricardo/general/Home_Admin.php');
 
-
-            //FETCHING OBJECTS FROM THE RESULT SET
-            //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
-
-            while($obj = $result->fetch_object()) {
-
-                //PRINTING EACH ROW
-                echo "<tr>";
-                  echo "<td>".$obj->IdAlbum."</td>";
-                  echo "<td>".$obj->Nombre_Album."</td>";
-                echo "</tr>";
-            }
-
-            echo "</table>";
-          }
         } else {
           echo "ERROR AL AÑADIR ALBUM";
         }
