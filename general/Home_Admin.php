@@ -4,9 +4,14 @@
   session_start();
   var_dump ($_SESSION);
 
-  if (isset($_SESSION["tipo"])) {
-    //SESSION ALREADY CREATED
+  if (isset($_SESSION["Gmail"])) {
 
+    if ($_SESSION["tipo"]=='admin') {
+
+    } else {
+      session_destroy();
+      header("Location: inicio.php");
+    }
 
 
   } else {

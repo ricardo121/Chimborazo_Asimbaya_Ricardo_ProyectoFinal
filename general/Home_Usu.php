@@ -2,19 +2,26 @@
 <?php
 
   //Open the session
+
   session_start();
   var_dump ($_SESSION);
 
   if (isset($_SESSION["Gmail"])) {
-    //SESSION ALREADY CREATED
 
-    $Gmail=$_SESSION["Gmail"];
-    //SHOW SESSION DATA
+    if ($_SESSION["tipo"]=='usu') {
+      $Gmail=$_SESSION["Gmail"];
+
+    } else {
+      session_destroy();
+      header("Location: inicio.php");
+    }
+
 
   } else {
     session_destroy();
     header("Location: inicio.php");
   }
+
 
 
  ?>
