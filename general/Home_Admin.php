@@ -2,8 +2,9 @@
 
   //Open the session
   session_start();
+  var_dump ($_SESSION);
 
-  if (isset($_SESSION["tipo"] && $_SESSION["tipo"]=='admin')) {
+  if (isset($_SESSION["tipo"])) {
     //SESSION ALREADY CREATED
 
 

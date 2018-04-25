@@ -28,39 +28,21 @@
         }
         //MAKING A SELECT QUERY
         /* Consultas de selección que devuelven un conjunto de resultados */
-
-        $query="SELECT * from Pistas p
-        WHERE p.IdPista='".$_GET['editar']."'";
-    if ($result = $connection->query($query)) {
-
-      while($obj = $result->fetch_object()) {
-        $Id =$obj->IdPista;
-        $Nombre =$obj->Nombre_Pista;
-        $Genero = $obj->Genero;
-        $IdAlbum = $obj->IdAlbum;
-        $IdAutor = $obj->IdAutor;
-    }
-    }
-
-
-
+        var_dump($_GET);
 
         $query="SET FOREIGN_KEY_CHECKS=0";
         $connection->query($query);
 
         $query="DELETE from Contener where IdLista='".$_GET["borrar2"]."' and IdPista='".$_GET["borrar1"]."'";
-
+        echo $query;
         if ($result = $connection->query($query)) {
-          header('Location: /ricardo/general/Admin_Listas.php');
+          header('Location: /ricardo/general/Admin_Contener.php');
 
         } else {
           echo "Error al Borrar los datos";
         }
 
         ?>
-
-
-
 
 
 

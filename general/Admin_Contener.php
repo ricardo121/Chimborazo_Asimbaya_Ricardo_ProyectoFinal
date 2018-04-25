@@ -62,7 +62,7 @@
             echo "<td>".$obj->Nombre_Pista."</td>";
             echo "<td>";
             echo "<a href='Eliminar/Borrar_Contener.php?borrar1=".$obj->IdPista.
-            "borrar2=".$obj->IdLista.
+            "&borrar2=".$obj->IdLista.
             "'><img src='eliminar.png' width='20px' /></a>";
             echo "</td>";
           echo "</tr>";
