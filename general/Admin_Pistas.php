@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -8,9 +7,6 @@
 </head>
 <body>
 	<div class="container">
-
-
-
 
 
 
@@ -33,23 +29,28 @@
 
   ?>
 
-      <!-- PRINT THE TABLE AND THE HEADER -->
+      <div class="row" >
 			<?php
 				include_once("Menu.php");
 				Menu();
-						?>
-      <table class="table">
-      <thead>
-        <tr>
-          <th>IdUsuario</th>
-					<th>Gmail</th>
-          <th>IdPista</th>
-          <th>Nombre_Pista</th>
-          <th>Genero</th>
-          <th>Reproducciones_pista</th>
-          <th>Autor</th>
-          <th>Album</th>
-      </thead>
+			?>
+			</div>
+
+			<div class="row" >
+
+      	<table class="table">
+      		<thead>
+        		<tr>
+          		<th>IdUsuario</th>
+							<th>Gmail</th>
+          		<th>IdPista</th>
+          		<th>Nombre_Pista</th>
+          		<th>Genero</th>
+          		<th>Reproducciones_pista</th>
+          		<th>Autor</th>
+          		<th>Album</th>
+						</tr>
+      		</thead>
 
   <?php
       //FETCHING OBJECTS FROM THE RESULT SET
@@ -79,6 +80,8 @@
   } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 ?>
 
+			</table>
+		</div>
 	</div>
 </body>
 </html>

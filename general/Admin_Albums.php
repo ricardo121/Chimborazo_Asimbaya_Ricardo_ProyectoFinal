@@ -28,18 +28,21 @@
   if ($result = $connection->query($query)) {
       printf("<p>The select query returned %d rows.</p>", $result->num_rows);
   ?>
+			<div class="row" >
 
-      <!-- PRINT THE TABLE AND THE HEADER -->
 			<?php
 				include_once("Menu.php");
 				Menu();
 						?>
-      <table class="table">
-      <thead>
-        <tr>
-          <th>IdAlbum</th>
-          <th>Nombre_Album</th>
-      </thead>
+			</div>
+			<div class="row" >
+      	<table class="table">
+      		<thead>
+        		<tr>
+          		<th>IdAlbum</th>
+          		<th>Nombre_Album</th>
+						</tr>
+      		</thead>
 
   <?php
       //FETCHING OBJECTS FROM THE RESULT SET
@@ -63,6 +66,17 @@
       //Free the result. Avoid High Memory Usages
   } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 ?>
+
+				<tr>
+					<td>
+						<p>Añada un Nuevo Album</p>
+					</td>
+					<td>
+						<a href='Agregar/Agregar_Album.php?'><img src='Agregar.png' width='20px' /></a>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </body>
 </html>

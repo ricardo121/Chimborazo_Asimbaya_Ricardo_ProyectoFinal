@@ -28,17 +28,24 @@
       printf("<p>The select query returned %d rows.</p>", $result->num_rows);
   ?>
 
-      <!-- PRINT THE TABLE AND THE HEADER -->
+      <div class="row" >
+
       <?php
         include_once("Menu.php");
         Menu();
-            ?>
+      ?>
+
+      </div>
+
+      <div class="row" >
+
       <table class="table">
-      <thead>
-        <tr>
-          <th>IdAutor</th>
-          <th>Nombre_Autor</th>
-      </thead>
+        <thead>
+          <tr>
+            <th>IdAutor</th>
+            <th>Nombre_Autor</th>
+          </tr>  
+        </thead>
 
   <?php
       //FETCHING OBJECTS FROM THE RESULT SET
@@ -62,6 +69,16 @@
       //Free the result. Avoid High Memory Usages
   } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 ?>
+        <tr>
+          <td>
+            <p>Añada un Nuevo Autor</p>
+          </td>
+          <td>
+            <a href='Agregar/Agregar_Autor.php?'><img src='Agregar.png' width='20px' /></a>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </body>
 </html>

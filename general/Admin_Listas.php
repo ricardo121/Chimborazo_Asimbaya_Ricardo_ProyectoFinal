@@ -9,8 +9,6 @@
 	<div class="container">
 
 
-
-
 	<?php
 
     //CREATING THE CONNECTION
@@ -31,20 +29,24 @@
 
   ?>
 
-      <!-- PRINT THE TABLE AND THE HEADER -->
+      <div class="row" >
 			<?php
         include_once("Menu.php");
         Menu();
-            ?>
-      <table class="table">
-      <thead>
-        <tr>
-          <th>IdLista</th>
-          <th>Nombre_Lista</th>
-					<th></th>
-					<th></th>
-					<th>Inserte Pista</th>
-      </thead>
+      ?>
+			</div>
+			<div class="row" >
+
+      	<table class="table">
+      		<thead>
+        		<tr>
+          		<th>IdLista</th>
+          		<th>Nombre_Lista</th>
+							<th></th>
+							<th></th>
+							<th>Inserte Pista</th>
+						</tr>
+      		</thead>
 
   <?php
       //FETCHING OBJECTS FROM THE RESULT SET
@@ -72,6 +74,16 @@
       //Free the result. Avoid High Memory Usages
   } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 ?>
+				<tr>
+					<td>
+						<p>Añada un Nuevo Lista</p>
+					</td>
+					<td>
+						<a href='Agregar/Agregar_Lista.php?'><img src='Agregar.png' width='20px' /></a>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </body>
 </html>

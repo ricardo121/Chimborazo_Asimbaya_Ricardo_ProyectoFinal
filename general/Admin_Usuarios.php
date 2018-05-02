@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -25,24 +24,27 @@
 
       ?>
 
-          <!-- PRINT THE TABLE AND THE HEADER -->
+          <div class="row" >
           <?php
             include_once("Menu.php");
             Menu();
-                ?>
-          <table class="table">
-          <thead>
-            <tr>
-              <th>IdUsuario</th>
-              <th>Nombre</th>
-              <th>Apellidos</th>
-              <th>Gmail</th>
-              <th>Administrador</th>
-              <th>Edad</th>
-              <th></th>
-              <th></th>
-              <th>Inserte Pista</th>
-          </thead>
+          ?>
+          </div>
+          <div class="row" >
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>IdUsuario</th>
+                  <th>Nombre</th>
+                  <th>Apellidos</th>
+                  <th>Gmail</th>
+                  <th>Administrador</th>
+                  <th>Edad</th>
+                  <th></th>
+                  <th></th>
+                  <th>Inserte Pista</th>
+                </tr>
+              </thead>
 
       <?php
           //FETCHING OBJECTS FROM THE RESULT SET
@@ -77,7 +79,16 @@
           unset($connection);
       } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
     ?>
-
+          <tr>
+    	     <td>
+    		       <p>Añada un Nuevo Usuario</p>
+            </td>
+    	     <td>
+    		       <a href='Agregar/Agregar_Usuario.php?'><img src='Agregar.png' width='20px' /></a>
+           </td>
+          </tr>
+        </table>
+      </div>
     </div>
   </body>
 </html>
