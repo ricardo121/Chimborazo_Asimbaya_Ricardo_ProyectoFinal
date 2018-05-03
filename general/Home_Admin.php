@@ -51,10 +51,8 @@
 
     if ($result = $connection->query($query)) {
         printf("<p>The select query returned %d rows.</p>", $result->num_rows);
-        echo $query;
 
-        //FETCHING OBJECTS FROM THE RESULT SET
-        //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
+
         while($obj = $result->fetch_object()) {
 
             $Edad_usu =$obj->Edad;
@@ -76,17 +74,17 @@
 
 
       </div>
-      <div class="row">
+      <div class="row" >
         <h1 style="color:black; text-align: center"><?php echo"Bienvenido"." ". $Nombre_usu; ?></h1>
+        <h1 style="color:black; text-align: center">A la Pantalla de Adminitracion del sitio Web</h1>
       </div>
-      <div class="row" style="margin-top: 50%">
-        <nav class='navbar navbar-inverse' role='navigation'>
+      <div class="row"  >
+        <nav  role='navigation' style="background-color:red ">
 
-        <div class='collapse navbar-collapse navbar-ex1-collapse'>
-
+        <div class='collapse navbar-collapse navbar-ex1-collapse' style="background-color:white ;margin-top:40%" >
 
           <ul class='nav navbar-nav navbar-right'>
-            <li class='active'><a class='navbar-brand' href='Home_Admin.php'><img src='Casa.png' width='20px' /></a></li>
+            <li class='active'><a class='navbar-brand' href='Home_Admin.php'><img src='Apagar.png' width='25px' /></a></li>
           </ul>
         </div>
 
