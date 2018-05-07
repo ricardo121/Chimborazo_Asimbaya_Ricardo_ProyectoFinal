@@ -1,3 +1,13 @@
+
+
+<?php
+
+  session_start();
+  include_once("Login_Admin.php");
+  Login();
+
+?>
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -44,7 +54,7 @@
           <tr>
             <th>IdAutor</th>
             <th>Nombre_Autor</th>
-          </tr>  
+          </tr>
         </thead>
 
   <?php

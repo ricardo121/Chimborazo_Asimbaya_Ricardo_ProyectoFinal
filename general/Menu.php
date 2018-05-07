@@ -13,8 +13,8 @@
 
           </ul>
 
-          <ul class='nav navbar-nav navbar-right'>
-            <li class='active'><a class='navbar-brand' href='Home_Admin.php'><img src='Casa.png' width='20px' /></a></li>
+          <ul class='nav navbar-nav navbar-right' style=>
+            <li><button href='Cerrar.php' type='submit' class='btn btn-default navbar-btn' style='margin-right:15px'><a href='Cerrar.php'>Cerrar Sessión</a></button></li>
           </ul>
         </div>";
 

@@ -1,100 +1,167 @@
-<!--
-    Author: Juan Diego Pérez @pekechis
-    E-mail: contact@jdperez.es
-    Description: Passing info using POST and HTML forms
-                 using the same file
-    Date: November 2015
-    Reference: http://www.w3schools.com/tags/tag_form.asp
-               http://www.w3schools.com/tags/tag_input.asp
-               http://php.net/manual/reserved.variables.post.php
--->
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href=" ">
-    <style>
-      span {
-        width: 100px;
-        display: inline-block;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
   </head>
   <body>
 
-      <!-- PHP STRUCTURE FOR CONDITIONAL HTML -->
-      <!-- FIRST TIME. NO DATA IN THE POST (checking a required form field) -->
-      <!-- So we must show the form -->
+
+
+    <nav class="navbar navbar-default" role="navigation">
+  <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+  <div class="navbar-header" role="navigation">
+    <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Desplegar navegación</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Logotipo</a>
+  </div>
+
+  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+       otro elemento que se pueda ocultar al minimizar la barra -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Enlace #1</a></li>
+      <li><a href="#">Enlace #2</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Menú #1 <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Acción #1</a></li>
+          <li><a href="#">Acción #2</a></li>
+          <li><a href="#">Acción #3</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Acción #4</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Acción #5</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Buscar">
+      </div>
+      <button type="submit" class="btn btn-default">Enviar</button>
+    </form>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Enlace #3</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Menú #2 <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Acción #1</a></li>
+          <li><a href="#">Acción #2</a></li>
+          <li><a href="#">Acción #3</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Acción #4</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 
 
 
 
-      <?php if (!isset($_POST["Gmail"])) : ?>
-        <form method="post">
-          <fieldset>
-            <legend>Registarte</legend>
-            <span>Nombre:</span><input type="text" name="Nombre" required><br>
-            <span>Apellidos:</span><input type="text" name="Apellidos" required><br>
-            <span>Gmail:</span><input type="Email" name="Gmail" required><br>
-            <span>password:</span><input type="password" name="password" required><br>
-            <span>Edad:</span><input type="text" name="Edad"><br>
-            <p><input type="submit" value="Registrase"></p>
-          </fieldset>
-        </form>
-
-      <!-- DATA IN $_POST['mail']. Coming from a form submit -->
-      <?php else: ?>
-
-        <?php
-        //CREATING THE CONNECTION
-        $connection = new mysqli("localhost", "root", "2asirtriana", "tf",3306);
-        $connection->set_charset("uft8");
-        //TESTING IF THE CONNECTION WAS RIGHT
-        if ($connection->connect_errno) {
-            printf("Connection failed: %s\n", $connection->connect_error);
-            exit();
-        }
-        $matricula = $_POST["matricula"];
-        $marca = $_POST["marca"];
-        $modelo = $_POST["modelo"];
-        $color = $_POST["color"];
-        $fecha = $_POST["fm"];
-        $query = "INSERT INTO vehiculos(matricula,marca,modelo,color,fechamatriculacion)
-        VALUES ('$matricula','$marca','$modelo','$color','$fecha')";
-        echo $query;
-        if ($connection->query($query)) {
-          echo "COCHE INSERTADO";
-          $query ="SELECT * FROM vehiculos";
-          if ($result = $connection->query($query)) {
-            echo "<table>";
-
-            //FETCHING OBJECTS FROM THE RESULT SET
-            //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
-
-            while($obj = $result->fetch_object()) {
-
-                //PRINTING EACH ROW
-                echo "<tr>";
-                  echo "<td>".$obj->Matricula."</td>";
-                  echo "<td>".$obj->Marca."</td>";
-                  echo "<td>".$obj->Modelo."</td>";
-                  echo "<td>".$obj->Color."</td>";
-                  echo "<td>".$obj->FechaMatriculacion."</td>";
-                echo "</tr>";
-            }
 
 
-            echo "</table>";
-          }
-        } else {
-          echo "ERROR AL INSERTAR COCHE";
-        }
-        ?>
 
-      <?php endif ?>
+    <div class="container" style="padding-top: 1em;">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- El logotipo y el icono que despliega el menú se agrupan
+             para mostrarlos mejor en los dispositivos móviles -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Desplegar navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Logotipo</a>
+        </div>
+
+        <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+             otro elemento que se pueda ocultar al minimizar la barra -->
+        <div class="navbar-collapse navbar-ex1-collapse in" style="height: auto;">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Enlace #1</a></li>
+            <li><a href="#">Enlace #2</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Menú #1 <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Acción #1</a></li>
+                <li><a href="#">Acción #2</a></li>
+                <li><a href="#">Acción #3</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Acción #4</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Acción #5</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Buscar">
+            </div>
+            <button type="submit" class="btn btn-default">Enviar</button>
+          </form>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Enlace #3</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Menú #2 <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Acción #1</a></li>
+                <li><a href="#">Acción #2</a></li>
+                <li><a href="#">Acción #3</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Acción #4</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   </body>
 </html>

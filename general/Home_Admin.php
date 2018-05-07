@@ -1,27 +1,16 @@
+
+
 <?php
 
-  //Open the session
   session_start();
+  include_once("Login_Admin.php");
+  Login();
+
+  $Gmail=$_SESSION["Gmail"];
 
 
-  if (isset($_SESSION["Gmail"])) {
 
-    if ($_SESSION["tipo"]=='admin') {
-      $Gmail=$_SESSION["Gmail"];
-
-    } else {
-      session_destroy();
-      header("Location: inicio.php");
-    }
-
-
-  } else {
-    session_destroy();
-    header("Location: inicio.php");
-  }
-
-
- ?>
+?>
 
  <?php
 
@@ -46,17 +35,20 @@
   <body>
 
     <?php
+
     $query="SELECT * from Usuarios  WHERE Gmail='$Gmail'";
 
 
     if ($result = $connection->query($query)) {
-        printf("<p>The select query returned %d rows.</p>", $result->num_rows);
 
 
         while($obj = $result->fetch_object()) {
 
             $Edad_usu =$obj->Edad;
             $Nombre_usu = $obj->Nombre;
+            echo "<div class='alert alert-success'>
+            <strong>Success!</strong> Indicates a successful or positive action.
+            </div>";
 
 
         }
@@ -68,6 +60,7 @@
       <div class="row">
 
       <?php
+
         include_once("Menu.php");
         Menu();
       ?>
