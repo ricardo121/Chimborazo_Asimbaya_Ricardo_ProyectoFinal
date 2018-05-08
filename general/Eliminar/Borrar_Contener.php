@@ -12,7 +12,7 @@
 
       <?php
         if (empty($_GET)) {
-          echo "No se han recibido datos del reparaciones";
+          echo "No se han recibido datos ";
           exit();
         }
       ?>
@@ -36,7 +36,7 @@
         $query="DELETE from Contener where IdLista='".$_GET["borrar2"]."' and IdPista='".$_GET["borrar1"]."'";
         echo $query;
         if ($result = $connection->query($query)) {
-          header('Location: /ricardo/general/Admin_Contener.php');
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Admin_Contener.php');
 
         } else {
           echo "Error al Borrar los datos";

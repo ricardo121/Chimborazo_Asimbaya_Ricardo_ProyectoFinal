@@ -1,26 +1,11 @@
-<!--
-    Author: Juan Diego Pérez @pekechis
-    E-mail: contact@jdperez.es
-    Description: Passing info using POST and HTML forms
-                 using the same file
-    Date: November 2015
-    Reference: http://www.w3schools.com/tags/tag_form.asp
-               http://www.w3schools.com/tags/tag_input.asp
-               http://php.net/manual/reserved.variables.post.php
--->
-<!DOCTYPE html>
+
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
     <link rel="stylesheet" type="text/css" href=" ">
-    <style>
-      span {
-        width: 100px;
-        display: inline-block;
-      }
-    </style>
   </head>
   <body>
 
@@ -52,7 +37,7 @@
         $query="DELETE from Listas  where IdLista='".$_GET["borrar"]."'";
 
         if ($result = $connection->query($query)) {
-          header('Location: /ricardo/general/Admin_Listas.php');
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Admin_Listas.php');
 
         } else {
           echo "Error al Borrar los datos";

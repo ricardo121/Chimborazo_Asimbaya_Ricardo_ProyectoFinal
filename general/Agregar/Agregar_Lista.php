@@ -44,10 +44,9 @@
         VALUES (NULL,'$Nombre')";
 
 
-        echo $query;
         if ($connection->query($query)) {
           echo "Se ha Registardo en ...";
-          header('Location: /ricardo/general/Home_Admin.php');
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Admin_Listas.php');
 
         } else {
           echo "ERROR AL AÑADIR LISTA";

@@ -49,26 +49,8 @@
         echo $query;
         if ($connection->query($query)) {
           echo "Se ha Registardo en ...";
-          $query ="SELECT * FROM Autores";
-          if ($result = $connection->query($query)) {
-            echo "<table>";
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Admin_Autores.php');
 
-
-            //FETCHING OBJECTS FROM THE RESULT SET
-            //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
-
-            while($obj = $result->fetch_object()) {
-
-                //PRINTING EACH ROW
-                echo "<tr>";
-                  echo "<td>".$obj->IdAutor."</td>";
-                  echo "<td>".$obj->Nombre_Autor."</td>";
-                echo "</tr>";
-            }
-
-
-            echo "</table>";
-          }
         } else {
           echo "ERROR AL AÑADIR AUTOR";
         }

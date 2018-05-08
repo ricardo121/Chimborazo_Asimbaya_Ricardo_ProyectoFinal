@@ -12,10 +12,11 @@
             <li><a href='Admin_Listas.php'>Listas</a></li>
 
           </ul>
-
+          <form action='Cerrar.php' method='post'>
           <ul class='nav navbar-nav navbar-right' style=>
-            <li><button href='Cerrar.php' type='submit' class='btn btn-default navbar-btn' style='margin-right:15px'><a href='Cerrar.php'>Cerrar Sessión</a></button></li>
+            <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:15px'>Cerrar Sessión</button></li>
           </ul>
+          </form>
         </div>";
 
         echo "</nav>";

@@ -46,7 +46,7 @@
 
             $Edad_usu =$obj->Edad;
             $Nombre_usu = $obj->Nombre;
-            echo "<div class='alert alert-success'>
+            echo "<div class='alert' style='text-aline:center ; margin:0px auto'>
             <strong>Success!</strong> Indicates a successful or positive action.
             </div>";
 
@@ -68,8 +68,9 @@
 
       </div>
       <div class="row" >
-        <h1 style="color:black; text-align: center"><?php echo"Bienvenido"." ". $Nombre_usu; ?></h1>
-        <h1 style="color:black; text-align: center">A la Pantalla de Adminitracion del sitio Web</h1>
+        <script style="text-align='center'">alert("<?php echo"Bienvenido"." ". $Nombre_usu." "."a la Pantalla de Adminitracion del sitio Web"; ?>");</script>
+
+
       </div>
       <div class="row"  >
         <nav  role='navigation' style="background-color:red ">

@@ -20,7 +20,7 @@
 
     <?php
       if (empty($_GET)) {
-        echo "No se han recibido datos del reparaciones";
+        echo "No se han recibido datos de la Lista";
         exit();
       }
     ?>

@@ -27,7 +27,7 @@
 
             $query="SELECT * from Listas  WHERE IdLista='".$_GET['agregar']."'";
             if ($result = $connection->query($query)) {
-              echo $query;
+          
             while($obj = $result->fetch_object()) {
             $Nombre =$obj->Nombre_Lista;
             $Id = $obj->IdLista;
@@ -93,7 +93,7 @@
 
         if ($connection->query($query)) {
           echo "Se ha Modificado en ...";
-          header('Location: /ricardo/general/Admin_Listas.php');
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Admin_Listas.php');;
         } else {
           echo "Pista ya añadida a la Lista";
         }

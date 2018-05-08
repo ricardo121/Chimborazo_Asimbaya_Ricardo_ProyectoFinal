@@ -33,7 +33,7 @@
         /* Consultas de selección que devuelven un conjunto de resultados */
             $query="SELECT * from Listas  WHERE IdLista='".$_GET['editar']."'";
         if ($result = $connection->query($query)) {
-          echo $query;
+      
           while($obj = $result->fetch_object()) {
             $Nombre =$obj->Nombre_Lista;
             $Id = $obj->IdLista;
@@ -78,26 +78,8 @@
 
         if ($connection->query($query)) {
           echo "Se ha Modificado en ...";
-          $query ="SELECT * FROM Listas WHERE IdLista='$IdLista'";
-          if ($result = $connection->query($query)) {
-            echo "<table>";
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Admin_Listas.php');
 
-
-            //FETCHING OBJECTS FROM THE RESULT SET
-            //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
-
-            while($obj = $result->fetch_object()) {
-
-                //PRINTING EACH ROW
-                echo "<tr>";
-                  echo "<td>".$obj->IdLista."</td>";
-                  echo "<td>".$obj->Nombre_Lista."</td>";
-                echo "</tr>";
-            }
-
-
-            echo "</table>";
-          }
         } else {
           echo "ERROR AL MODIFICAR ALBUM";
         }

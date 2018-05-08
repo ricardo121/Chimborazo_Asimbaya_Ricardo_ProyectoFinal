@@ -47,7 +47,7 @@
         echo $query;
         if ($connection->query($query)) {
           echo "Se ha Registardo en ...";
-          header('Location: /ricardo/general/Home_Admin.php');
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Admin_Albums.php');
 
         } else {
           echo "ERROR AL AÑADIR ALBUM";

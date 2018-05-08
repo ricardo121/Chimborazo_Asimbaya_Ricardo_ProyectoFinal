@@ -31,7 +31,7 @@
         /* Consultas de selección que devuelven un conjunto de resultados */
             $query="SELECT * from Autores  WHERE IdAutor='".$_GET['editar']."'";
         if ($result = $connection->query($query)) {
-          echo $query;
+  
           while($obj = $result->fetch_object()) {
             $Nombre =$obj->Nombre_Autor;
             $Id = $obj->IdAutor;
@@ -68,32 +68,15 @@
 
         $query="UPDATE Autores SET Nombre_Autor='$Nombre'
         WHERE IdAutor='$IdAutor'";
-        echo $query;
+
 
 
         if ($connection->query($query)) {
+
           echo "Se ha Modificado en ...";
-          $query ="SELECT * FROM Autores WHERE IdAutor='$IdAutor'";
-          if ($result = $connection->query($query)) {
-            echo "<table>";
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Admin_Autores.php');
 
 
-            //FETCHING OBJECTS FROM THE RESULT SET
-            //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
-
-            while($obj = $result->fetch_object()) {
-
-                //PRINTING EACH ROW
-                echo "<tr>";
-                  echo "<td>".$obj->IdAutor."</td>";
-                  echo "<td>".$obj->Nombre_Autor."</td>";
-                echo "</tr>";
-            }
-
-
-            echo "</table>";
-            header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Admin_Autores.php');
-          }
         } else {
           echo "ERROR AL AÑADIR USUARIO";
         }

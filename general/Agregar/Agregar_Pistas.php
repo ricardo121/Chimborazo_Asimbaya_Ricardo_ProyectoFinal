@@ -120,30 +120,8 @@
         echo $query;
         if ($connection->query($query)) {
           echo "Se ha Registardo en ...";
-          $query ="SELECT * FROM Pistas";
-          if ($result = $connection->query($query)) {
-            echo "<table>";
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Admin_Usuarios.php');
 
-
-            //FETCHING OBJECTS FROM THE RESULT SET
-            //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
-
-            while($obj = $result->fetch_object()) {
-
-                //PRINTING EACH ROW
-                echo "<tr>";
-                  echo "<td>".$obj->IdPista."</td>";
-                  echo "<td>".$obj->IdAlbum."</td>";
-                  echo "<td>".$obj->IdUsuario."</td>";
-                  echo "<td>".$obj->IdAutor."</td>";
-                  echo "<td>".$obj->Pista."</td>";
-                  echo "<td>".$obj->Nombre_Pista."</td>";
-                echo "</tr>";
-            }
-
-
-            echo "</table>";
-          }
         } else {
           echo "ERROR AL AÑADIR USUARIO";
         }

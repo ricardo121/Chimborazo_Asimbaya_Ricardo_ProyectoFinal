@@ -162,7 +162,7 @@
         echo $query;
         if ($connection->query($query)) {
           echo "Se ha Registardo en ...";
-          header('Location:  /ricardo/general/Admin_Pistas.php');
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Admin_Usuarios.php');
         } else {
           echo "ERROR AL AÑADIR PISTA";
         }
