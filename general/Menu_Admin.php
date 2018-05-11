@@ -13,7 +13,7 @@
 
           </ul>
           <form action='Cerrar.php' method='post'>
-          <ul class='nav navbar-nav navbar-right' style=>
+          <ul class='nav navbar-nav navbar-right'>
             <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:15px'>Cerrar Sessión</button></li>
           </ul>
           </form>

@@ -47,7 +47,7 @@
 
       <!-- PRINT THE TABLE AND THE HEADER -->
 			<?php
-        include_once("Menu.php");
+        include_once("Menu_Admin.php");
         Menu();
             ?>
       <table class="table">

@@ -54,22 +54,20 @@
     } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
   ?>
 
-  <div class="row">
 
-    <?php
-      include_once("Menu_Usu1.php");
-      Menu1();
-    ?>
+      <div class="row" >
 
-  </div>
+        <?php
+          include_once("Menu_Usu1.php");
+          Menu1();
+        ?>
 
-
-      <div class="row">
-        <h1 style="color:white; text-align: center"><?php echo"Bienvenido"." ". $Nombre_usu; ?></H1>
       </div>
 
 
-      <div class="row" style="background-color:white;">
+
+
+      <div class="row" style="background-color:white; ">
 
         <?php
           include_once("Menu_Usu2.php");

@@ -61,8 +61,8 @@
 
       <?php
 
-        include_once("Menu.php");
-        Menu();
+        include_once("Menu_Admin.php");
+        Menu2();
       ?>
 
 
