@@ -69,6 +69,11 @@
           </div>
           <button type="submit" class="btn btn-default">Añadir</button>
         </form>
+        <form action='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Home_Usu.php' id="formulario_registro" method='post'>
+        <ul class='nav navbar-nav navbar-right'>
+          <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:15px'>Volver</button></li>
+        </ul>
+        </form>
 
 
         <?php else: ?>
@@ -126,7 +131,7 @@
                     VALUES (NULL,NULL,$IdUsuario,NULL,'$target_file','$Nombre','$Genero',0,NULL,NULL,NULL)";
 
                     $query = "INSERT INTO Autores (IdAutor,Nombre_Autor)
-                    VALUES (NULL,'$Nombre_Autor')";  
+                    VALUES (NULL,'$Nombre_Autor')";
 
       }
 

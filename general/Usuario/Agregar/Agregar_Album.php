@@ -27,6 +27,11 @@
         </div>
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
+          <form action='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Home_Usu.php' method='post'>
+          <ul class='nav navbar-nav navbar-right'>
+            <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:15px'>Volver</button></li>
+          </ul>
+          </form>
 
 
       <?php else: ?>
@@ -49,7 +54,7 @@
         echo $query;
         if ($connection->query($query)) {
           echo "Se ha Registardo en ...";
-          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Administrador/Admin_Albums.php');
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Usu_Albums.php');
 
         } else {
           echo "ERROR AL AÑADIR ALBUM";

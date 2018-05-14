@@ -31,9 +31,9 @@
         exit();
     }
 
-
-  $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario join Albums al ON al.IdAlbum=p.IdAlbum join Autores au ON au.IdAutor=p.IdAutor";
-
+		$query="SELECT * from Usuarios u right join Pistas p ON u.IdUsuario=p.IdUsuario left join Albums al ON al.IdAlbum=p.IdAlbum left join Autores au ON au.IdAutor=p.IdAutor";
+  //$query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario join Albums al ON al.IdAlbum=p.IdAlbum join Autores au ON au.IdAutor=p.IdAutor";
+	echo $query;
 
   if ($result = $connection->query($query)) {
 

@@ -101,6 +101,11 @@
           </div>
           <button type="submit" class="btn btn-default">Añadir</button>
         </form>
+        <form action='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Administrador/Admin_Usuarios.php' method='post'>
+        <ul class='nav navbar-nav navbar-right'>
+          <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:15px'>Volver</button></li>
+        </ul>
+        </form>
 
 
         <?php else: ?>
