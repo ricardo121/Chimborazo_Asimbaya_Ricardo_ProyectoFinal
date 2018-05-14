@@ -23,6 +23,23 @@
            exit();
        }
 
+       $query="SELECT * from Usuarios  WHERE Gmail='$Gmail'";
+
+
+       if ($result = $connection->query($query)) {
+
+
+           while($obj = $result->fetch_object()) {
+
+               $Edad_usu =$obj->Edad;
+               $Nombre_usu = $obj->Nombre;
+               echo "";
+
+
+           }
+           //Free the result. Avoid High Memory Usages
+       } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
+
 ?>
 
 <html lang="en">
@@ -34,56 +51,34 @@
   </head>
   <body>
 
-    <?php
 
-    $query="SELECT * from Usuarios  WHERE Gmail='$Gmail'";
-
-
-    if ($result = $connection->query($query)) {
-
-
-        while($obj = $result->fetch_object()) {
-
-            $Edad_usu =$obj->Edad;
-            $Nombre_usu = $obj->Nombre;
-            echo "<div class='alert' style='text-aline:center ; margin:0px auto'>
-            <strong>Success!</strong> Indicates a successful or positive action.
-            </div>";
-
-
-        }
-        //Free the result. Avoid High Memory Usages
-    } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
-  ?>
 
     <div class="container">
       <div class="row">
+        <script style="text-align='center'">alert("<?php echo"Bienvenido"." ". $Nombre_usu." "."a la Pantalla de Adminitracion del sitio Web"; ?>");</script>
 
-      <?php
-
-        include_once("Menu_Admin.php");
-        Menu();
-      ?>
 
 
       </div>
       <div class="row" >
-        <script style="text-align='center'">alert("<?php echo"Bienvenido"." ". $Nombre_usu." "."a la Pantalla de Adminitracion del sitio Web"; ?>");</script>
 
+        <?php
+        $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
+        $connection->set_charset("uft8");
+        //TESTING IF THE CONNECTION WAS RIGHT
+        if ($connection->connect_errno) {
+            printf("Connection failed: %s\n", $connection->connect_error);
+            exit();
+        }
+
+
+
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Administrador/Admin_Usuarios.php');
+
+        ?>
 
       </div>
-      <div class="row"  >
-        <nav  role='navigation' style="background-color:red ">
 
-        <div class='collapse navbar-collapse navbar-ex1-collapse' style="background-color:white ;margin-top:40%" >
-
-          <ul class='nav navbar-nav navbar-right'>
-            <li class='active'><a class='navbar-brand' href='Home_Admin.php'><img src='Apagar.png' width='25px' /></a></li>
-          </ul>
-        </div>
-
-        </nav>
-      </div>
     </div>
   </body>
 </html>

@@ -86,35 +86,19 @@
         </nav>
 
     </div>
-    <div class="row">
-        <nav class="navbar navbar-default" role="navigation">
-          <div class="navbar-header">
-            <ul class="nav nav-pills nav-stacked">
+
+
+
               <?php
                 while($obj = $result->fetch_object()) {
                     //PRINTING EACH ROW
+                    echo "<div class='row' style='background-color: white;' ><nav role='navigation'><div class='navbar-header'>";
+                    echo "<a style='width:100px;'  class='navbar-brand' href='#'>".$obj->Nombre_Pista."</a>";
 
-                          echo "<li><a href='#'>".$obj->Nombre_Pista."</a></li>";
+                    echo "<a class='navbar-brand' href='Eliminar/Borrar_Pista.php?borrar=".$obj->IdPista.
+                    "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Papelera.jpg' width='20px' /></a>";
 
-
-
-
-                ?>
-
-            </ul>
-
-
-            <ul class="nav nav-pills nav-stacked  navbar-right" >
-              <?php
-
-
-                    //PRINTING EACH ROW
-
-                    echo "<li>";
-                    echo "<a href='Eliminar/Borrar_Pista.php?borrar=".$obj->IdPista.
-                    "'><img src='eliminar.png' width='20px' /></a>";
-                    echo "<li>";
-
+                    echo "</div></nav></div>";
 
 
 
@@ -122,8 +106,8 @@
                 //Free the result. Avoid High Memory Usages
                 } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
                 ?>
-            </ul>
-          </div>
+
+
 
   <!-- Agrupar los enlaces de navegación, los formularios y cualquier
        otro elemento que se pueda ocultar al minimizar la barra -->
@@ -138,13 +122,12 @@
 
     </ul>
   </div>-->
-    </nav>
 
 
 
 
 
-      </div>
+
       </div>
   </body>
 </html>
