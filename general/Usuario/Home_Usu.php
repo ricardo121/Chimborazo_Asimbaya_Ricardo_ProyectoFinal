@@ -47,7 +47,7 @@
 
             $Edad_usu =$obj->Edad;
             $Nombre_usu = $obj->Nombre;
-
+            $IdUsu= $obj->IdUsuario;
 
         }
         //Free the result. Avoid High Memory Usages
@@ -72,8 +72,9 @@
       <div class="row" style="background-color:white;">
 
         <?php
+          echo $IdUsu;
           include_once("Menu_Usu2.php");
-          Menu2();
+          Menu2($IdUsu);
         ?>
 
     </div>

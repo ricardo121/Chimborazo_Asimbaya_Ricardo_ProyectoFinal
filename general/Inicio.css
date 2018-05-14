@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+  background: url("Clave_Sol.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin: 10px auto;
+
+}
+
+fieldset {
+width: 100%;
+margin: 10px auto;
+margin-left: 20%;
+}
+
+#inputt {
+margin: 3% auto;
+}
+
+
+
+
+#grande{
+
+  /*background: url("clave_sol.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 10px auto;
+  height:-webkit-fill-available;
+  width: 100%;*/
+}
+
+#fondo {
+  background-color: #AAB7B8;
+
+}
+
+
+
+#contenedor {
+  height:-webkit-fill-available;
+
+}
+
+
+#formulario_inicio{
+  /*background-color: #BCB6B4;*/
+  margin-top: 10% auto;
+  height:auto;
+  margin: 5% auto;
+  width: 60%;
+  padding-top: 2%;
+  padding-left: 2%;
+
+}
+
+#formulario_registro{
+
+  margin-top: 10% auto;
+  height:auto;
+  margin: 5% auto;
+  width: 50%;
+
+
+}
+
+form {
+/*  margin-top: 10% auto;:
+  height:auto;
+  margin: 5% auto;
+  width: 50%;
+  padding-top: 10%;*/
+
+  /*position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);*/
+
+}
+
+
+span {
+  height: 1%;
+  width: 80px;
+  display: inline-block;
+  color: white;
+}

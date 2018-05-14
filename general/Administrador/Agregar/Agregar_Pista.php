@@ -79,6 +79,7 @@
             }
             echo "</select>";
           ?>
+          </div>
           <div class="form-group">
             <label for="ejemplo_password_1">Elegir_Album</label>
           <?php
