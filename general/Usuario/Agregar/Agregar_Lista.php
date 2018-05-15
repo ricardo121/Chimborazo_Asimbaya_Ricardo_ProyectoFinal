@@ -17,21 +17,41 @@
 
         <div class="row" >
         <?php if (!isset($_POST["Nombre"])) : ?>
+
+          <?php
+
+          //CREATING THE CONNECTION
+          $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
+          $connection->set_charset("uft8");
+          //TESTING IF THE CONNECTION WAS RIGHT
+          if ($connection->connect_errno) {
+              printf("Connection failed: %s\n", $connection->connect_error);
+              exit();
+          }
+          echo $_GET['agregar2'];
+          $query="SELECT * from Usuarios  WHERE IdUsuario='".$_GET['agregar2']."'";
+            if ($result = $connection->query($query)) {
+            while($obj = $result->fetch_object()) {
+              $IdUsuario = $obj->IdUsuario;
+              $Apellidos = $obj->Apellidos;
+          }
+          }
+          ?>
+
+
           <form method="post" role="form">
          <div class="form-group">
-           <label for="ejemplo_email_1">IdLista</label>
-           <input type="text" name="Nombre" class="form-control"
-           placeholder="Introduce Nombre de Lista">
+           <label for="ejemplo_email_1">Nombre Lista</label>
+           <input type="hidden" name="IdUsuario"  value="<?php echo $IdUsuario; ?>"/>
+           <input type="text" name="Nombre" class="form-control" placeholder="Introduce Nombre de Lista">
         </div>
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
-          <form action='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Home_Usu.php' method='post'>
+          <form action='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Administrador/Admin_Listas.php' method='post'>
           <ul class='nav navbar-nav navbar-right'>
             <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:15px'>Volver</button></li>
           </ul>
           </form>
-
-
 
 
       <?php else: ?>
@@ -46,9 +66,10 @@
             exit();
         }
         $Nombre = $_POST["Nombre"];
+        $IdUsuario= $_POST["IdUsuario"];
           echo $Nombre;
-        $query = "INSERT INTO Listas (IdLista,Nombre_Lista)
-        VALUES (NULL,'$Nombre')";
+        $query = "INSERT INTO Listas (IdLista,IdUsuario,Nombre_Lista)
+        VALUES (NULL,'$IdUsuario','$Nombre')";
 
 
         if ($connection->query($query)) {

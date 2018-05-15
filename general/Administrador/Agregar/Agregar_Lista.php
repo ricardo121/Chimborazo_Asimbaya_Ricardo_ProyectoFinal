@@ -19,9 +19,9 @@
         <?php if (!isset($_POST["Nombre"])) : ?>
           <form method="post" role="form">
          <div class="form-group">
-           <label for="ejemplo_email_1">IdLista</label>
-           <input type="text" name="Nombre" class="form-control"
-           placeholder="Introduce Nombre de Lista">
+           <label for="ejemplo_email_1">Nombre Lista</label>
+           <input type="hidden" name="IdUsuario"  value="<?php echo $_GET['agregar']; ?>"/>
+           <input type="text" name="Nombre" class="form-control" placeholder="Introduce Nombre de Lista">
         </div>
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
@@ -44,9 +44,10 @@
             exit();
         }
         $Nombre = $_POST["Nombre"];
+        $IdUsuario= $_POST["IdUsuario"];
           echo $Nombre;
-        $query = "INSERT INTO Listas (IdLista,Nombre_Lista)
-        VALUES (NULL,'$Nombre')";
+        $query = "INSERT INTO Listas (IdLista,IdUsuario,Nombre_Lista)
+        VALUES (NULL,'$IdUsuario','$Nombre')";
 
 
         if ($connection->query($query)) {

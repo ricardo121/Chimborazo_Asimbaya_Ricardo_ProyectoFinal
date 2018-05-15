@@ -64,6 +64,7 @@
                   <th></th>
                   <th></th>
                   <th>Inserte Pista</th>
+                  <th>Inserte Lista</th>
                 </tr>
               </thead>
 
@@ -89,6 +90,10 @@
                 echo "</td>";
                 echo "<td>";
                 echo "<a href='Agregar/Agregar_Pista.php?agregar=".$obj->IdUsuario.
+                "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Agregar.png' width='20px' /></a>";
+                echo "</td>";
+                echo "<td>";
+                echo "<a href='Agregar/Agregar_Lista.php?agregar=".$obj->IdUsuario.
                 "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Agregar.png' width='20px' /></a>";
                 echo "</td>";
               echo "</tr>";

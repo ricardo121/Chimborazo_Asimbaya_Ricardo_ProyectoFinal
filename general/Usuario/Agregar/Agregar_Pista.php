@@ -26,8 +26,8 @@
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
         }
-        echo $_GET['agregar'];
-        $query="SELECT * from Usuarios  WHERE IdUsuario='".$_GET['agregar']."'";
+        echo $_GET['agregar1'];
+        $query="SELECT * from Usuarios  WHERE IdUsuario='".$_GET['agregar1']."'";
           if ($result = $connection->query($query)) {
           while($obj = $result->fetch_object()) {
             $IdUsuario = $obj->IdUsuario;
@@ -126,12 +126,19 @@
                   $Genero= $_POST["Genero"];
                   $IdUsuario= $_POST["IdUsuario"];
                   $Nombre_Autor= $_POST["Autor"];
+                  var_dump 
+                  $query1 = mysqli_query($connection, "INSERT INTO Autores (IdAutor,Nombre_Autor)
+                  VALUES (NULL,'$Nombre_Autor');");
+
+                  $query2 = mysqli_query($connection, "SELECT IdAutor FROM Autores WHERE Nombre_Autor=$Nombre_Autor");
+                  $idaut= mysqli_fetch_array($query2);
+                  echo $idaut[0];
+
                   $query = "INSERT INTO Pistas (IdPista,IdAlbum,IdUsuario,
                     IdAutor,Pista,Nombre_pista,Genero,Hora_subida,Reproducciones_pista,Valoracion_positiva,Valoracion_negativa)
-                    VALUES (NULL,NULL,$IdUsuario,NULL,'$target_file','$Nombre','$Genero',0,NULL,NULL,NULL)";
+                    VALUES (NULL,NULL,'$IdUsuario','$IdAu','$target_file','$Nombre','$Genero',0,NULL,NULL,NULL)";
 
-                    $query = "INSERT INTO Autores (IdAutor,Nombre_Autor)
-                    VALUES (NULL,'$Nombre_Autor')";
+
 
       }
 

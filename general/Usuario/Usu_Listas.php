@@ -37,7 +37,7 @@
     <div class="container" id="contenedor">
 
     <?php
-    $query="SELECT * from Listas";
+    $query="SELECT * from Listas L join Usuarios U on U.IdUsuario=L.IdUsuario WHERE Gmail='$Gmail'";
 
 
     if ($result = $connection->query($query)) {

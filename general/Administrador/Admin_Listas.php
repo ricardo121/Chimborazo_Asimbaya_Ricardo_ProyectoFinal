@@ -31,7 +31,7 @@
     }
 
 
-  $query="SELECT * from Listas";
+  $query="SELECT * from Listas L join Usuarios U on L.IdUsuario=U.IdUsuario";
 
 
   if ($result = $connection->query($query)) {
@@ -50,6 +50,8 @@
       	<table class="table">
       		<thead>
         		<tr>
+							<th>IdUsuario</th>
+							<th>Gmail</th>
           		<th>IdLista</th>
           		<th>Nombre_Lista</th>
 							<th></th>
@@ -64,6 +66,8 @@
       while($obj = $result->fetch_object()) {
           //PRINTING EACH ROW
           echo "<tr>";
+						echo "<td>".$obj->IdUsuario."</td>";
+						echo "<td>".$obj->Gmail."</td>";
             echo "<td><a href='Admin_Contener.php?Lista=".$obj->IdLista."'>".$obj->IdLista."</a></td>";
             echo "<td>".$obj->Nombre_Lista."</td>";
             echo "<td>";
