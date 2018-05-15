@@ -29,7 +29,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href="Estilos_Usu.css"/>
+    <link rel="stylesheet" type="text/css" href="Estilo_Usu.css"/>
     <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
   </head>
   <body>
@@ -72,8 +72,8 @@
     <?php
       while($obj = $result->fetch_object()) {
           //PRINTING EACH ROW
-          echo "<div class='row' style='background-color: #ccc7c7' ><nav role='navigation'><div class='navbar-header'>";
-          echo "<a style='width:120px;'  class='navbar-brand' href='#'>".$obj->Nombre_Lista."</a>";
+          echo "<div class='row'  ><nav role='navigation'><div class='navbar-header'>";
+          echo "<a style='width:200px;'  class='navbar-brand' href='#'>".$obj->Nombre_Lista."</a>";
 
           echo "<a class='navbar-brand' href='Eliminar/Borrar_Lista.php?borrar=".$obj->IdLista.
           "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Papelera.jpg' width='20px' /></a>";

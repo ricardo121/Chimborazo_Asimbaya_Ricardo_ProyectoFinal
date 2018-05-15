@@ -29,7 +29,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href="Estilos4.css"/>
+    <link rel="stylesheet" type="text/css" href="Estilo_Usu.css"/>
     <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
   </head>
   <body>
@@ -64,7 +64,7 @@
   </div>
 
 
-      <div class="row">
+      <div class="row" style="background-color: #ff6d4e;">
         <h1 style="color:white; text-align: center"><?php echo"Bienvenido"." ". $Nombre_usu; ?></H1>
       </div>
 
@@ -72,9 +72,10 @@
       <div class="row" style="background-color:white;">
 
         <?php
-          echo $IdUsu;
+          
+          $_SESSION["idusu"] = $IdUsu;
           include_once("Menu_Usu2.php");
-          Menu2($IdUsu);
+          Menu2();
         ?>
 
     </div>

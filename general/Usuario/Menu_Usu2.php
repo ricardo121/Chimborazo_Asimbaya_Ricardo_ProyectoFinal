@@ -10,10 +10,10 @@
         </div>
         <form  method='post'>
         <ul class='nav navbar-nav navbar-right'>
-          <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:20px'><a href='Agregar/Agregar_Pista.php?agregar=".
+          <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:17px'><a href='Agregar/Agregar_Pista.php?agregar=".$_SESSION['idusu'].
           "'>Subir Pista</a></button></li>
-          <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:20px'><a href='Agregar/Agregar_Album.php?'>Crear Album</a></button></li>
-          <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:20px'><a href='Agregar/Agregar_Lista.php?'>Crear Lista</a></button></li>
+          <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:17px'><a href='Agregar/Agregar_Album.php?'>Crear Album</a></button></li>
+          <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:17px'><a href='Agregar/Agregar_Lista.php?'>Crear Lista</a></button></li>
         </ul>
         </form>";
         echo "</nav>";
