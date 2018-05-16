@@ -57,8 +57,8 @@
           		<th>Nombre_Pista</th>
           		<th>Genero</th>
           		<th>Reproducciones_pista</th>
-          		<th>Autor</th>
           		<th>Album</th>
+							<th>Autor</th>
 						</tr>
       		</thead>
 

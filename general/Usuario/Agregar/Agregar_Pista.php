@@ -88,6 +88,7 @@
             exit();
         }
 
+
               var_dump($_FILES);
                 //Temp file. Where the uploaded file is stored temporary
               $tmp_file = $_FILES['pista']['tmp_name'];
@@ -126,17 +127,50 @@
                   $Genero= $_POST["Genero"];
                   $IdUsuario= $_POST["IdUsuario"];
                   $Nombre_Autor= $_POST["Autor"];
-                  var_dump 
-                  $query1 = mysqli_query($connection, "INSERT INTO Autores (IdAutor,Nombre_Autor)
-                  VALUES (NULL,'$Nombre_Autor');");
 
-                  $query2 = mysqli_query($connection, "SELECT IdAutor FROM Autores WHERE Nombre_Autor=$Nombre_Autor");
-                  $idaut= mysqli_fetch_array($query2);
-                  echo $idaut[0];
+
+                  $query1 = "INSERT INTO Autores (IdAutor,Nombre_Autor)
+                  VALUES (NULL,'$Nombre_Autor')";
+
+                  if ($connection->query($query1)) {
+                    echo "Se ha Registardo en ...";
+                    echo $query1;
+
+                  } else {
+                    echo "ERROR AL AÑADIR AUTOR";
+                  }
+
+
+
+
+                  $consulta = "SELECT IdAutor FROM Autores WHERE Nombre_Autor='$Nombre_Autor'";
+
+                  if ($resultado = mysqli_query($connection, $consulta)) {
+
+                      /* obtener el array de objetos */
+                      while ($fila = mysqli_fetch_row($resultado)) {
+                          printf ("%s (%s)\n", $fila[0], $fila[1]);
+                          var_dump($fila);
+                          //echo $fila[0];
+                          $ID=$fila[0];
+
+                      }
+
+                      /* liberar el conjunto de resultados */
+                      // $hola = mysqli_free_result($resultado);
+
+                  }
+
+
+
+
+
+
+
 
                   $query = "INSERT INTO Pistas (IdPista,IdAlbum,IdUsuario,
                     IdAutor,Pista,Nombre_pista,Genero,Hora_subida,Reproducciones_pista,Valoracion_positiva,Valoracion_negativa)
-                    VALUES (NULL,NULL,'$IdUsuario','$IdAu','$target_file','$Nombre','$Genero',0,NULL,NULL,NULL)";
+                    VALUES (NULL,NULL,'$IdUsuario','$ID','$target_file','$Nombre','$Genero',0,NULL,NULL,NULL)";
 
 
 
