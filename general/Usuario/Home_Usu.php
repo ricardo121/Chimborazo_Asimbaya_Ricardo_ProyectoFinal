@@ -65,14 +65,14 @@
 
 
       <div class="row" style="background-color: #ff6d4e;">
-        <h1 style="color:white; text-align: center"><?php echo"Bienvenido"." ". $Nombre_usu; ?></H1>
+        <h1 style="color:white; text-align: center"><?php echo"Bienvenido"." ". $Nombre_usu; ?></h1>
       </div>
 
 
       <div class="row" style="background-color:white;">
 
         <?php
-          
+
           $_SESSION["idusu"] = $IdUsu;
           include_once("Menu_Usu2.php");
           Menu2();

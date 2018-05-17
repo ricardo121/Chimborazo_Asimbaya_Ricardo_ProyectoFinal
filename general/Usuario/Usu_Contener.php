@@ -37,9 +37,10 @@
     <div class="container" id="contenedor">
 
     <?php
-    $query="SELECT * from Listas L join Usuarios U on U.IdUsuario=L.IdUsuario WHERE Gmail='$Gmail'";
+    $Nombre_Lista = $_GET['Nombre'] ;
+    $query="SELECT * from Listas L join Contener C on L.IdLista=C.IdLista join Pistas P on P.IdPista=C.IdPista where L.IdLista='".$_GET['Lista']."'";
 
-
+    echo  $Nombre_Lista ;
     if ($result = $connection->query($query)) {
 
 
@@ -57,30 +58,28 @@
       </div>
 
       <div class="row" style="background-color: #ff6d4e;">
-        <h2 style="color:white; text-align: center"><?php echo"Tus Listas" ?></h2>
+        <h2 style="color:white; text-align: center"><?php echo"Bienvenido"." ". $Nombre_Lista; ?></h2>
+
       </div>
 
 
       <div class="row" style="background-color:white; ">
 
-        <?php
-          include_once("Menu_Usu2.php");
-          Menu2();
-        ?>
+
 
     </div>
     <?php
       while($obj = $result->fetch_object()) {
           //PRINTING EACH ROW
           echo "<div class='row'  ><nav role='navigation'><div class='navbar-header'>";
-          echo "<a style='width:200px;'  class='navbar-brand' href='Usu_Contener.php?Lista=".$obj->IdLista."&Nombre=".$obj->Nombre_Lista.
-          "'>".$obj->Nombre_Lista."</a>";
+          echo "<a style='width:200px;'  class='navbar-brand' href='#'>".$obj->Nombre_Lista."</a>";
 
-          echo "<a class='navbar-brand' href='Eliminar/Borrar_Lista.php?borrar=".$obj->IdLista.
+          echo "<a style='width:200px;'  class='navbar-brand' href='#'>".$obj->Nombre_Pista."</a>";
+
+          echo "<a class='navbar-brand' href='Eliminar/Borrar_Contener.php?borrar1=".$obj->IdPista."&borrar2=".$obj->IdLista.
           "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Papelera.jpg' width='20px' /></a>";
 
-          echo "<a class='navbar-brand' href='Agregar/Agregar_Contener.php?agregar=".$obj->IdLista.
-          "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Agregar.png' width='20px' /></a>";
+
 
           echo "</div></nav></div>";
 
