@@ -38,7 +38,7 @@
     <div class="container" id="contenedor">
 
     <?php
-    $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario where Gmail='$Gmail' ";
+    $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario  ";
 
 
     if ($result = $connection->query($query)) {
@@ -63,30 +63,22 @@
       </div>
 
       <div class="row" style="background-color: #ff6d4e;">
-        <h1 style="color:white; text-align: center"><?php echo"Tus Pistas" ?></H1>
+        <h1 style="color:white; text-align: center"><?php echo"Tendencias" ?></H1>
       </div>
 
-
-      <div class="row" style="background-color:white; ">
-
-        <?php
-          include_once("Menu_Usu2.php");
-          Menu2();
-        ?>
-
-    </div>
 
 
 
               <?php
                 while($obj = $result->fetch_object()) {
                     //PRINTING EACH ROW
-                    echo "<div class='row' style='background-color: white;' ><nav role='navigation'><div class='navbar-header'>";
+                    echo "<div class='row' style='background-color: #272626;' ><nav role='navigation'><div class='navbar-header'>";
+                    echo "<p style='width:200px; color: white;'  class='navbar-brand'>".$obj->Nombre."</p>";
                     echo "<a style='width:200px;'  class='navbar-brand' href='Agregar/Reproducir.php?reproducir=".$obj->IdPista.
                     "'>".$obj->Nombre_Pista."</a>";
 
-                    echo "<a class='navbar-brand' href='Eliminar/Borrar_Pista.php?borrar=".$obj->IdPista.
-                    "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Papelera.jpg' width='20px' /></a>";
+                    //echo "<a class='navbar-brand' href='Eliminar/Borrar_Pista.php?borrar=".$obj->IdPista.
+                  //  "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Papelera.jpg' width='20px' /></a>";
 
                     echo "</div></nav></div>";
 

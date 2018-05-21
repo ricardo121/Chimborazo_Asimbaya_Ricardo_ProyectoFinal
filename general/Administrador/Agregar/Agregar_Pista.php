@@ -124,7 +124,8 @@
                 //Temp file. Where the uploaded file is stored temporary
               $tmp_file = $_FILES['pista']['tmp_name'];
               $target_dir = "pistas/";
-              $target_file = strtolower($target_dir . basename($_FILES['pista']['name']));
+              //$target_file = strtolower($target_dir . basename($_FILES['pista']['name']));
+              $target_file = ($target_dir . basename($_FILES['pista']['name']));
 
                $valid= true;
 
@@ -141,9 +142,9 @@
 
 
                 $file_extension = pathinfo($target_file, PATHINFO_EXTENSION); // We get the entension
-                if ($file_extension!="mp3" && $file_extension!="jpeg" && $file_extension!="png" && $file_extension!="gif") {
+                if ($file_extension!="mp3") {
                   $valid = false;
-                  echo "Only JPG, JPEG, PNG & GIF files are allowed";
+                  echo "Only MP3 files are allowed";
                 }
 
                 if ($valid) {

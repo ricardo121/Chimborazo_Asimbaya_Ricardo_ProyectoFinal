@@ -14,7 +14,7 @@ function Menu1() {
       <button type='submit' class='btn btn-default'>Enviar</button>
     </form>
     <ul class='nav navbar-nav'>
-      <li><a style='color:#9d9d9d; ' class='navbar-brand' href='Usu_Pistas.php'>Tendencias</a></li>
+      <li><a style='color:#9d9d9d; ' class='navbar-brand' href='Tendencias_Pistas.php'>Tendencias</a></li>
     </ul>
 
   </div>
