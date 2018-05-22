@@ -30,7 +30,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href="Estilo_Usu.css"/>
     <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
   </head>
   <body>
@@ -38,7 +37,7 @@
     <div class="container" id="contenedor">
 
     <?php
-    $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario  ";
+    $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario join Autores a ON a.IdAutor=p.IdAutor ";
 
 
     if ($result = $connection->query($query)) {
@@ -73,9 +72,12 @@
                 while($obj = $result->fetch_object()) {
                     //PRINTING EACH ROW
                     echo "<div class='row' style='background-color: #272626;' ><nav role='navigation'><div class='navbar-header'>";
-                    echo "<p style='width:200px; color: white;'  class='navbar-brand'>".$obj->Nombre."</p>";
-                    echo "<a style='width:200px;'  class='navbar-brand' href='Agregar/Reproducir.php?reproducir=".$obj->IdPista.
-                    "'>".$obj->Nombre_Pista."</a>";
+                    echo "<p style='width:200px; height:45px; color: white;'  class='navbar-brand'>".$obj->Nombre."</p>";
+                    echo "<div class='navbar-brand' style='height:45px; ' ><audio controls  >";
+                    echo "<source src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Agregar/$obj->Pista' type='audio/mpeg'>";
+                    echo "</audio></div>";
+                    echo "<p style='width:200px; height:45px; color: white;'  class='navbar-brand'>".$obj->Nombre_Pista."</p>";
+                    echo "<p style='width:200px; height:45px; color: white;'  class='navbar-brand'>Autor: " .$obj->Nombre_Autor."</p>";
 
                     //echo "<a class='navbar-brand' href='Eliminar/Borrar_Pista.php?borrar=".$obj->IdPista.
                   //  "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Papelera.jpg' width='20px' /></a>";

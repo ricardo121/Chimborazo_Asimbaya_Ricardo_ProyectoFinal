@@ -37,10 +37,11 @@
     <div class="container" id="contenedor">
 
     <?php
-    $Nombre_Lista = $_GET['Nombre'] ;
-    $query="SELECT * from Listas L join Contener C on L.IdLista=C.IdLista join Pistas P on P.IdPista=C.IdPista where L.IdLista='".$_GET['Lista']."'";
 
-    echo  $Nombre_Lista ;
+    $Nombre_Album= $_GET['Album'] ;
+    $query="SELECT * from Albums A join Pistas P on A.IdAlbum=P.IdAlbum where A.IdAlbum='".$_GET['Album']."'";
+
+    echo  $Nombre_Album ;
     if ($result = $connection->query($query)) {
 
 
@@ -58,7 +59,7 @@
       </div>
 
       <div class="row" style="background-color: #ff6d4e;">
-        <h2 style="color:white; text-align: center"><?php echo"Lista:"." ". $Nombre_Lista; ?></h2>
+        <h2 style="color:white; text-align: center"><?php echo"Album:"." ". $Nombre_Album; ?></h2>
 
       </div>
       <div class="row" >
@@ -79,8 +80,7 @@
     <?php
       while($obj = $result->fetch_object()) {
           //PRINTING EACH ROW
-          echo "<div class='row'  ><nav role='navigation'><div class='navbar-header'>";
-          
+          echo "<div class='row'echo ><nav role='navigation'><div class='navbar-header'>";
           echo "<p style='width:200px; height:45px; color: Black;'  class='navbar-brand'>".$obj->Nombre_Pista."</p>";
           echo "<div class='navbar-brand' style='height:45px; ' ><audio controls  >";
           echo "<source src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Agregar/$obj->Pista' type='audio/mpeg'>";

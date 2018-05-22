@@ -73,8 +73,9 @@
     <?php
       while($obj = $result->fetch_object()) {
           //PRINTING EACH ROW
-          echo "<div class='row' style='background-color: #ccc7c7;' ><nav role='navigation'><div class='navbar-header'>";
-          echo "<a style='width:200px;'  class='navbar-brand' href='#'>".$obj->Nombre_Album."</a>";
+          echo "<div class='row' style='background-color: #white;' ><nav role='navigation'><div class='navbar-header'>";
+          echo "<a style='width:200px;'  class='navbar-brand' href='Usu_Contener2.php?Album=".$obj->IdAlbum.
+          "'>".$obj->Nombre_Album."</a>";
 
           echo "<a class='navbar-brand' href='Eliminar/Borrar_Album.php?borrar=".$obj->IdAlbum.
           "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Papelera.jpg' width='20px' /></a>";

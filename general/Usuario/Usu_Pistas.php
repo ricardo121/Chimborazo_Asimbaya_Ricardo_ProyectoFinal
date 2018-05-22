@@ -79,13 +79,17 @@
 
 
               <?php
+
+
+
                 while($obj = $result->fetch_object()) {
                     //PRINTING EACH ROW
                     echo "<div class='row' style='background-color: white;' ><nav role='navigation'><div class='navbar-header'>";
-                    echo "<a style='width:200px;'  class='navbar-brand' href='Agregar/Reproducir.php?reproducir=".$obj->IdPista.
-                    "'>".$obj->Nombre_Pista."</a>";
-
-                    echo "<a class='navbar-brand' href='Eliminar/Borrar_Pista.php?borrar=".$obj->IdPista.
+                    echo "<p style='width:200px; height:45px; color: Black;'  class='navbar-brand'>".$obj->Nombre_Pista."</p>";
+                    echo "<div class='navbar-brand' style='height:45px; ' ><audio controls  >";
+                    echo "<source src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Agregar/$obj->Pista' type='audio/mpeg'>";
+                    echo "</audio></div>";
+                    echo "<a class='navbar-brand' style='height:45px;' href='Eliminar/Borrar_Pista.php?borrar=".$obj->IdPista.
                     "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Papelera.jpg' width='20px' /></a>";
 
                     echo "</div></nav></div>";
