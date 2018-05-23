@@ -36,14 +36,9 @@
 
     <div class="container" id="contenedor">
 
-    <?php
-      $query="SELECT * from Albums";
 
 
-    if ($result = $connection->query($query)) {
 
-
-  ?>
 
 
       <div class="row" >
@@ -56,8 +51,18 @@
       </div>
 
       <div class="row" style="background-color: #ff6d4e;" >
-        <h1 style="color:white; text-align: center"><?php echo"Tus Albums" ?></H1>
+        <h1 style="color:white; text-align: center"><?php echo"Tus Albums" ?></h1>
       </div>
+
+
+      <?php
+        $query="SELECT * from Albums ";
+
+
+      if ($result = $connection->query($query)) {
+
+
+    ?>
 
 
       <div class="row" style="background-color:white; ">
@@ -74,11 +79,14 @@
       while($obj = $result->fetch_object()) {
           //PRINTING EACH ROW
           echo "<div class='row' style='background-color: #white;' ><nav role='navigation'><div class='navbar-header'>";
-          echo "<a style='width:200px;'  class='navbar-brand' href='Usu_Contener2.php?Album=".$obj->IdAlbum.
+          echo "<a style='width:200px;'  class='navbar-brand' href='Usu_Contener2.php?Album=".$obj->IdAlbum."&Nombre=".$obj->Nombre_Album.
           "'>".$obj->Nombre_Album."</a>";
 
           echo "<a class='navbar-brand' href='Eliminar/Borrar_Album.php?borrar=".$obj->IdAlbum.
           "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Papelera.jpg' width='20px' /></a>";
+
+          echo "<a class='navbar-brand' href='Agregar/Agregar_Contener2.php?agregar=".$obj->IdAlbum.
+          "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Agregar.png' width='20px' /></a>";
 
           echo "</div></nav></div>";
 

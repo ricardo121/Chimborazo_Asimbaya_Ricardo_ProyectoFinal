@@ -26,7 +26,7 @@
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
         }
-        echo $_GET['agregar1'];
+        
         $query="SELECT * from Usuarios  WHERE IdUsuario='".$_GET['agregar1']."'";
           if ($result = $connection->query($query)) {
           while($obj = $result->fetch_object()) {

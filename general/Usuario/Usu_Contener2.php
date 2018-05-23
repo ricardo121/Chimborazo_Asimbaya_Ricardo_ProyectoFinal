@@ -38,10 +38,8 @@
 
     <?php
 
-    $Nombre_Album= $_GET['Album'] ;
     $query="SELECT * from Albums A join Pistas P on A.IdAlbum=P.IdAlbum where A.IdAlbum='".$_GET['Album']."'";
 
-    echo  $Nombre_Album ;
     if ($result = $connection->query($query)) {
 
 
@@ -59,7 +57,7 @@
       </div>
 
       <div class="row" style="background-color: #ff6d4e;">
-        <h2 style="color:white; text-align: center"><?php echo"Album:"." ". $Nombre_Album; ?></h2>
+        <h2 style="color:white; text-align: center"><?php echo"Album:"." ". $_GET['Nombre']; ?></h2>
 
       </div>
       <div class="row" >
@@ -86,8 +84,7 @@
           echo "<source src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Agregar/$obj->Pista' type='audio/mpeg'>";
           echo "</audio></div>";
 
-          echo "<a class='navbar-brand' style='width:200px; height:45px;' href='Eliminar/Borrar_Contener.php?borrar1=".$obj->IdPista."&borrar2=".$obj->IdLista.
-          "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Papelera.jpg' width='20px' /></a>";
+
 
 
 
