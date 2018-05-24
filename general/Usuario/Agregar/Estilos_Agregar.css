@@ -2,16 +2,8 @@
     box-sizing: border-box;
 }
 
-body {
 
-  margin: 10px auto;
 
-}
-
-fieldset {
-width: 75%;
-margin: 10px auto;
-}
 
 #inputt {
 margin: 3% auto;
@@ -22,6 +14,7 @@ margin: 3% auto;
 
 
 #contenedor {
+  margin: 10px auto;
   height:-webkit-fill-available;
   background-color:  #ff6d4e;
   width: 60%;
@@ -33,16 +26,7 @@ margin: 3% auto;
   margin-top: 10% auto;
   height:auto;
   margin: 5% auto;
-  width: 50%;
+  width: 70%;
 
 
-}
-
-
-
-span {
-  height: 1%;
-  width: 100px;
-  display: inline-block;
-  color: black;
 }

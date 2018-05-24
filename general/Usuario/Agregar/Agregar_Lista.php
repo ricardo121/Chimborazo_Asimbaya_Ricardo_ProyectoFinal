@@ -1,21 +1,47 @@
-<!DOCTYPE html>
+
+<?php
+
+  session_start();
+  include_once("Login_Usu.php");
+  Login();
+
+  $Gmail=$_SESSION["Gmail"];
+
+
+
+?>
+
+ <?php
+
+       //CREATING THE CONNECTION
+       $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
+       $connection->set_charset("uft8");
+       //TESTING IF THE CONNECTION WAS RIGHT
+       if ($connection->connect_errno) {
+           printf("Connection failed: %s\n", $connection->connect_error);
+           exit();
+       }
+
+
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
     <link rel="stylesheet" type="text/css" href=" bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="Estilo_Usu_Agregar.css"/>
 
   </head>
   <body>
 
     <div class="container" id="contenedor" >
 
-      <div class="row">
+      <div class="row" style="background-color: #ff6d4e;">
       <h1 style="color:black; text-align: center">Añadir Nueva Lista</H1>
       </div>
 
-        <div class="row" >
+        <div class="row" style="background-color: #ff6d4e;" >
         <?php if (!isset($_POST["Nombre"])) : ?>
 
           <?php
@@ -28,7 +54,7 @@
               printf("Connection failed: %s\n", $connection->connect_error);
               exit();
           }
-          echo $_GET['agregar2'];
+
           $query="SELECT * from Usuarios  WHERE IdUsuario='".$_GET['agregar2']."'";
             if ($result = $connection->query($query)) {
             while($obj = $result->fetch_object()) {
@@ -39,7 +65,7 @@
           ?>
 
 
-          <form method="post" role="form">
+          <form method="post" role="form"   id="formulario_registro">
          <div class="form-group">
            <label for="ejemplo_email_1">Nombre Lista</label>
            <input type="hidden" name="IdUsuario"  value="<?php echo $IdUsuario; ?>"/>
@@ -47,10 +73,8 @@
         </div>
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
-          <form action='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Administrador/Admin_Listas.php' method='post'>
-          <ul class='nav navbar-nav navbar-right'>
-            <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:15px'>Volver</button></li>
-          </ul>
+          <form action='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Home_Usu.php' id="formulario_registro" method='post' >
+            <button type='submit' class='btn btn-default navbar-btn'  style="margin-left:100%;" >Volver</button>
           </form>
 
 

@@ -26,7 +26,7 @@
             printf("Connection failed: %s\n", $connection->connect_error);
             exit();
         }
-        
+
         $query="SELECT * from Usuarios  WHERE IdUsuario='".$_GET['agregar1']."'";
           if ($result = $connection->query($query)) {
           while($obj = $result->fetch_object()) {
@@ -38,11 +38,11 @@
 
         <div class="container" id="contenedor" >
 
-          <div class="row">
-          <h1 style="color:black; text-align: center">Subir Nueva Pista </H1>
+          <div class="row" style="background-color: #ff6d4e;">
+          <h2 style="color:black; text-align: center">Subir Nueva Pista </h2>
           </div>
 
-          <div class="row" >
+          <div class="row" style="background-color: #ff6d4e;" >
 
 
 

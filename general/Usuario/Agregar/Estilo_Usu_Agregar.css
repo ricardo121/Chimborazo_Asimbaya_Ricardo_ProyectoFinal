@@ -3,13 +3,33 @@
 }
 
 body{
-  background-color: #ff6d4e;
+  margin: 2% auto;
 }
 
 
+#inputt {
+margin: 3% auto;
+}
+
+
+
+
+
 #contenedor {
-  margin: 10% auto;
+  margin: 10px auto;
+  height:-webkit-fill-available;
+  background-color:  #ff6d4e;
+  width: 40%;
   font-size: 20px;
+}
+
+
+
+#formulario_registro{
+  margin-top: 10% auto;
+  height:auto;
+  margin: 5% auto;
+  width: 70%;
 
 
 }

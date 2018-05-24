@@ -45,16 +45,16 @@
 
         <div class="row" style="background-color: #ff6d4e;" >
         <?php if (!isset($_POST["Nombre"])) : ?>
-          <form method="post" role="form"   style="margin-left:5%;">
+          <form method="post" role="form"   id="formulario_registro">
          <div class="form-group" >
            <label for="ejemplo_email_1" >IdAlbum</label>
            <input type="text" name="Nombre" class="form-control"
-           placeholder="Introduce Nombre de Album" style="width: 50%;">
+           placeholder="Introduce Nombre de Album" >
         </div>
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
-          <form action='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Home_Usu.php' method='post' >
-            <button type='submit' class='btn btn-default navbar-btn'  style="margin-left:90%;" >Volver</button>
+          <form action='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Home_Usu.php' id="formulario_registro" method='post' >
+            <button type='submit' class='btn btn-default navbar-btn'  style="margin-left:100%;" >Volver</button>
           </form>
 
 
