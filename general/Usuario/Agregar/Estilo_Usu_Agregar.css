@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+  background-color: #ff6d4e;
+}
+
+
+#contenedor {
+  margin: 10% auto;
+  font-size: 20px;
+
+
+}
