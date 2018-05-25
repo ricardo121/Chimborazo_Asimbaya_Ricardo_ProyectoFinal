@@ -63,7 +63,7 @@
       </div>
 
       <div class="row" style="background-color: #ff6d4e;">
-        <h1 style="color:white; text-align: center"><?php echo"Tus Pistas" ?></H1>
+        <h2 style="color:white; text-align: center"><?php echo"Tus Pistas" ?></h2>
       </div>
 
 

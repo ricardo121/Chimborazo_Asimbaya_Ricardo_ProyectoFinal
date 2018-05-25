@@ -88,14 +88,7 @@
       //Free the result. Avoid High Memory Usages
   } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 ?>
-				<tr>
-					<td>
-						<p>Añada un Nuevo Lista</p>
-					</td>
-					<td>
-						<a href='Agregar/Agregar_Lista.php?'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Agregar.png' width='20px' /></a>
-					</td>
-				</tr>
+
 			</table>
 		</div>
 	</div>

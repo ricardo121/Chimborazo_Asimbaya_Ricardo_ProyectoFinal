@@ -27,7 +27,7 @@
               <fieldset>
                 <legend>Registro</legend>
                 <span>Gmail:</span><input type="Gmail" name="Gmail" required id="inputt"><br>
-                <span>password:</span><input type="Password" name="Password" required id="inputt"><br>
+                <span>Password:</span><input type="Password" name="Password" required id="inputt"><br>
                 <p><input type="submit" value="Iniciar Sesion"></p><br>
                 <a style="color:#D1D1D1"; style="height:200px" href=Registro.php>Registrate Si Aun No Lo Estas</a>
           </form>

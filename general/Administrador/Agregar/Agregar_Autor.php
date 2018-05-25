@@ -1,4 +1,29 @@
-<!DOCTYPE html>
+
+<?php
+
+  session_start();
+  include_once("Login_Admin.php");
+  Login();
+
+  $Gmail=$_SESSION["Gmail"];
+
+
+
+?>
+
+<?php
+
+      //CREATING THE CONNECTION
+      $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
+      $connection->set_charset("uft8");
+      //TESTING IF THE CONNECTION WAS RIGHT
+      if ($connection->connect_errno) {
+          printf("Connection failed: %s\n", $connection->connect_error);
+          exit();
+      }
+
+?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -37,16 +62,9 @@
       <?php else: ?>
 
         <?php
-        //CREATING THE CONNECTION
-        $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
-        $connection->set_charset("uft8");
-        //TESTING IF THE CONNECTION WAS RIGHT
-        if ($connection->connect_errno) {
-            printf("Connection failed: %s\n", $connection->connect_error);
-            exit();
-        }
+
+
         $Nombre = $_POST["Nombre"];
-        echo $Nombre;
         $query = "INSERT INTO Autores (IdAutor,Nombre_Autor)
         VALUES (NULL,'$Nombre')";
 

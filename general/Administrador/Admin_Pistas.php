@@ -8,6 +8,19 @@
 
 ?>
 
+<?php
+
+			//CREATING THE CONNECTION
+			$connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
+			$connection->set_charset("uft8");
+			//TESTING IF THE CONNECTION WAS RIGHT
+			if ($connection->connect_errno) {
+					printf("Connection failed: %s\n", $connection->connect_error);
+					exit();
+			}
+
+?>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -22,14 +35,6 @@
 
 	<?php
 
-    //CREATING THE CONNECTION
-    $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
-    $connection->set_charset("uft8");
-    //TESTING IF THE CONNECTION WAS RIGHT
-    if ($connection->connect_errno) {
-        printf("Connection failed: %s\n", $connection->connect_error);
-        exit();
-    }
 
 		$query="SELECT * from Usuarios u right join Pistas p ON u.IdUsuario=p.IdUsuario left join Albums al ON al.IdAlbum=p.IdAlbum left join Autores au ON au.IdAutor=p.IdAutor";
   //$query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario join Albums al ON al.IdAlbum=p.IdAlbum join Autores au ON au.IdAutor=p.IdAutor";

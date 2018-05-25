@@ -40,7 +40,6 @@
     $Nombre_Lista = $_GET['Nombre'] ;
     $query="SELECT * from Listas L join Contener C on L.IdLista=C.IdLista join Pistas P on P.IdPista=C.IdPista where L.IdLista='".$_GET['Lista']."'";
 
-    echo  $Nombre_Lista ;
     if ($result = $connection->query($query)) {
 
 
@@ -80,7 +79,7 @@
       while($obj = $result->fetch_object()) {
           //PRINTING EACH ROW
           echo "<div class='row'  ><nav role='navigation'><div class='navbar-header'>";
-          
+
           echo "<p style='width:200px; height:45px; color: Black;'  class='navbar-brand'>".$obj->Nombre_Pista."</p>";
           echo "<div class='navbar-brand' style='height:45px; ' ><audio controls  >";
           echo "<source src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Agregar/$obj->Pista' type='audio/mpeg'>";
