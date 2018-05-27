@@ -89,7 +89,7 @@
                 "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/lapiz.png' width='20px' /></a>";
                 echo "</td>";
                 echo "<td>";
-                echo "<a href='Agregar/Agregar_Pista.php?agregar=".$obj->IdUsuario.
+                echo "<a href='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Agregar/Agregar_Pista_Admin.php?agregar=".$obj->IdUsuario.
                 "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Agregar.png' width='20px' /></a>";
                 echo "</td>";
                 echo "<td>";

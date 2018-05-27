@@ -13,7 +13,7 @@
     <div class="container" id="contenedor" >
 
 
-      <div class="row" >
+      <div class="row"  style="background-color: #AAB7B8;">
       <?php if (!isset($_POST["Gmail"])) : ?>
 
 
@@ -47,6 +47,11 @@
                    placeholder="Introduce tu Edad" required>
           </div>
           <button type="submit" class="btn btn-default" >Registrase</button>
+        </form>
+        <form action='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Inicio.php' id="formulario_registro" method='post'>
+        <ul class='nav navbar-nav navbar-right'>
+          <li><button type='submit' class='btn btn-default navbar-btn' style='margin-right:15px'>Volver</button></li>
+        </ul>
         </form>
 
 

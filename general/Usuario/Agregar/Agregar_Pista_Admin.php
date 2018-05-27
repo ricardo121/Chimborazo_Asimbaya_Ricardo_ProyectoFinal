@@ -52,7 +52,7 @@
         }
         ?>
 
-        <div class="container" id="contenedor" >
+        <div class="container" >
 
           <div class="row">
           <h1 style="color:black; text-align: center">Añadir Nueva Pista a <?php echo $Apellidos; ?></H1>
@@ -62,7 +62,7 @@
 
 
 
-        <form action="Agregar_Pista.php" method="post" enctype="multipart/form-data" role="form">
+        <form action="/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Agregar/Agregar_Pista_Admin.php" method="post" enctype="multipart/form-data" role="form">
           <div class="form-group">
             <label for="ejemplo_email_1">Nombre_Pista:</label>
             <input type="hidden" name="IdUsuario"  value="<?php echo $IdUsuario; ?>"/>
