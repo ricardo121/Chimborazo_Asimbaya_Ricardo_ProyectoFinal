@@ -73,7 +73,7 @@
                     //PRINTING EACH ROW
                     echo "<div class='row' style='background-color: #272626;' ><nav role='navigation'><div class='navbar-header'>";
                     echo "<p style='width:200px; height:45px; color: white;'  class='navbar-brand'>".$obj->Nombre."</p>";
-                    echo "<div class='navbar-brand' style='height:45px; ' ><audio controls  >";
+                    echo "<div class='navbar-brand' style='height:45px; ' ><audio controls id='audio' >";
                     echo "<source src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Agregar/$obj->Pista' type='audio/mpeg'>";
                     echo "</audio></div>";
                     echo "<p style='width:200px; height:45px; color: white;'  class='navbar-brand'>".$obj->Nombre_Pista."</p>";
@@ -108,7 +108,14 @@
   </div>-->
 
 
+  <script>
+var vid = document.getElementById("audio");
+var cont =0;
+vid.onplay = function() {
 
+  alert("The video has started to play");
+};
+</script>
 
 
 

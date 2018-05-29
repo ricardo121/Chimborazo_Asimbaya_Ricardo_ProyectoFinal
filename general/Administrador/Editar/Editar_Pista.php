@@ -1,3 +1,29 @@
+
+<?php
+
+  session_start();
+  include_once("Login_Admin.php");
+  Login();
+
+  $Gmail=$_SESSION["Gmail"];
+
+
+
+?>
+
+<?php
+
+      //CREATING THE CONNECTION
+      $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
+      $connection->set_charset("uft8");
+      //TESTING IF THE CONNECTION WAS RIGHT
+      if ($connection->connect_errno) {
+          printf("Connection failed: %s\n", $connection->connect_error);
+          exit();
+      }
+
+?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -21,18 +47,8 @@
 
         <?php
 
-        //CREATING THE CONNECTION
-        $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
-        $connection->set_charset("uft8");
-        //TESTING IF THE CONNECTION WAS RIGHT
-        if ($connection->connect_errno) {
-            printf("Connection failed: %s\n", $connection->connect_error);
-            exit();
-        }
-        //MAKING A SELECT QUERY
-        /* Consultas de selección que devuelven un conjunto de resultados */
-            $query="SELECT * from Pistas p
-            WHERE p.IdPista='".$_GET['editar']."'";
+
+          $query="SELECT * from Pistas p WHERE p.IdPista='".$_GET['editar']."'";
         if ($result = $connection->query($query)) {
 
           while($obj = $result->fetch_object()) {
@@ -68,8 +84,11 @@
               $query="SELECT * FROM Albums";
 
               if ($result=$connection->query($query)) {
+                echo "<option value='NULL'>";
+                echo "NINGUNO";
+                echo "</option>";
                 while($obj=$result->fetch_object()) {
-                  echo "<option value='".$obj->IdAlbum."'>";
+                  echo "<option value='"."$obj->IdAlbum"."'>";
                   echo $obj->Nombre_Album;
                   echo "</option>";
                 }
@@ -90,6 +109,7 @@
               $query="SELECT * FROM Autores";
 
               if ($result=$connection->query($query)) {
+
                 while($obj=$result->fetch_object()) {
                   echo "<option value='".$obj->IdAutor."'>";
                   echo $obj->Nombre_Autor;
@@ -128,7 +148,7 @@
         $IdAutor=$_POST['IdAutor'];
         $ID=$_POST['IdPist'];
 
-        $query="UPDATE Pistas p SET Nombre_Pista='$Nombre',Genero='$Genero',IdAlbum='$IdAlbum',IdAutor='$IdAutor'
+        $query="UPDATE Pistas p SET Nombre_Pista='$Nombre',Genero='$Genero',IdAlbum=$IdAlbum,IdAutor='$IdAutor'
         WHERE p.IdPista='$ID'";
         echo $query;
         echo $ID;

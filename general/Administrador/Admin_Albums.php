@@ -41,7 +41,7 @@
 
 
   if ($result = $connection->query($query)) {
-      printf("<p>The select query returned %d rows.</p>", $result->num_rows);
+      
   ?>
 			<div class="row" >
 

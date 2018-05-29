@@ -1,3 +1,29 @@
+
+<?php
+
+  session_start();
+  include_once("Login_Admin.php");
+  Login();
+
+  $Gmail=$_SESSION["Gmail"];
+
+
+
+?>
+
+<?php
+
+      //CREATING THE CONNECTION
+      $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
+      $connection->set_charset("uft8");
+      //TESTING IF THE CONNECTION WAS RIGHT
+      if ($connection->connect_errno) {
+          printf("Connection failed: %s\n", $connection->connect_error);
+          exit();
+      }
+
+?>
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -21,17 +47,9 @@
 
         <?php
 
-        //CREATING THE CONNECTION
-        $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
-        $connection->set_charset("uft8");
-        //TESTING IF THE CONNECTION WAS RIGHT
-        if ($connection->connect_errno) {
-            printf("Connection failed: %s\n", $connection->connect_error);
-            exit();
-        }
-        //MAKING A SELECT QUERY
-        /* Consultas de selección que devuelven un conjunto de resultados */
-            $query="SELECT * from Albums  WHERE IdAlbum='".$_GET['editar']."'";
+
+
+        $query="SELECT * from Albums  WHERE IdAlbum='".$_GET['editar']."'";
         if ($result = $connection->query($query)) {
           while($obj = $result->fetch_object()) {
             $Nombre =$obj->Nombre_Album;

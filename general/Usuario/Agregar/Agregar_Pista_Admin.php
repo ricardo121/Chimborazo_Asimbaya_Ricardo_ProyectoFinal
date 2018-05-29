@@ -86,6 +86,7 @@
             $query="SELECT * FROM Autores";
 
             if ($result=$connection->query($query)) {
+
               while($obj=$result->fetch_object()) {
                 echo "<option value='".$obj->IdAutor."'>";
                 echo $obj->Nombre_Autor;
@@ -105,8 +106,11 @@
             $query="SELECT * FROM Albums";
 
             if ($result=$connection->query($query)) {
+              echo "<option value='NULL'>";
+              echo "NINGUNO";
+              echo "</option>";
               while($obj=$result->fetch_object()) {
-                echo "<option value='".$obj->IdAlbum."'>";
+                echo "<option value='"."$obj->IdAlbum"."'>";
                 echo $obj->Nombre_Album;
                 echo "</option>";
               }
@@ -179,7 +183,7 @@
                   $IdAutor=$_POST['IdAutor'];
                   $query = "INSERT INTO Pistas (IdPista,IdAlbum,IdUsuario,
                     IdAutor,Pista,Nombre_pista,Genero,Hora_subida,Reproducciones_pista,Valoracion_positiva,Valoracion_negativa)
-                    VALUES (NULL,$IdAlbum,$IdUsuario,$IdAutor,'$target_file','$Nombre','$Genero',0,NULL,NULL,NULL)";
+                    VALUES (NULL,$IdAlbum,$IdUsuario,'$IdAutor','$target_file','$Nombre','$Genero',0,NULL,NULL,NULL)";
 
       }
 

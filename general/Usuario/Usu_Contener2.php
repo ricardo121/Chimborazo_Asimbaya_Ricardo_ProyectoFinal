@@ -84,7 +84,8 @@
           echo "<source src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Agregar/$obj->Pista' type='audio/mpeg'>";
           echo "</audio></div>";
 
-
+          echo "<a class='navbar-brand' style='height:45px;' href='Eliminar/Borrar_Contener2.php?borrar=".$obj->IdPista.
+          "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Papelera.jpg' width='20px' /></a>";
 
           echo "</div></nav></div>";
 
