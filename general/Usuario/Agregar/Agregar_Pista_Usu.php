@@ -64,7 +64,7 @@
 
 
 
-        <form action="Agregar_Pista.php" id="formulario_registro" method="post" enctype="multipart/form-data" role="form">
+        <form action="Agregar_Pista_Usu.php" id="formulario_registro" method="post" enctype="multipart/form-data" role="form">
           <div class="form-group">
             <label for="ejemplo_email_1">Nombre_Pista:</label>
             <input type="hidden" name="IdUsuario"  value="<?php echo $IdUsuario; ?>"/>

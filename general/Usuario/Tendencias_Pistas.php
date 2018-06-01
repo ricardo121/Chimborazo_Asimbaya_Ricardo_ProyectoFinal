@@ -62,7 +62,7 @@
       </div>
 
       <div class="row" style="background-color: #ff6d4e;">
-        <h1 style="color:white; text-align: center"><?php echo"Tendencias" ?></H1>
+        <h1 style="color:white; text-align: center"><?php echo"Tendencias" ?></h1>
       </div>
 
 
@@ -73,7 +73,7 @@
                     //PRINTING EACH ROW
                     echo "<div class='row' style='background-color: #272626;' ><nav role='navigation'><div class='navbar-header'>";
                     echo "<p style='width:200px; height:45px; color: white;'  class='navbar-brand'>".$obj->Nombre."</p>";
-                    echo "<div class='navbar-brand' style='height:45px; ' ><audio controls id='audio' >";
+                    echo "<div class='navbar-brand' style='height:45px; ' ><audio controls class='audio' >";
                     echo "<source src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Agregar/$obj->Pista' type='audio/mpeg'>";
                     echo "</audio></div>";
                     echo "<p style='width:200px; height:45px; color: white;'  class='navbar-brand'>".$obj->Nombre_Pista."</p>";
@@ -109,13 +109,32 @@
 
 
   <script>
-var vid = document.getElementById("audio");
-var cont =0;
-vid.onplay = function() {
+var reproducir = document.getElementsByClassName("audio");
+var contador = document.getElementsByClassName("audio");
 
-  alert("The video has started to play");
+
+text = "<ul>";
+
+
+for (i = 0; i < reproducir.length; i++) {
+
+  for (j = 0; j < contador.length; j++) {
+
+  reproducir[i].onplay = function() {
+    
+   contador[j]= contador[j]+1;
+  alert("The video has started to play cont"+contador[j]+".");
+}
+
+  };
+
 };
+
+
+
 </script>
+
+
 
 
 
