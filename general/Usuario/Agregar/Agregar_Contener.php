@@ -117,7 +117,8 @@
           echo "Se ha Modificado en ...";
           header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Usu_Listas.php');;
         } else {
-          echo "Pista ya añadida a la Lista";
+          echo "<script>alert('Pista ya añadida a la Lista');
+          window.location.href = '/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Usu_Listas.php'</script>";
         }
 
         ?>

@@ -33,7 +33,6 @@
 
                $Edad_usu =$obj->Edad;
                $Nombre_usu = $obj->Nombre;
-               echo "";
 
 
            }
@@ -55,30 +54,13 @@
 
     <div class="container">
       <div class="row">
-        <script style="text-align='center'">alert("<?php echo"Bienvenido"." ". $Nombre_usu." "."a la Pantalla de Adminitracion del sitio Web"; ?>");</script>
 
+        <script style="text-align='center'">alert("<?php echo"Bienvenido"." ". $Nombre_usu." "."a la Pantalla de Adminitracion del sitio Web"; ?>");
+          window.location.href = '/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Administrador/Admin_Usuarios.php'
+        </script>
 
 
       </div>
-      <div class="row" >
-
-        <?php
-        $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
-        $connection->set_charset("uft8");
-        //TESTING IF THE CONNECTION WAS RIGHT
-        if ($connection->connect_errno) {
-            printf("Connection failed: %s\n", $connection->connect_error);
-            exit();
-        }
-
-
-
-          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Administrador/Admin_Usuarios.php');
-
-        ?>
-
-      </div>
-
     </div>
   </body>
 </html>

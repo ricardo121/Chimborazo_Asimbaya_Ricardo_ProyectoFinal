@@ -44,9 +44,12 @@ margin: 3% auto;
 
 
 
-span {
-  height: 1%;
-  width: 100px;
-  display: inline-block;
-  color: black;
+label {
+  color: white;
+}
+
+
+input {
+  width: 50%;
+
 }

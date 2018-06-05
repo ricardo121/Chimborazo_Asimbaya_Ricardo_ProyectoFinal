@@ -64,12 +64,21 @@
             <label for="ejemplo_email_1">Nombres_Usuario</label>
             <input type="text" name="Nombre" class="form-control"
             value="<?php echo $Nombre_usu; ?>">
+          </div>
+          <div class="form-group">
             <label for="ejemplo_email_1">Apellidos_Usuario</label>
             <input type="text" name="Apellidos" class="form-control"
             value="<?php echo $Apellidos; ?>">
-            <label for="ejemplo_email_1">Administrador</label>
-            <input type="text" name="Administrador" class="form-control"
-            value="<?php echo $Administrador; ?>">
+          </div>
+
+            <div class="form-group">
+              <label for="ejemplo_email_1">Administrador</label>
+
+              <select name="Administrador">
+                <option value="0">No</option>
+                <option value="1">Si</option>
+              </select>
+
             <input type="hidden" name="IdUsuario"  value="<?php echo $IdUsuario; ?>">
           </div>
           <button type="submit" class="btn btn-default">Editar</button>

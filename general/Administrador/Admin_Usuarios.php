@@ -36,9 +36,12 @@
 
     <?php
 
-
+      $var1="Si";
+      $var2="No";
       $query="SELECT * from Usuarios ";
       if ($result = $connection->query($query)) {
+
+
 
       ?>
 
@@ -78,7 +81,11 @@
                 echo "<td>".$obj->Nombre."</td>";
                 echo "<td>".$obj->Apellidos."</td>";
                 echo "<td>".$obj->Gmail."</td>";
-                echo "<td>".$obj->Administrador."</td>";
+                if ($obj->Administrador==1) {
+                  echo "<td>".$var1."</td>";
+                } else {
+                  echo "<td>".$var2."</td>";
+                }
                 echo "<td>".$obj->Edad."</td>";
                 echo "<td>";
                 echo "<a href='Eliminar/Borrar_Usuario.php?borrar=".$obj->IdUsuario.
