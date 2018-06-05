@@ -50,7 +50,7 @@
         $query="DELETE from Contener where IdLista='".$_GET["borrar2"]."' and IdPista='".$_GET["borrar1"]."'";
         echo $query;
         if ($result = $connection->query($query)) {
-          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Administrador/Admin_Contener.php');
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Administrador/Admin_Listas.php');
 
         } else {
           echo "Error al Borrar los datos";

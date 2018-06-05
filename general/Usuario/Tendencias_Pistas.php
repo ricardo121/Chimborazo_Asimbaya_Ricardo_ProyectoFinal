@@ -93,50 +93,6 @@
 
 
 
-  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
-       otro elemento que se pueda ocultar al minimizar la barra -->
-  <!--<div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Enlace #1</a></li>
-      <li><a href="#">Enlace #2</a></li>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Enlace #3</a></li>
-
-    </ul>
-  </div>-->
-
-
-  <script>
-var reproducir = document.getElementsByClassName("audio");
-var contador = document.getElementsByClassName("audio");
-
-
-text = "<ul>";
-
-
-for (i = 0; i < reproducir.length; i++) {
-
-  for (j = 0; j < contador.length; j++) {
-
-  reproducir[i].onplay = function() {
-    
-   contador[j]= contador[j]+1;
-  alert("The video has started to play cont"+contador[j]+".");
-}
-
-  };
-
-};
-
-
-
-</script>
-
-
-
-
 
       </div>
   </body>

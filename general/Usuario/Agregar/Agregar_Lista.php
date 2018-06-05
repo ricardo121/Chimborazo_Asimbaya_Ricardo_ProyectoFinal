@@ -83,7 +83,7 @@
         }
         $Nombre = $_POST["Nombre"];
         $IdUsuario= $_POST["IdUsuario"];
-          echo $Nombre;
+
         $query = "INSERT INTO Listas (IdLista,IdUsuario,Nombre_Lista)
         VALUES (NULL,'$IdUsuario','$Nombre')";
 

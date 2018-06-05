@@ -93,15 +93,18 @@
 
 
         $query="INSERT into Contener values ($IdPista,$IdLista);";
-        echo $query;
+
 
 
         if ($connection->query($query)) {
           echo "Se ha Modificado en ...";
-          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Administrador/Admin_Listas.php');;
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Administrador/Admin_Listas.php');
         } else {
-          echo "Pista ya añadida a la Lista";
+          echo "<script>alert('Pista ya añadida a la Lista');
+          window.location.href = '/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Administrador/Admin_Listas.php'</script>";
+
         }
+        
 
         ?>
 

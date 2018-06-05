@@ -74,7 +74,7 @@
           while($obj = $result->fetch_object()) {
               //PRINTING EACH ROW
               echo "<tr>";
-                echo "<td><a href='Admin_Pistas.php?Usuario=".$obj->IdUsuario."'>".$obj->IdUsuario."</a></td>";
+                echo "<td>".$obj->IdUsuario."</td>";
                 echo "<td>".$obj->Nombre."</td>";
                 echo "<td>".$obj->Apellidos."</td>";
                 echo "<td>".$obj->Gmail."</td>";

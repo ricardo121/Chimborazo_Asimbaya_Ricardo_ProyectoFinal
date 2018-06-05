@@ -187,8 +187,8 @@
 
 
                   $query = "INSERT INTO Pistas (IdPista,IdAlbum,IdUsuario,
-                    IdAutor,Pista,Nombre_pista,Genero,Hora_subida,Reproducciones_pista,Valoracion_positiva,Valoracion_negativa)
-                    VALUES (NULL,NULL,'$IdUsuario','$ID','$target_file','$Nombre','$Genero',0,NULL,NULL,NULL)";
+                    IdAutor,Pista,Nombre_pista,Genero)
+                    VALUES (NULL,NULL,'$IdUsuario','$ID','$target_file','$Nombre','$Genero')";
 
 
 

@@ -35,7 +35,7 @@
         WHERE p.IdPista='".$_GET["borrar"]."'";
         echo $query;
         if ($result = $connection->query($query)) {
-          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Usu_Contener2.php');
+          header('Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Usu_Albums.php');
 
         } else {
           echo "Error al Borrar los datos";

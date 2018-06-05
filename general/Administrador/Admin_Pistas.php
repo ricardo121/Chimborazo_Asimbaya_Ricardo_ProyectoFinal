@@ -61,7 +61,6 @@
           		<th>IdPista</th>
           		<th>Nombre_Pista</th>
           		<th>Genero</th>
-          		<th>Reproducciones_pista</th>
           		<th>Album</th>
 							<th>Autor</th>
 						</tr>
@@ -78,7 +77,6 @@
             echo "<td>".$obj->IdPista."</td>";
             echo "<td>".$obj->Nombre_Pista."</td>";
             echo "<td>".$obj->Genero."</td>";
-            echo "<td>".$obj->Reproducciones_Pista."</td>";
             echo "<td>".$obj->Nombre_Album."</td>";
             echo "<td>".$obj->Nombre_Autor."</td>";
             echo "<td>";
