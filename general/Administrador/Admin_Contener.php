@@ -57,9 +57,7 @@
       <table class="table">
       <thead>
         <tr>
-          <th>IdLista</th>
           <th>Nombre_Lista</th>
-          <th>IdPista</th>
           <th>Nombre_Pista</th>
 					<th></th>
       </thead>
@@ -70,9 +68,7 @@
       while($obj = $result->fetch_object()) {
           //PRINTING EACH ROW
           echo "<tr>";
-            echo "<td>".$obj->IdLista."</td>";
             echo "<td>".$obj->Nombre_Lista."</td>";
-            echo "<td>".$obj->IdPista."</td>";
             echo "<td>".$obj->Nombre_Pista."</td>";
             echo "<td>";
             echo "<a href='Eliminar/Borrar_Contener.php?borrar1=".$obj->IdPista.

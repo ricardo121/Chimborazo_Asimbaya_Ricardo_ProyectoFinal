@@ -71,8 +71,8 @@
           echo "<tr>";
 						echo "<td>".$obj->IdUsuario."</td>";
 						echo "<td>".$obj->Gmail."</td>";
-            echo "<td><a href='Admin_Contener.php?Lista=".$obj->IdLista."'>".$obj->IdLista."</a></td>";
-            echo "<td>".$obj->Nombre_Lista."</td>";
+						echo "<td>".$obj->IdLista."</td>";
+            echo "<td><a href='Admin_Contener.php?Lista=".$obj->IdLista."'>".$obj->Nombre_Lista."</a></td>";
             echo "<td>";
             echo "<a href='Eliminar/Borrar_Lista.php?borrar=".$obj->IdLista.
             "'><img src='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Iconos/Eliminar.png' width='20px' /></a>";
