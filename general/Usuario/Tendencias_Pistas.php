@@ -37,7 +37,7 @@
     <div class="container" id="contenedor">
 
     <?php
-    $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario join Autores a ON a.IdAutor=p.IdAutor ";
+    $query="SELECT * from Usuarios u join Pistas p ON u.IdUsuario=p.IdUsuario left join Autores a ON a.IdAutor=p.IdAutor ";
 
 
     if ($result = $connection->query($query)) {
