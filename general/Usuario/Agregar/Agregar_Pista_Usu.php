@@ -24,6 +24,7 @@
 
 
 ?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -42,7 +43,6 @@
       <?php if (!isset($_POST['IdUsuario']))  :?>
 
         <?php
-
 
 
         $query="SELECT * from Usuarios  WHERE IdUsuario='".$_GET['agregar1']."'";
@@ -95,6 +95,7 @@
 
 
         <?php else: ?>
+
 
         <?php
         //CREATING THE CONNECTION
@@ -178,11 +179,6 @@
                       // $hola = mysqli_free_result($resultado);
 
                   }
-
-
-
-
-
 
 
 

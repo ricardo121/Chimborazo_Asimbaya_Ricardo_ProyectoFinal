@@ -1,4 +1,27 @@
 
+<?php
+
+  session_start();
+  include_once("Login_Admin.php");
+  Login();
+
+
+
+
+?>
+
+<?php
+
+      //CREATING THE CONNECTION
+      $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
+      $connection->set_charset("uft8");
+      //TESTING IF THE CONNECTION WAS RIGHT
+      if ($connection->connect_errno) {
+          printf("Connection failed: %s\n", $connection->connect_error);
+          exit();
+      }
+
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -14,15 +37,6 @@
       <?php if (!isset($_POST['IdLista']))  :?>
 
         <?php
-
-        //CREATING THE CONNECTION
-        $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
-        $connection->set_charset("uft8");
-        //TESTING IF THE CONNECTION WAS RIGHT
-        if ($connection->connect_errno) {
-            printf("Connection failed: %s\n", $connection->connect_error);
-            exit();
-        }
 
 
             $query="SELECT * from Listas  WHERE IdLista='".$_GET['agregar']."'";
@@ -77,15 +91,9 @@
 
         <?php else: ?>
 
+
         <?php
-        //CREATING THE CONNECTION
-        $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
-        $connection->set_charset("uft8");
-        //TESTING IF THE CONNECTION WAS RIGHT
-        if ($connection->connect_errno) {
-            printf("Connection failed: %s\n", $connection->connect_error);
-            exit();
-        }
+
 
         $IdPista=$_POST['IdPista'];
         $IdLista=$_POST['IdLista'];
@@ -104,7 +112,7 @@
           window.location.href = '/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Administrador/Admin_Listas.php'</script>";
 
         }
-        
+
 
         ?>
 

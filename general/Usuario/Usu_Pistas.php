@@ -103,25 +103,6 @@
 
 
 
-  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
-       otro elemento que se pueda ocultar al minimizar la barra -->
-  <!--<div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Enlace #1</a></li>
-      <li><a href="#">Enlace #2</a></li>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Enlace #3</a></li>
-
-    </ul>
-  </div>-->
-
-
-
-
-
-
       </div>
   </body>
 </html>

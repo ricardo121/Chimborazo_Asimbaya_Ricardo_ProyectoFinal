@@ -106,10 +106,7 @@
               echo "</tr>";
 
           }
-          //Free the result. Avoid High Memory Usages
-          $result->close();
-          unset($obj);
-          unset($connection);
+
       } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
     ?>
           <tr>

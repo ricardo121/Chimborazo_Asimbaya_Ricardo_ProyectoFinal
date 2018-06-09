@@ -5,8 +5,6 @@
   include_once("Login_Admin.php");
   Login();
 
-  $Gmail=$_SESSION["Gmail"];
-
 
 
 ?>

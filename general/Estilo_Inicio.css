@@ -25,17 +25,6 @@ margin: 3% auto;
 
 
 
-#grande{
-
-  /*background: url("clave_sol.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 10px auto;
-  height:-webkit-fill-available;
-  width: 100%;*/
-}
-
 #fondo {
   background-color: #AAB7B8;
 
@@ -70,20 +59,7 @@ margin: 3% auto;
 
 }
 
-form {
-/*  margin-top: 10% auto;:
-  height:auto;
-  margin: 5% auto;
-  width: 50%;
-  padding-top: 10%;*/
 
-  /*position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);*/
-
-}
 
 
 span {

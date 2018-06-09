@@ -37,7 +37,7 @@
     <div class="container" id="contenedor" >
 
       <div class="row">
-      <h1 style="color:black; text-align: center">Añadir Nueva Lista</H1>
+      <h1 style="color:black; text-align: center">Añadir Nueva Lista</h1>
       </div>
 
         <div class="row" >

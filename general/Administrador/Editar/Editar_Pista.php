@@ -5,7 +5,6 @@
   include_once("Login_Admin.php");
   Login();
 
-  $Gmail=$_SESSION["Gmail"];
 
 
 
@@ -36,7 +35,7 @@
     <div class="container" id="contenedor" >
 
       <div class="row">
-      <h1 style="color:black; text-align: center">Editar Pista</H1>
+      <h1 style="color:black; text-align: center">Editar Pista</h1>
       </div>
 
       <div class="row" >
@@ -132,15 +131,9 @@
 
       <?php else: ?>
 
+
         <?php
-        //CREATING THE CONNECTION
-        $connection = new mysqli("localhost", "root", "Admin2015", "Proyecto",3316);
-        $connection->set_charset("uft8");
-        //TESTING IF THE CONNECTION WAS RIGHT
-        if ($connection->connect_errno) {
-            printf("Connection failed: %s\n", $connection->connect_error);
-            exit();
-            }
+
 
         $Nombre=$_POST['Nombre'];
         $Genero=$_POST['Genero'];

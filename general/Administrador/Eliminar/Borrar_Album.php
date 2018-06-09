@@ -5,7 +5,6 @@
   include_once("Login_Admin.php");
   Login();
 
-  $Gmail=$_SESSION["Gmail"];
 
 
 
@@ -33,9 +32,7 @@
   </head>
   <body>
 
-      <!-- PHP STRUCTURE FOR CONDITIONAL HTML -->
-      <!-- FIRST TIME. NO DATA IN THE POST (checking a required form field) -->
-      <!-- So we must show the form -->
+
 
       <?php
         if (empty($_GET)) {
