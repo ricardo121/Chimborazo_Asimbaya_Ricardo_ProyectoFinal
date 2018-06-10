@@ -31,7 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
     <link rel="stylesheet" type="text/css" href="bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="Estilos_Agregar.css"/>
+    <link rel="stylesheet" type="text/css" href="Estilo_Agregar.css"/>
 
   </head>
   <body>
@@ -56,8 +56,10 @@
 
         <div class="container" id="contenedor" >
 
-          <div class="row" style="background-color: #ff6d4e;">
-          <h2 style="color:black; text-align: center">Subir Nueva Pista </h2>
+          <div class="row" style="background-color: white;">
+            <nav class='navbar navbar-inverse'  role='navigation' style='margin-bottom: 0px ;width=100%' >
+              <h2 style="color:white; text-align: center">Subir Nueva Pista </h2>
+            </nav>
           </div>
 
           <div class="row" style="background-color: #ff6d4e;" >

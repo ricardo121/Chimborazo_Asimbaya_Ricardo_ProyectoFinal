@@ -2,9 +2,7 @@
     box-sizing: border-box;
 }
 
-body{
-  margin: 2% auto;
-}
+
 
 
 #inputt {
@@ -16,10 +14,10 @@ margin: 3% auto;
 
 
 #contenedor {
-  margin: 10px auto;
+
   height:-webkit-fill-available;
   background-color:  #ff6d4e;
-  width: 40%;
+  width: 60%;
   font-size: 20px;
 }
 

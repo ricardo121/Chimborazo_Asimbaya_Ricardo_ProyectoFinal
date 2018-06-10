@@ -8,16 +8,16 @@
 
     if ($_SESSION["tipo"]=='admin') {
 
-      
+
     } else {
       session_destroy();
-      header("Location: inicio.php");
+      header("Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Inicio.php");
     }
 
 
   } else {
     session_destroy();
-    header("Location: inicio.php");
+    header("Location: /ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Inicio.php");
   }
 
   }

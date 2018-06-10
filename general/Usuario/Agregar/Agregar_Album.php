@@ -30,7 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
     <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="Estilo_Usu_Agregar.css"/>
+    <link rel="stylesheet" type="text/css" href="Estilos_Usuario_Agregar.css"/>
 
   </head>
   <body>
@@ -39,8 +39,10 @@
 
 
 
-      <div class="row" style="background-color: #ff6d4e;" >
-      <h2 style="color:black; text-align: center">Añadir Nuevo Album</h2>
+      <div class="row" style="background-color: white;" >
+        <nav class='navbar navbar-inverse'  role='navigation' style='margin-bottom: 0px ;width=100%' >
+          <h2 style="color:white; text-align: center">Añadir Nuevo Album</h2>
+        </nav>
       </div>
 
         <div class="row" style="background-color: #ff6d4e;" >
@@ -54,7 +56,9 @@
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
           <form action='/ricardo/Chimborazo_Asimbaya_Ricardo_ProyectoFinal/general/Usuario/Home_Usu.php' id="formulario_registro" method='post' >
-            <button type='submit' class='btn btn-default navbar-btn'  style="margin-left:100%;" >Volver</button>
+            <ul class='nav navbar-nav navbar-right'>
+              <li><button type='submit' class='btn btn-default navbar-btn'  style="margin-right:15%;" >Volver</button></li>
+            <ul>
           </form>
 
 
