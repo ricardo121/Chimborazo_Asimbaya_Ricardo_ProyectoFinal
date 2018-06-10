@@ -3,7 +3,7 @@
 }
 
 body {
-  background: url("Clave_Sol.jpg");
+  background: url("Iconos/Clave_Sol.jpg");
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -21,7 +21,6 @@ margin-left: 20%;
 #inputt {
 margin: 3% auto;
 }
-
 
 
 

@@ -3,7 +3,7 @@
 }
 
 body {
-  background: url("Clave_Sol.jpg");
+  background: url("Iconos/Clave_Sol.jpg");
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -13,9 +13,8 @@ body {
 }
 
 fieldset {
-width: 100%;
+width: 75%;
 margin: 10px auto;
-margin-left: 20%;
 }
 
 #inputt {
@@ -24,32 +23,17 @@ margin: 3% auto;
 
 
 
-#fondo {
-  background-color: #AAB7B8;
-
-}
-
 
 
 #contenedor {
   height:-webkit-fill-available;
 
-}
-
-
-#formulario_inicio{
-  /*background-color: #BCB6B4;*/
-  margin-top: 10% auto;
-  height:auto;
-  margin: 5% auto;
-  width: 60%;
-  padding-top: 2%;
-  padding-left: 2%;
 
 }
+
+
 
 #formulario_registro{
-
   margin-top: 10% auto;
   height:auto;
   margin: 5% auto;
@@ -60,10 +44,12 @@ margin: 3% auto;
 
 
 
-
-span {
-  height: 1%;
-  width: 80px;
-  display: inline-block;
+label {
   color: white;
+}
+
+
+input {
+  width: 50%;
+
 }
