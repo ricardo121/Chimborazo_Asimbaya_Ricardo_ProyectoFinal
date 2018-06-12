@@ -155,7 +155,7 @@
                   $valid = false;
                 }
 
-                if ($_FILES['pista']['size'] > (204800000)) {
+                if ($_FILES['pista']['size'] > (20480000000000)) {
 			            $valid = false;
 			            echo 'Oops!  Your file\'s size is to large.';
 		            }
