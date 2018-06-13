@@ -143,7 +143,7 @@
               var_dump($_FILES);
                 //Temp file. Where the uploaded file is stored temporary
               $tmp_file = $_FILES['pista']['tmp_name'];
-              $target_dir = "../../../../../ricardo/";
+              $target_dir = "pistas/";
               //$target_file = strtolower($target_dir . basename($_FILES['pista']['name']));
               $target_file = ($target_dir . basename($_FILES['pista']['name']));
 
